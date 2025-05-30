@@ -1,0 +1,282 @@
+<script setup>
+import { ref, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+// 引入 Element Plus 组件
+import { ElButton, ElInput, ElDialog } from 'element-plus'
+import { Search } from '@element-plus/icons-vue' // 引入图标
+import { ArrowRight } from '@element-plus/icons-vue'
+
+const router = useRouter()
+const showSearchDialog = ref(false)
+const searchQuery = ref('')
+
+const menuItems = reactive([
+//   {
+//     name: 'Tutorials',
+//     path: '/tutorials',
+//   },
+  {
+    name: 'E-课堂',
+    path: '/vr_scene',
+    isOpen: false,
+    children: [
+      { name: 'VR场景', path: '/vr_scene' },
+      { name: '微课', path: '/microlecture' },
+      { name: '图片资源', path: '/images' },
+      { name: '视频资源', path: '/videos' },
+      { name: '电子教材/讲义', path: '/textbooks' },
+    ],
+  },
+  {
+    name: '妆小阁美妆工坊',
+    path: '/makeup_home',
+    isOpen: false,
+    children: [
+      { name: '首页', path: '/makeup_home' },
+      { name: '简介', path: '/about' },
+      { name: '样片欣赏', path: '/samples' },
+      { name: '后台管理', path: '/management' },
+      { name: '在线订单', path: '/orders' },
+    ],
+  },
+  {
+    name: '数字美妆实验室',
+    path: '/makeup_design',
+    isOpen: false,
+    children: [
+      { name: '虚拟妆容设计', path: '/makeup_design' },
+      { name: '妆容测评', path: '/makeup_evaluation' },
+      { name: '美妆教程', path: '/tutorials' },
+    ],
+  },
+  {
+    name: '人人空间',
+    path: '/portfolio_display',
+    isOpen: false,
+    children: [
+      { name: '个人基本情况', path: '/personal' },
+      { name: '学习管理', path: '/learning' },
+      { name: '成果展示', path: '/showcase' },
+      { name: '师生留言区', path: '/board' },
+    ],
+  },
+//   { name: 'The Atelier', path: '/atelier' },
+])
+
+const isChildRoute = (item) => {
+  if (!item.children) return false
+  const currentPath = router.currentRoute.value.path
+  return item.children.some(child => currentPath.startsWith(child.path))
+}
+
+const goToHome = () => {
+  router.push('/')
+}
+
+const handleSearch = () => {
+  if (searchQuery.value.trim()) {
+    console.log('Searching for:', searchQuery.value)
+    // 实际应用中，这里会触发搜索逻辑，并可能跳转到搜索结果页
+    showSearchDialog.value = false
+    searchQuery.value = ''
+  }
+}
+</script>
+
+<template>
+  <header class="main-header">
+    <a @click.prevent="goToHome" class="logo">智妆教学平台</a>
+    <nav class="main-nav">
+      <ul class="vertical-menu">
+        <li v-for="item in menuItems" :key="item.path" class="menu-item">
+          <div 
+            class="menu-title" 
+            @click="item.isOpen = !item.isOpen"
+          >
+            <span>{{ item.name }}</span>
+            <el-icon v-if="item.children" :class="{ 'is-open': item.isOpen }">
+              <arrow-right />
+            </el-icon>
+          </div>
+          <transition name="slide">
+            <ul v-if="item.children" v-show="item.isOpen" class="submenu">
+              <li v-for="child in item.children" :key="child.path">
+                <router-link
+                  :to="child.path"
+                  active-class="active"
+                  exact-active-class="exact-active"
+                >
+                  {{ child.name }}
+                </router-link>
+              </li>
+            </ul>
+          </transition>
+        </li>
+      </ul>
+    </nav>
+
+    <el-dialog v-model="showSearchDialog" title="Search Éclat Atelier" width="30%">
+      <el-input
+        v-model="searchQuery"
+        placeholder="Enter keywords..."
+        @keyup.enter="handleSearch"
+        clearable
+      >
+        <template #append>
+          <el-button :icon="Search" @click="handleSearch" />
+        </template>
+      </el-input>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="showSearchDialog = false">Cancel</el-button>
+          <el-button type="primary" @click="handleSearch">Search</el-button>
+        </span>
+      </template>
+    </el-dialog>
+  </header>
+</template>
+
+<style scoped>
+.main-header {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  background-color: #45454c; 
+}
+
+.logo {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #E6E6E9;
+  text-align: center;
+  padding: 20px 0;
+  flex-shrink: 0; /* 防止 logo 被压缩 */
+}
+
+.main-nav {
+  flex: 1;
+  overflow-y: scroll; /* 改为 auto 而不是 scroll */
+  padding: 20px 0;
+  height: 0;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  border-top: 1px solid #eee;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.vertical-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+
+.menu-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #E6E6E9;
+}
+
+.menu-title:hover {
+  background-color: #3A3A43;
+}
+
+.menu-title.active {
+  color: #E6E6E9; /* 亮粉红色激活状态 */
+  background-color: #50504f;
+  border-left: 4px solid #D6B98C;
+}
+
+.menu-title .el-icon {
+  transition: transform 0.3s ease;
+}
+
+.menu-title .is-open {
+  transform: rotate(90deg);
+}
+
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #45454c;
+}
+
+.submenu li {
+  display: flex;
+  margin-left: 0px;
+  /* width: 100%; */
+  color: #E6E6E9;
+  margin-top: 5px;
+}
+
+.submenu li a {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  padding: 12px 0px 12px 40px;
+  color: #E6E6E9;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.submenu li a:hover {
+  background-color: #3A3A43; /* 淡玫瑰色悬停效果 */
+  color: #E6E6E9; /* 亮粉红色悬停文字 */
+}
+
+.submenu li a.active {
+  background-color: #50504f;
+  color: #E6E6E9; /* 深玫红色激活状态 */
+  border-left: 4px solid #D6B98C;
+}
+
+/* 动画效果 */
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
+  overflow: hidden;
+  max-height: 300px; /* 根据实际内容调整 */
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  max-height: 0;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .main-header {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
+</style>

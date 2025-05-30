@@ -1,0 +1,521 @@
+/*
+    Éclat Atelier - Core Luxury Styling
+    -----------------------------------
+    Aesthetic: Clean, minimalist, sophisticated, high-resolution.
+    Typography: Elegant serif for headings, clean sans-serif for body.
+    Colors: Neutrals with subtle accents.
+*/
+
+/* --- 1. Global Resets & Variables --- */
+:root {
+  --color-primary-dark: #1a1a1a; /* Near black for text and background accents */
+  --color-primary-light: #f5f5f5; /* Off-white for backgrounds */
+  --color-text-dark: #333333; /* Dark gray for body text */
+  --color-text-light: #bbbbbb; /* Light gray for subtle text */
+  --color-accent: #b08d57; /* Muted gold/bronze for highlights */
+  --color-border: #e0e0e0; /* Light border color */
+
+  --font-heading: 'Playfair Display', serif; /* Elegant serif */
+  --font-body: 'Roboto', sans-serif; /* Clean sans-serif */
+
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 32px;
+  --spacing-lg: 64px;
+  --spacing-xl: 96px;
+
+  --max-width-container: 1200px; /* Max width for content */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  background-color: var(--color-primary-light);
+  -webkit-font-smoothing: antialiased; /* Better font rendering */
+  scroll-padding-top: 80px; /* For smooth scrolling when using fixed header */
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text-dark);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Remove extra space below images */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary-dark);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.8rem;
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.container {
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* --- 2. Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.btn-primary {
+  background-color: var(--color-primary-dark);
+  color: var(--color-primary-light);
+  border: 1px solid var(--color-primary-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-primary-light);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary-dark);
+  border: 1px solid var(--color-primary-dark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-primary-light);
+}
+
+/* --- 3. Header --- */
+.main-header {
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  position: sticky; /* Keeps header visible on scroll */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header .logo {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.main-nav ul li {
+  margin-left: var(--spacing-md);
+}
+
+.main-nav ul li a {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 0;
+  position: relative;
+}
+
+.main-nav ul li a::after {
+  /* Underline effect on hover */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1px;
+  background-color: #a99b87;
+  transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+  width: 100%;
+}
+
+.header-actions .search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.header-actions .search-btn img {
+  width: 24px;
+  height: 24px;
+  filter: invert(10%); /* Adjust icon color if needed */
+}
+
+/* --- 4. Hero Section --- */
+.hero-section {
+  position: relative;
+  height: 90vh; /* Takes up 90% of viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-light);
+  text-align: center;
+  overflow: hidden; /* Important for video */
+}
+
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Place behind content */
+}
+
+.hero-video-container video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover; /* Ensures video covers the area */
+  filter: brightness(0.7) grayscale(0.2); /* Dim and desaturate video slightly for text readability */
+}
+
+.hero-content {
+  z-index: 1;
+  padding: var(--spacing-md);
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem; /* Larger heading */
+  color: var(--color-primary-light);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for readability */
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-light);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* --- 5. Section General Styling --- */
+section {
+  padding: var(--spacing-xl) 0; /* Generous vertical spacing */
+}
+
+section h2 {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+section h2::after {
+  /* Underline effect for section titles */
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+/* --- 6. Tutorial/Atelier Grid --- */
+.tutorial-grid,
+.atelier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tutorial-card,
+.atelier-post {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.tutorial-card:hover,
+.atelier-post:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.tutorial-card img,
+.atelier-post img {
+  width: 100%;
+  height: 250px; /* Fixed height for consistent cards */
+  object-fit: cover; /* Crop images to fit */
+  transition: transform 0.4s ease;
+}
+
+.tutorial-card:hover img,
+.atelier-post:hover img {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+.tutorial-card a,
+.atelier-post a {
+  display: block;
+  color: inherit; /* Inherit text color from parent */
+}
+
+.tutorial-card h3,
+.atelier-post h3 {
+  font-size: 1.5rem;
+  margin: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs);
+  color: var(--color-primary-dark);
+}
+
+.tutorial-card p,
+.atelier-post p {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  padding: 0 var(--spacing-sm) var(--spacing-sm);
+}
+
+.view-all-link {
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+/* --- 7. Call to Action (Newsletter) --- */
+.call-to-action {
+  background-color: var(--color-primary-dark);
+  color: var(--color-primary-light);
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+}
+
+.call-to-action h2 {
+  color: var(--color-primary-light);
+  margin-bottom: var(--spacing-md);
+}
+.call-to-action h2::after {
+  background-color: var(--color-accent); /* Accent underline */
+}
+
+.call-to-action p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input[type='email'] {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--color-border);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-primary-light);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border-radius: 3px;
+}
+
+.newsletter-form input[type='email']::placeholder {
+  color: var(--color-text-light);
+}
+
+.newsletter-form .btn-primary {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-primary-light);
+}
+
+.newsletter-form .btn-primary:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary-light);
+}
+
+/* --- 8. Footer --- */
+.main-footer {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-light);
+  padding: var(--spacing-md) 0;
+  text-align: center;
+}
+
+.main-footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.footer-nav ul li a {
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-nav ul li a:hover {
+  color: var(--color-accent);
+}
+
+.social-media {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.social-media a img {
+  width: 28px;
+  height: 28px;
+  filter: invert(80%); /* Make social icons lighter */
+  transition: filter 0.3s ease;
+}
+
+.social-media a:hover img {
+  filter: invert(0%) sepia(100%) saturate(2000%) hue-rotate(300deg) brightness(100%) contrast(100%); /* Gold tint on hover */
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+/* --- 9. Responsive Adjustments (Basic) --- */
+@media (max-width: 768px) {
+  .main-header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .main-nav ul {
+    margin-top: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .main-nav ul li {
+    margin: 0 var(--spacing-sm) 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .tutorial-grid,
+  .atelier-grid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .newsletter-form input[type='email'] {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  section {
+    padding: var(--spacing-lg) 0;
+  }
+  section h2 {
+    margin-bottom: var(--spacing-md);
+  }
+}
