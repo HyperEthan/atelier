@@ -17,13 +17,13 @@
       </div>
       <div class="social-media">
         <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-          <img src="/images/instagram-icon.svg" alt="Instagram" />
+          <img :src="instagramIcon" alt="Instagram" />
         </a>
         <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-          <img src="/images/youtube-icon.svg" alt="YouTube" />
+          <img :src="youtubeIcon" alt="YouTube" />
         </a>
         <a href="#" aria-label="Pinterest" target="_blank" rel="noopener noreferrer">
-          <img src="/images/pinterest-icon.svg" alt="Pinterest" />
+          <img :src="pinterestIcon" alt="Pinterest" />
         </a>
       </div>
       <p class="copyright">&copy; {{ currentYear }} Éclat Atelier. All Rights Reserved.</p>
@@ -32,6 +32,9 @@
 </template>
 
 <script>
+import instagramIcon from '@/assets/images/instagram-icon.svg'
+import youtubeIcon from '@/assets/images/youtube-icon.svg'
+import pinterestIcon from '@/assets/images/pinterest-icon.svg'
 export default {
   name: 'MainFooter',
   data() {

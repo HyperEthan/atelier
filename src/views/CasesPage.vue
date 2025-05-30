@@ -55,7 +55,7 @@ const closeCaseDialog = () => {
             <img :src="img" :alt="currentCase.title" class="carousel-image">
           </el-carousel-item>
         </el-carousel>
-        <img v-else :src="currentCase.fullImage" :alt="currentCase.title" class="case-main-image" />
+        <img v-else :src="currentCase.image" :alt="currentCase.title" class="case-main-image" />
 
         <h3 class="detail-section-title">案例概述</h3>
         <p class="case-full-description">{{ currentCase.fullDescription || currentCase.summary }}</p>

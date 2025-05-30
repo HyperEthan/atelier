@@ -1,8 +1,8 @@
 <template>
   <section class="hero-section">
     <div class="hero-video-container">
-      <video autoplay muted loop playsinline poster="/images/hero-poster.jpg">
-        <source src="/videos/test_case.mp4" type="video/mp4" />
+      <video autoplay muted loop playsinline ref="videoElement">
+        <source :src="test_case" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
@@ -24,14 +24,34 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElButton } from 'element-plus' // 引入 Element Plus 按钮
+import test_case from '@/assets/videos/test_case.mp4'
 
 const router = useRouter()
 
 const goToTutorials = () => {
   router.push('/tutorials')
 }
+
+const videoElement = ref(null) // 定义一个 ref 来引用视频元素
+
+// onMounted(() => {
+//   // 确保视频元素已经挂载
+//   if (videoElement.value) {
+//     // 尝试播放视频
+//     videoElement.value.play()
+//       .then(() => {
+//         console.log('Video autoplayed successfully!');
+//       })
+//       .catch(error => {
+//         console.error('Autoplay prevented:', error);
+//         // 这里可以添加逻辑来处理自动播放失败的情况，
+//         // 例如：显示一个播放按钮让用户手动点击
+//       });
+//   }
+// })
 </script>
 
 <style scoped>
@@ -53,7 +73,7 @@ const goToTutorials = () => {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: -1;
+  z-index: 1;
 }
 
 .hero-video-container video {

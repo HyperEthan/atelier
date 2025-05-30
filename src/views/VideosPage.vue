@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { ElDialog, ElButton, ElIcon } from 'element-plus';
 import { VideoCamera as IconVideoCamera } from '@element-plus/icons-vue';
+import VideoPlaceholder from '@/assets/images/video_placeholder.png'; // 引入视频占位组件
 
 // Import videos data
 import { beautyVideos } from '@/data/mediaData';
@@ -52,11 +53,11 @@ const closeVideoDialog = () => {
           <div class="imgur-grid">
             <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
               <div class="grid-item-content">
-                <div class="grid-item-thumbnail-wrapper"> <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+                <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
                 </div>
                 <div class="grid-item-overlay">
                   <h3 class="grid-item-title">{{ item.title }}</h3>
-                  <el-button type="primary" size="small" :icon="IconVideoCamera" circle />
+                  <!-- <el-button type="primary" size="small" :icon="IconVideoCamera" circle /> -->
                 </div>
               </div>
             </div>
@@ -66,11 +67,11 @@ const closeVideoDialog = () => {
           <div class="imgur-grid">
             <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
               <div class="grid-item-content">
-                <div class="grid-item-thumbnail-wrapper"> <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+                <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
                 </div>
                 <div class="grid-item-overlay">
                   <h3 class="grid-item-title">{{ item.title }}</h3>
-                  <el-button type="primary" size="small" :icon="IconVideoCamera" circle />
+                  <!-- <el-button type="primary" size="small" :icon="IconVideoCamera" circle /> -->
                 </div>
               </div>
             </div>
@@ -80,11 +81,11 @@ const closeVideoDialog = () => {
           <div class="imgur-grid">
             <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
               <div class="grid-item-content">
-                <div class="grid-item-thumbnail-wrapper"> <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+                <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
                 </div>
                 <div class="grid-item-overlay">
                   <h3 class="grid-item-title">{{ item.title }}</h3>
-                  <el-button type="primary" size="small" :icon="IconVideoCamera" circle />
+                  <!-- <el-button type="primary" size="small" :icon="IconVideoCamera" circle /> -->
                 </div>
               </div>
             </div>
@@ -94,7 +95,7 @@ const closeVideoDialog = () => {
           <div class="imgur-grid">
             <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
               <div class="grid-item-content">
-                <div class="grid-item-thumbnail-wrapper"> <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+                <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
                 </div>
                 <div class="grid-item-overlay">
                   <h3 class="grid-item-title">{{ item.title }}</h3>

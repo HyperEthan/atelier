@@ -14,7 +14,7 @@ const beautyCases = ref([
     summary:
       'Timeless classic makeup for the bride, highlighting natural beauty and ensuring perfection both on camera and in person.',
     thumbnail: '/images/collections/case_bridal_full.jpg',
-    fullImage: '/images/collections/case_bridal_full.jpg', // 可以是主视觉图
+    image: '/images/collections/case_bridal_full.jpg', // 可以是主视觉图
     galleryImages: [
       // 案例画廊图片
       '/images/collections/case_bridal_gallery1.jpg',
@@ -46,7 +46,7 @@ const beautyCases = ref([
     summary:
       'Create an unforgettable red carpet look, centered on deep smoky eye makeup and refined facial contours, exuding ultimate charm.',
     thumbnail: '/images/collections/case_dramatic_full.jpg',
-    fullImage: '/images/collections/case_dramatic_full.jpg',
+    image: '/images/collections/case_dramatic_full.jpg',
     galleryImages: [
       '/images/collections/case_dramatic_gallery1.jpg',
       '/images/collections/case_dramatic_full.jpg',
@@ -82,7 +82,7 @@ const beautyCases = ref([
     summary:
       'How to keep your makeup fresh and long-lasting in the scorching summer while showcasing a natural and healthy bare-skin look.',
     thumbnail: '/images/collections/case_summer_full.jpg',
-    fullImage: '/images/collections/case_summer_full.jpg',
+    image: '/images/collections/case_summer_full.jpg',
     galleryImages: [
       '/images/collections/case_summer_gallery1.jpg',
       '/images/collections/case_summer_full.jpg',
@@ -108,7 +108,7 @@ const beautyCases = ref([
     summary:
       'Boldly explore the infinite possibilities of beauty, using vibrant colors and geometric lines to create avant-garde artistic looks.',
     thumbnail: '/images/collections/case_editorial_full.jpg',
-    fullImage: '/images/collections/case_editorial_full.jpg',
+    image: '/images/collections/case_editorial_full.jpg',
     galleryImages: [
       '/images/collections/case_editorial_full.jpg',
       '/images/collections/case_editorial_gallery2.jpg',
@@ -134,25 +134,25 @@ const beautyImages = ref([
     id: 'img1',
     title: 'Dewy Skin Perfection',
     thumbnail: '/images/collections/img_dewy_full.jpg',
-    fullImage: '/images/collections/img_dewy_full.jpg',
+    image: '/images/collections/img_dewy_full.jpg',
   },
   {
     id: 'img2',
     title: 'Vibrant Eyeshot',
     thumbnail: '/images/collections/img_vibrant_full.jpg',
-    fullImage: '/images/collections/img_vibrant_full.jpg',
+    image: '/images/collections/img_vibrant_full.jpg',
   },
   {
     id: 'img3',
     title: 'Sculpted Features',
     thumbnail: '/images/collections/img_sculpted_full.jpg',
-    fullImage: '/images/collections/img_sculpted_full.jpg',
+    image: '/images/collections/img_sculpted_full.jpg',
   },
   {
     id: 'img4',
     title: 'Classic Red Lip',
     thumbnail: '/images/collections/img_redlip_full.jpg',
-    fullImage: '/images/collections/img_redlip_full.jpg',
+    image: '/images/collections/img_redlip_full.jpg',
   },
 ])
 
@@ -359,7 +359,7 @@ onMounted(() => {
           </el-carousel>
           <img
             v-else
-            :src="currentAsset.fullImage"
+            :src="currentAsset.image"
             :alt="currentAsset.title"
             class="case-main-image"
           />
@@ -395,7 +395,7 @@ onMounted(() => {
         </div>
 
         <div v-else-if="dialogType === 'image'" class="image-dialog-content-wrapper">
-          <img :src="currentAsset.fullImage" :alt="currentAsset.title" class="full-view-image" />
+          <img :src="currentAsset.image" :alt="currentAsset.title" class="full-view-image" />
           <p v-if="currentAsset.description" class="image-description">
             {{ currentAsset.description }}
           </p>

@@ -1,16 +1,32 @@
+import case_bridal_gallery1 from '@/assets/images/collections/case_bridal_gallery1.jpg';
+import case_bridal_gallery2 from '@/assets/images/collections/case_bridal_gallery2.jpg';
+import case_bridal_full from '@/assets/images/collections/case_bridal_full.jpg';
+import case_dramatic_gallery1 from '@/assets/images/collections/case_dramatic_gallery1.jpg';
+import case_dramatic_full from '@/assets/images/collections/case_dramatic_full.jpg';
+import case_dramatic_gallery3 from '@/assets/images/collections/case_dramatic_gallery3.jpg';
+import case_dramatic_gallery4 from '@/assets/images/collections/case_dramatic_gallery4.jpg';
+import case_summer_gallery1 from '@/assets/images/collections/case_summer_gallery1.jpg';
+import case_summer_full from '@/assets/images/collections/case_summer_full.jpg';
+import case_summer_gallery3 from '@/assets/images/collections/case_summer_gallery3.jpg';
+import case_editorial_full from '@/assets/images/collections/case_editorial_full.jpg';
+import case_editorial_gallery2 from '@/assets/images/collections/case_editorial_gallery2.jpg';
+import img_dewy_full from '@/assets/images/collections/img_dewy_full.jpg';
+import img_vibrant_full from '@/assets/images/collections/img_vibrant_full.jpg';
+import img_sculpted_full from '@/assets/images/collections/img_sculpted_full.jpg';
+import img_redlip_full from '@/assets/images/collections/img_redlip_full.jpg';
+
 export const beautyCases = [
   {
     id: 'case1',
     title: '永恒新娘 | 优雅纯净妆容',
     summary:
       '新娘的永恒经典妆容，突显自然美，确保在镜头前和现实中都完美无瑕。',
-    thumbnail: '/images/collections/case_bridal_full.jpg',
-    fullImage: '/images/collections/case_bridal_full.jpg', // 可以是主视觉图
+    image: case_bridal_full, // 可以是主视觉图
     galleryImages: [
       // 案例画廊图片
-      '/images/collections/case_bridal_gallery1.jpg',
-      '/images/collections/case_bridal_gallery2.jpg',
-      '/images/collections/case_bridal_full.jpg',
+      case_bridal_gallery1,
+      case_bridal_gallery2,
+      case_bridal_full,
     ],
     highlights: [
       '无瑕透明的底妆',
@@ -36,13 +52,12 @@ export const beautyCases = [
     title: '迷人的夜晚 | 红毯烟熏妆',
     summary:
       '打造令人难忘的红毯造型，以深邃的烟熏眼妆和精致的面部轮廓为中心，散发极致魅力。',
-    thumbnail: '/images/collections/case_dramatic_full.jpg',
-    fullImage: '/images/collections/case_dramatic_full.jpg',
+    image: case_dramatic_full,
     galleryImages: [
-      '/images/collections/case_dramatic_gallery1.jpg',
-      '/images/collections/case_dramatic_full.jpg',
-      '/images/collections/case_dramatic_gallery3.jpg',
-      '/images/collections/case_dramatic_gallery4.jpg',
+      case_dramatic_gallery1,
+      case_dramatic_full,
+      case_dramatic_gallery3,
+      case_dramatic_gallery4,
     ],
     highlights: [
       '深邃迷人的烟熏眼妆',
@@ -72,12 +87,11 @@ export const beautyCases = [
     title: '夏日清晨光 | 清新自然妆容',
     summary:
       '如何在炎热的夏天保持妆容清新持久，同时展现自然健康的裸肌妆感。',
-    thumbnail: '/images/collections/case_summer_full.jpg',
-    fullImage: '/images/collections/case_summer_full.jpg',
+    image: case_summer_full,
     galleryImages: [
-      '/images/collections/case_summer_gallery1.jpg',
-      '/images/collections/case_summer_full.jpg',
-      '/images/collections/case_summer_gallery3.jpg',
+      case_summer_gallery1,
+      case_summer_full,
+      case_summer_gallery3,
     ],
     highlights: [
       '轻盈保湿的底妆',
@@ -98,11 +112,10 @@ export const beautyCases = [
     title: '未来主义 | 几何线条创意妆容',
     summary:
       '大胆探索美的无限可能，运用鲜艳的色彩和几何线条创造前卫的艺术造型。',
-    thumbnail: '/images/collections/case_editorial_full.jpg',
-    fullImage: '/images/collections/case_editorial_full.jpg',
+    image: case_editorial_full,
     galleryImages: [
-      '/images/collections/case_editorial_full.jpg',
-      '/images/collections/case_editorial_gallery2.jpg',
+      case_editorial_full,
+      case_editorial_gallery2,
     ],
     highlights: [
       '大胆使用颜色',
@@ -124,26 +137,22 @@ export const beautyImages = [
   {
     id: 'img1',
     title: '露珠肌肤完美',
-    thumbnail: '/images/collections/img_dewy_full.jpg',
-    fullImage: '/images/collections/img_dewy_full.jpg',
+    image: img_dewy_full,
   },
   {
     id: 'img2',
     title: '鲜艳视野',
-    thumbnail: '/images/collections/img_vibrant_full.jpg',
-    fullImage: '/images/collections/img_vibrant_full.jpg',
+    image: img_vibrant_full,
   },
   {
     id: 'img3',
     title: '雕刻的特征',
-    thumbnail: '/images/collections/img_sculpted_full.jpg',
-    fullImage: '/images/collections/img_sculpted_full.jpg',
+    image: img_sculpted_full,
   },
   {
     id: 'img4',
     title: '经典红唇',
-    thumbnail: '/images/collections/img_redlip_full.jpg',
-    fullImage: '/images/collections/img_redlip_full.jpg',
+    image: img_redlip_full,
   },
 ];
 
@@ -151,29 +160,26 @@ export const beautyVideos = [
   {
     id: 'vid1',
     title: '幕后花絮：拍摄魅力',
-    thumbnail: '/images/collections/video_bts_thumb.jpg',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
     type: 'youtube',
   }, // Example YouTube embed
   {
     id: 'vid2',
     title: '产品展示：新品上架',
-    thumbnail: '/images/collections/video_product_thumb.jpg',
     videoUrl: 'https://player.vimeo.com/video/819323384?autoplay=1&loop=1',
     type: 'vimeo',
   }, // Example Vimeo embed
   {
     id: 'vid3',
     title: '掌握液体眼线技巧',
-    thumbnail: '/images/collections/video_eyeliner_thumb.jpg',
     videoUrl: 'https://www.youtube.com/embed/your_video_id_here_3',
     type: 'youtube',
   },
 ];
 
 export const beautyVR = [
-  { id: 'vr1', title: '360° 美妆工作室漫游', thumbnail: '/images/collections/vr_studio_thumb.jpg', vrUrl: 'https://www.google.com/vr/index.html', description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。' },
-  { id: 'vr2', title: '沉浸式妆容应用演示', thumbnail: '/images/collections/vr_demo_thumb.jpg', vrUrl: 'https://www.example.com/your-vr-experience-2', description: '步入虚拟演示，体验复杂妆容的沉浸式应用技巧，从不同角度观察细节。' },
-  { id: 'vr3', title: '未来美妆趋势探索', thumbnail: '/images/collections/vr_futuristic_thumb.jpg', vrUrl: 'https://www.google.com/vr/index.html', description: '通过VR技术，提前感受未来美妆的潮流与创新，拓宽你的美妆视野。' },
-  { id: 'vr4', title: 'T台秀场VR体验', thumbnail: '/images/collections/vr_runway_thumb.jpg', vrUrl: 'https://www.example.com/your-vr-experience-4', description: '置身虚拟T台秀场，近距离欣赏妆容造型，感受时尚前沿的脉动。' },
+  { id: 'vr1', title: '360° 美妆工作室漫游', vrUrl: 'https://www.google.com/vr/index.html', description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。' },
+  { id: 'vr2', title: '沉浸式妆容应用演示', vrUrl: 'https://www.example.com/your-vr-experience-2', description: '步入虚拟演示，体验复杂妆容的沉浸式应用技巧，从不同角度观察细节。' },
+  { id: 'vr3', title: '未来美妆趋势探索', vrUrl: 'https://www.google.com/vr/index.html', description: '通过VR技术，提前感受未来美妆的潮流与创新，拓宽你的美妆视野。' },
+  { id: 'vr4', title: 'T台秀场VR体验', vrUrl: 'https://www.example.com/your-vr-experience-4', description: '置身虚拟T台秀场，近距离欣赏妆容造型，感受时尚前沿的脉动。' },
 ];

@@ -39,7 +39,7 @@ const closeImageDialog = () => {
           <div class="imgur-grid">
             <div v-for="item in images" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
-                <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+                <img :src="item.image" :alt="item.title" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
                   <h3 class="grid-item-title">{{ item.title }}</h3>
                   <el-button type="primary" size="small" :icon="IconPicture" circle />
@@ -52,7 +52,7 @@ const closeImageDialog = () => {
           <div class="imgur-grid">
             <div v-for="item in images" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
-                <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+                <img :src="item.image" :alt="item.title" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
                   <h3 class="grid-item-title">{{ item.title }}</h3>
                   <el-button type="primary" size="small" :icon="IconPicture" circle />
@@ -65,7 +65,7 @@ const closeImageDialog = () => {
           <div class="imgur-grid">
             <div v-for="item in images" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
-                <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+                <img :src="item.image" :alt="item.title" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
                   <h3 class="grid-item-title">{{ item.title }}</h3>
                   <el-button type="primary" size="small" :icon="IconPicture" circle />
@@ -78,7 +78,7 @@ const closeImageDialog = () => {
           <div class="imgur-grid">
             <div v-for="item in images" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
-                <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+                <img :src="item.image" :alt="item.title" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
                   <h3 class="grid-item-title">{{ item.title }}</h3>
                   <el-button type="primary" size="small" :icon="IconPicture" circle />
@@ -101,7 +101,7 @@ const closeImageDialog = () => {
       append-to-body="true"
     >
       <div v-if="currentImage" class="image-dialog-content-wrapper">
-        <img :src="currentImage.fullImage" :alt="currentImage.title" class="full-view-image" />
+        <img :src="currentImage.image" :alt="currentImage.title" class="full-view-image" />
         <p v-if="currentImage.description" class="image-description">{{ currentImage.description }}</p>
       </div>
       <template #footer>

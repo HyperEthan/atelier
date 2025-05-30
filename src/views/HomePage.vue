@@ -1,56 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 import HeroSection from '../components/HeroSection.vue'
-import TutorialCard from '../components/TutorialCard.vue'
 import { ElButton } from 'element-plus'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
-// 模拟教程数据
-const featuredTutorials = [
-  {
-    id: 'red-carpet',
-    title: 'Red Carpet Radiance',
-    description: 'Unlock the secrets to a dazzling evening look.',
-    image: '/images/tutorial-red-carpet.jpg',
-  },
-  {
-    id: 'everyday-eclat',
-    title: 'The Everyday Éclat',
-    description: 'Effortless sophistication for your daily routine.',
-    image: '/images/tutorial-everyday-eclat.jpg',
-  },
-  {
-    id: 'flawless-canvas',
-    title: 'Flawless Canvas',
-    description: 'Perfect your base with expert foundation techniques.',
-    image: '/images/tutorial-flawless-canvas.jpg',
-  },
-]
-
-const atelierPosts = [
-  {
-    id: 'interview-artist',
-    title: 'Interview: The Vision of [Artist Name]',
-    description: 'A deep dive into the philosophy of a renowned beauty innovator.',
-    image: '/images/atelier-interview.jpg',
-  },
-  {
-    id: 'seasonal-trends',
-    title: 'Seasonal Beauty Trends: Autumn Opulence',
-    description: 'Discover the must-try looks for the new season.',
-    image: '/images/atelier-trend-report.jpg',
-  },
-]
-
-const goToAllTutorials = () => {
-  router.push('/tutorials')
-}
-
-const goToAtelier = () => {
-  router.push('/atelier')
-}
 
 // 模拟订阅表单提交
 const newsletterEmail = ref('')
@@ -69,45 +23,6 @@ const handleNewsletterSubmit = () => {
 <template>
   <main>
     <HeroSection />
-
-    <section class="featured-tutorials container">
-      <h2>Featured Tutorials</h2>
-      <div class="tutorial-grid">
-        <TutorialCard
-          v-for="tutorial in featuredTutorials"
-          :key="tutorial.id"
-          :tutorial="tutorial"
-        />
-      </div>
-      <div class="view-all-link">
-        <el-button
-          type="primary"
-          size="large"
-          @click="goToAllTutorials"
-          color="white"
-          style="padding: 18px 24px; border: 1px solid #b08d57"
-          >VIEW ALL TUTORIALS</el-button
-        >
-      </div>
-    </section>
-
-    <section class="the-atelier container">
-      <h2>The Atelier: Editorial & Inspiration</h2>
-      <div class="atelier-grid">
-        <TutorialCard v-for="post in atelierPosts" :key="post.id" :tutorial="post" />
-      </div>
-      <div class="view-all-link">
-        <el-button
-          type="primary"
-          size="large"
-          @click="goToAtelier"
-          color="white"
-          style="padding: 18px 24px; border: 1px solid #b08d57"
-          >EXPOLRE THE ATELIER</el-button
-        >
-      </div>
-    </section>
-
     <section class="call-to-action">
       <div class="container">
         <h2>Elevate Your Beauty Journey</h2>
