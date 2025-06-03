@@ -46,6 +46,7 @@ import shanshi from '@/assets/videos/shanshi.mp4';
 
 // VR 资源
 import vr1 from '@/assets/videos/vr1.mp4';
+import vrluyan from '@/assets/videos/vrluyan.png';
 
 
 export const beautyCases = [
@@ -262,41 +263,47 @@ export const beautyImages = {
   ],
 };
 
-export const beautyVideos = [
-  {
-    id: 'hami',
-    title: '哈密',
-    videoUrl: hamiVideo, // 使用导入的视频资源
-  }, 
-  {
-    id: 'kashi',
-    title: '喀什',
-    videoUrl: kashiVideo, // 使用导入的视频资源
-  },
-  {
-    id: 'akesu',
-    title: '阿克苏',
-    videoUrl: akesuVideo, // 使用导入的视频资源
-  },
-  {
-    id: 'tulufan',
-    title: '吐鲁番',
-    videoUrl: tulufanVideo, // 使用导入的视频资源
-  },
-  {
-    id: 'huaxizi',
-    title: '花西子宣传视频',
-    videoUrl: huaxizi, // 使用导入的视频资源
-  },
-  {
-    id: 'shanshi',
-    title: '山师大叔视频',
-    videoUrl: shanshi, // 使用导入的视频资源
-  },
-];
+export const beautyVideos = {
+  group1: [
+    {
+      id: 'hami',
+      title: '哈密',
+      videoUrl: hamiVideo, // 使用导入的视频资源
+    }, 
+    {
+      id: 'kashi',
+      title: '喀什',
+      videoUrl: kashiVideo, // 使用导入的视频资源
+    },
+    {
+      id: 'akesu',
+      title: '阿克苏',
+      videoUrl: akesuVideo, // 使用导入的视频资源
+    },
+    {
+      id: 'tulufan',
+      title: '吐鲁番',
+      videoUrl: tulufanVideo, // 使用导入的视频资源
+    },
+  ],
+  // group2: [],
+  // group3: [],
+  group4: [
+    {
+      id: 'huaxizi',
+      title: '花西子宣传视频',
+      videoUrl: huaxizi, // 使用导入的视频资源
+    },
+    {
+      id: 'shanshi',
+      title: '山师大叔视频',
+      videoUrl: shanshi, // 使用导入的视频资源
+    },
+  ],
+};
 
 export const beautyVR = [
   { id: 'vr1', title: '敦煌场馆', vrUrl: vr1, description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。' },
   { id: 'vr2', title: '沉浸式妆容应用演示', vrUrl: 'https://www.example.com/your-vr-experience-2', description: '步入虚拟演示，体验复杂妆容的沉浸式应用技巧，从不同角度观察细节。' },
-  { id: 'vr3', title: '现场氛围', vrUrl: 'https://www.google.com/vr/index.html', description: '通过VR技术，提前感受未来美妆的潮流与创新，拓宽你的美妆视野。' },
+  { id: 'vr3', title: 'VR路演', vrUrl: vr1, description: '通过VR技术，提前感受未来美妆的潮流与创新，拓宽你的美妆视野。', thumbnail: vrluyan }, // 添加缩略图链接
 ];

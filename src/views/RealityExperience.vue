@@ -2,44 +2,46 @@
 import { ref } from 'vue';
 import { ElRow, ElCol, ElCard, ElImage, ElDialog } from 'element-plus';
 import SceneExperienceDialog from '@/components/SceneExperienceDialog.vue'; // 导入子组件
+import shijing1 from '@/assets/images/shijing/shijing1.jpg';
+import shijing2 from '@/assets/images/shijing/shijing2.jpg';
+import shijing3 from '@/assets/images/shijing/shijing3.jpg';
+import shijing4 from '@/assets/images/shijing/shijing4.jpg';
+import shijing5 from '@/assets/images/shijing/shijing5.jpg';
+import shijing6 from '@/assets/images/shijing/shijing6.jpg';
+import video4 from '@/assets/videos/shijing/shijing4.mp4';
 
 // 模拟场景数据
 const scenes = ref([
   {
     id: 'scene-001',
     name: '现代客厅',
-    cover: 'https://via.placeholder.com/600x400/F0F8FF/000000?text=现代客厅',
-    background: 'https://via.placeholder.com/1200x800/E0FFFF/000000?text=现代客厅背景图' // 弹窗中使用的背景图
+    cover: shijing1,
   },
   {
     id: 'scene-002',
     name: '温馨卧室',
-    cover: 'https://via.placeholder.com/600x400/FFF0F5/000000?text=温馨卧室',
-    background: 'https://via.placeholder.com/1200x800/F8F8FF/000000?text=温馨卧室背景图'
+    cover: shijing2,
   },
   {
     id: 'scene-003',
     name: '创意办公室',
-    cover: 'https://via.placeholder.com/600x400/F5FFFA/000000?text=创意办公室',
-    background: 'https://via.placeholder.com/1200x800/E6E6FA/000000?text=创意办公室背景图'
+    cover: shijing3,
   },
   {
     id: 'scene-004',
     name: '户外花园',
-    cover: 'https://via.placeholder.com/600x400/F0FFF0/000000?text=户外花园',
-    background: 'https://via.placeholder.com/1200x800/F5DEB3/000000?text=户外花园背景图'
+    cover: shijing4,
+    background: video4
   },
   {
     id: 'scene-005',
     name: '静谧图书馆',
-    cover: 'https://via.placeholder.com/600x400/FDF5E6/000000?text=静谧图书馆',
-    background: 'https://via.placeholder.com/1200x800/F0E68C/000000?text=静谧图书馆背景图'
+    cover: shijing5,
   },
   {
     id: 'scene-006',
     name: '赛博朋克街景',
-    cover: 'https://via.placeholder.com/600x400/E6E6FA/000000?text=赛博朋克',
-    background: 'https://via.placeholder.com/1200x800/4B0082/FFFFFF?text=赛博朋克背景图'
+    cover: shijing6,
   },
 ]);
 
@@ -77,7 +79,7 @@ const closeDialog = () => {
             <el-image :src="scene.cover" :alt="scene.name" fit="cover" class="scene-cover" />
           </div>
           <div class="scene-info">
-            <h3 class="scene-name">{{ scene.name }}</h3>
+            <!-- <h3 class="scene-name">{{ scene.name }}</h3> -->
             <p class="scene-action">点击体验</p>
           </div>
         </el-card>
@@ -86,7 +88,7 @@ const closeDialog = () => {
 
     <el-dialog
       v-model="dialogVisible"
-      :title="currentSelectedScene ? `场景体验 - ${currentSelectedScene.name}` : '场景体验'"
+      title="场景体验"
       fullscreen
       :before-close="closeDialog"
       class="scene-experience-dialog-wrapper"

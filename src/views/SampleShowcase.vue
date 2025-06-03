@@ -8,37 +8,38 @@ import {
   Picture as IconPicture, Upload as IconUpload, MagicStick, ZoomIn
 } from '@element-plus/icons-vue';
 
+import xinjiang from '@/assets/images/yangpian/xinjiang.png';
+import xinjiang_hecheng from '@/assets/images/yangpian/xinjiang_hecheng.jpg';
+
+import dunhuang from '@/assets/images/yangpian/dunhuang.png';
+import tangzhuang from '@/assets/images/yangpian/tangzhuang.png';
+import dayunhe from '@/assets/images/yangpian/dayunhe.png';
+
 // --- 模拟数据 ---
 const makeupThemes = ref([
   {
     id: 'theme-001',
-    name: '经典新娘妆',
-    coverImage: 'https://via.placeholder.com/300x200?text=经典新娘妆',
-    themeImage: 'https://via.placeholder.com/800x600?text=经典新娘妆+效果图' // 主题妆容大图
+    name: '新疆主题',
+    coverImage: xinjiang,
+    themeImage: xinjiang // 主题妆容大图
   },
   {
     id: 'theme-002',
-    name: '时尚派对妆',
-    coverImage: 'https://via.placeholder.com/300x200?text=时尚派对妆',
-    themeImage: 'https://via.placeholder.com/800x600?text=时尚派对妆+效果图'
+    name: '敦煌主题',
+    coverImage: dunhuang,
+    themeImage: dunhuang
   },
   {
     id: 'theme-003',
-    name: '日常通勤妆',
-    coverImage: 'https://via.placeholder.com/300x200?text=日常通勤妆',
-    themeImage: 'https://via.placeholder.com/800x600?text=日常通勤妆+效果图'
+    name: '唐妆主题',
+    coverImage: tangzhuang,
+    themeImage: tangzhuang
   },
   {
     id: 'theme-004',
-    name: '自然清新妆',
-    coverImage: 'https://via.placeholder.com/300x200?text=自然清新妆',
-    themeImage: 'https://via.placeholder.com/800x600?text=自然清新妆+效果图'
-  },
-  {
-    id: 'theme-005',
-    name: '复古名伶妆',
-    coverImage: 'https://via.placeholder.com/300x200?text=复古名伶妆',
-    themeImage: 'https://via.placeholder.com/800x600?text=复古名伶妆+效果图'
+    name: '古风主题',
+    coverImage: dayunhe,
+    themeImage: dayunhe
   },
 ]);
 
@@ -121,7 +122,7 @@ const synthesizeImage = () => {
   setTimeout(() => {
     // 实际项目中，这里会是后端返回的合成图片URL
     // 为了演示，我们简单地用主题图片作为合成结果，或者一个固定的占位符
-    syntheticImageUrl.value = 'https://via.placeholder.com/800x600/FFD700/000000?text=合成效果图+' + selectedTheme.value.name.replace(/\s+/g, '+');
+    syntheticImageUrl.value = xinjiang_hecheng;
     isSynthesizing.value = false;
     ElMessage.success('合成成功！');
   }, 2000); // 模拟2秒的合成时间
@@ -495,7 +496,7 @@ h2::after {
 /* 合成结果 */
 .result-image-container {
   width: 100%;
-  max-height: 400px; /* 限制结果图高度 */
+  max-height: calc(100vh - 250px); /* 限制结果图高度 */
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

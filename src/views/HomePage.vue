@@ -23,27 +23,6 @@ const handleNewsletterSubmit = () => {
 <template>
   <main>
     <HeroSection />
-    <section class="call-to-action">
-      <div class="container">
-        <h2>Elevate Your Beauty Journey</h2>
-        <p>
-          Sign up for exclusive content, early access to new collections, and personalized
-          recommendations.
-        </p>
-        <div class="newsletter-form">
-          <el-input
-            v-model="newsletterEmail"
-            placeholder="Your Email Address"
-            size="large"
-            clearable
-            @keyup.enter="handleNewsletterSubmit"
-          ></el-input>
-          <el-button type="primary" size="large" @click="handleNewsletterSubmit"
-            >Subscribe</el-button
-          >
-        </div>
-      </div>
-    </section>
   </main>
 </template>
 

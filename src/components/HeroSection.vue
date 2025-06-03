@@ -1,33 +1,39 @@
 <template>
   <section class="hero-section">
-    <div class="hero-video-container">
-      <video autoplay muted loop playsinline ref="videoElement">
-        <source :src="test_case" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div class="hero-carousel-container">
+      <el-carousel :interval="3000" arrow="never" height="100vh">
+        <el-carousel-item v-for="image in backgroundImages" :key="image">
+          <img :src="image" alt="Background Image" class="carousel-image" />
+        </el-carousel-item>
+      </el-carousel>
     </div>
     <div class="hero-content">
-      <h1>Mastering the Art of Elevated Beauty.</h1>
+      <h1>智妆教学平台</h1>
       <p>
-        Discover exclusive masterclasses and curated techniques from the world's leading artists.
+        智妆教学平台让美妆学习变得前所未有的智能与高效，助你轻松掌握专业美妆技巧。
       </p>
-      <el-button
+      <!-- <el-button
         type="primary"
         size="large"
         @click="goToTutorials"
         color="transparent"
         style="padding: 24px 24px; border: 1px solid #b08d57"
-        >BEGIN YOUR JOURNEY</el-button
+        >BEGIN YOUR JOURNEY</el-button -->
       >
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { ElButton } from 'element-plus' // 引入 Element Plus 按钮
-import test_case from '@/assets/videos/test_case.mp4'
+import { ElButton, ElCarousel, ElCarouselItem } from 'element-plus' // 引入 Element Plus 按钮和走马灯组件
+
+// Import your images
+import home1 from '@/assets/images/home/1.png'
+import home2 from '@/assets/images/home/2.png'
+import home3 from '@/assets/images/home/3.png'
+import home4 from '@/assets/images/home/4.png'
 
 const router = useRouter()
 
@@ -35,29 +41,14 @@ const goToTutorials = () => {
   router.push('/tutorials')
 }
 
-const videoElement = ref(null) // 定义一个 ref 来引用视频元素
-
-// onMounted(() => {
-//   // 确保视频元素已经挂载
-//   if (videoElement.value) {
-//     // 尝试播放视频
-//     videoElement.value.play()
-//       .then(() => {
-//         console.log('Video autoplayed successfully!');
-//       })
-//       .catch(error => {
-//         console.error('Autoplay prevented:', error);
-//         // 这里可以添加逻辑来处理自动播放失败的情况，
-//         // 例如：显示一个播放按钮让用户手动点击
-//       });
-//   }
-// })
+// Define the array of background images
+const backgroundImages = [home1, home2, home3, home4]
 </script>
 
 <style scoped>
 .hero-section {
   position: relative;
-  height: 90vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +57,7 @@ const videoElement = ref(null) // 定义一个 ref 来引用视频元素
   overflow: hidden;
 }
 
-.hero-video-container {
+.hero-carousel-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -76,21 +67,15 @@ const videoElement = ref(null) // 定义一个 ref 来引用视频元素
   z-index: 1;
 }
 
-.hero-video-container video {
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  filter: brightness(0.7) grayscale(0.2);
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
+  filter: brightness(0.7) grayscale(0.2); /* Apply similar filters as your video */
 }
 
 .hero-content {
-  z-index: 1;
+  z-index: 2; /* Ensure content is above the carousel */
   padding: var(--spacing-md);
   max-width: 800px;
 }
@@ -104,7 +89,7 @@ const videoElement = ref(null) // 定义一个 ref 来引用视频元素
 }
 
 .hero-content p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: var(--spacing-lg);
   color: var(--color-text-light);
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
