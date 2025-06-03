@@ -2,19 +2,14 @@
 import { ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 // 引入 Element Plus 组件
-import { ElButton, ElInput, ElDialog } from 'element-plus'
-import { Search } from '@element-plus/icons-vue' // 引入图标
 import { ArrowRight } from '@element-plus/icons-vue'
+import avatar from '@/assets/images/avatar.jpg'
 
 const router = useRouter()
 const showSearchDialog = ref(false)
 const searchQuery = ref('')
 
 const menuItems = reactive([
-//   {
-//     name: 'Tutorials',
-//     path: '/tutorials',
-//   },
   {
     name: 'E-课堂',
     path: '/vr_scene',
@@ -45,6 +40,7 @@ const menuItems = reactive([
     isOpen: false,
     children: [
       { name: '虚拟妆容设计', path: '/makeup_design' },
+      { name: '实景体验', path: '/real_scene' },
       { name: '妆容测评', path: '/makeup_evaluation' },
       { name: '美妆教程', path: '/tutorials' },
     ],
@@ -60,8 +56,13 @@ const menuItems = reactive([
       { name: '师生留言区', path: '/board' },
     ],
   },
-//   { name: 'The Atelier', path: '/atelier' },
 ])
+
+// Placeholder for user data
+const user = reactive({
+  avatar: 'https://via.placeholder.com/40', // Replace with a real image path
+  username: '用户名称',
+});
 
 const isChildRoute = (item) => {
   if (!item.children) return false
@@ -89,8 +90,8 @@ const handleSearch = () => {
     <nav class="main-nav">
       <ul class="vertical-menu">
         <li v-for="item in menuItems" :key="item.path" class="menu-item">
-          <div 
-            class="menu-title" 
+          <div
+            class="menu-title"
             @click="item.isOpen = !item.isOpen"
           >
             <span>{{ item.name }}</span>
@@ -115,24 +116,10 @@ const handleSearch = () => {
       </ul>
     </nav>
 
-    <el-dialog v-model="showSearchDialog" title="Search Éclat Atelier" width="30%">
-      <el-input
-        v-model="searchQuery"
-        placeholder="Enter keywords..."
-        @keyup.enter="handleSearch"
-        clearable
-      >
-        <template #append>
-          <el-button :icon="Search" @click="handleSearch" />
-        </template>
-      </el-input>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="showSearchDialog = false">Cancel</el-button>
-          <el-button type="primary" @click="handleSearch">Search</el-button>
-        </span>
-      </template>
-    </el-dialog>
+    <div class="user-profile">
+      <img :src="avatar" alt="User Avatar" class="user-avatar" />
+      <span class="username">张雅</span>
+    </div>
   </header>
 </template>
 
@@ -143,11 +130,9 @@ const handleSearch = () => {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1000;
-  border-right: 1px solid #eee;
   display: flex;
   flex-direction: column;
-  background-color: #45454c; 
+  background-color: #45454c;
 }
 
 .logo {
@@ -161,10 +146,10 @@ const handleSearch = () => {
 }
 
 .main-nav {
-  flex: 1;
-  overflow-y: scroll; /* 改为 auto 而不是 scroll */
+  flex: 1; /* 让导航占据可用空间 */
+  overflow-y: auto; /* 允许导航内容滚动 */
   padding: 20px 0;
-  height: 0;
+  /* Removed height: 0; */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   border-top: 1px solid #eee;
@@ -231,7 +216,6 @@ const handleSearch = () => {
 .submenu li {
   display: flex;
   margin-left: 0px;
-  /* width: 100%; */
   color: #E6E6E9;
   margin-top: 5px;
 }
@@ -271,12 +255,40 @@ const handleSearch = () => {
   max-height: 0;
 }
 
+/* 用户头像和用户名区域样式 */
+.user-profile {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #3A3A43; /* Slightly darker background for the profile section */
+  color: #E6E6E9;
+  border-top: 1px solid #eee;
+  flex-shrink: 0; /* Prevent profile section from being compressed */
+}
+
+.user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.username {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #E6E6E9; /* Light color for better contrast */
+}
+
 /* 响应式布局 */
 @media (max-width: 768px) {
   .main-header {
     width: 100%;
     height: auto;
     position: relative;
+  }
+  .user-profile {
+    border-top: none; /* Adjust border for mobile if needed */
   }
 }
 </style>

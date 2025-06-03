@@ -37,11 +37,10 @@ const closeImageDialog = () => {
       <el-collapse v-model="collapseValue">
         <el-collapse-item title="哈密" name="1">
           <div class="imgur-grid">
-            <div v-for="item in images" :key="item.id" class="grid-item" @click="openImageDialog(item)">
+            <div v-for="item in images.hami" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
-                <img :src="item.image" :alt="item.title" class="grid-item-thumbnail" />
+                <img :src="item.image" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
-                  <h3 class="grid-item-title">{{ item.title }}</h3>
                   <el-button type="primary" size="small" :icon="IconPicture" circle />
                 </div>
               </div>
@@ -50,11 +49,10 @@ const closeImageDialog = () => {
         </el-collapse-item>
         <el-collapse-item title="吐鲁番" name="2">
           <div class="imgur-grid">
-            <div v-for="item in images" :key="item.id" class="grid-item" @click="openImageDialog(item)">
+            <div v-for="item in images.tulufan" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
-                <img :src="item.image" :alt="item.title" class="grid-item-thumbnail" />
+                <img :src="item.image" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
-                  <h3 class="grid-item-title">{{ item.title }}</h3>
                   <el-button type="primary" size="small" :icon="IconPicture" circle />
                 </div>
               </div>
@@ -63,11 +61,10 @@ const closeImageDialog = () => {
         </el-collapse-item>
         <el-collapse-item title="阿克苏" name="3">
           <div class="imgur-grid">
-            <div v-for="item in images" :key="item.id" class="grid-item" @click="openImageDialog(item)">
+            <div v-for="item in images.akesu" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
-                <img :src="item.image" :alt="item.title" class="grid-item-thumbnail" />
+                <img :src="item.image" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
-                  <h3 class="grid-item-title">{{ item.title }}</h3>
                   <el-button type="primary" size="small" :icon="IconPicture" circle />
                 </div>
               </div>
@@ -76,11 +73,10 @@ const closeImageDialog = () => {
         </el-collapse-item>
         <el-collapse-item title="喀什" name="4">
           <div class="imgur-grid">
-            <div v-for="item in images" :key="item.id" class="grid-item" @click="openImageDialog(item)">
+            <div v-for="item in images.kashi" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
-                <img :src="item.image" :alt="item.title" class="grid-item-thumbnail" />
+                <img :src="item.image" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
-                  <h3 class="grid-item-title">{{ item.title }}</h3>
                   <el-button type="primary" size="small" :icon="IconPicture" circle />
                 </div>
               </div>
@@ -93,27 +89,24 @@ const closeImageDialog = () => {
 
     <el-dialog
       v-model="dialogVisible"
-      :title="currentImage ? currentImage.title : '图片详情'"
+      title=""
       :fullscreen="true"
       @close="closeImageDialog"
       custom-class="image-detail-dialog"
       :align-center="true"
-      append-to-body="true"
     >
       <div v-if="currentImage" class="image-dialog-content-wrapper">
-        <img :src="currentImage.image" :alt="currentImage.title" class="full-view-image" />
-        <p v-if="currentImage.description" class="image-description">{{ currentImage.description }}</p>
+        <img :src="currentImage.image" class="full-view-image" />
       </div>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="closeImageDialog">关闭</el-button>
-        </span>
-      </template>
     </el-dialog>
   </main>
 </template>
 
 <style scoped>
+:deep(.el-dialog__body) {
+  height: calc(100% - 16px);
+}
+
 .images-page {
   padding-top: var(--spacing-lg);
   padding-bottom: var(--spacing-xl);

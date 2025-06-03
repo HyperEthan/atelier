@@ -70,6 +70,31 @@ const router = createRouter({
       name: 'contact',
       component: ContactPage,
     },
+    {
+      path: '/learning',
+      name: 'learning',
+      component: () => import('../views/LearningPage.vue'), // 懒加载
+    },
+    {
+      path: '/microlecture',
+      name: 'microlecture',
+      component: () => import('../views/MicroCourses.vue'), // 懒加载
+    },
+    {
+      path: '/samples',
+      name: 'samples',
+      component: () => import('../views/SampleShowcase.vue'), // 懒加载
+    },
+    {
+      path: '/makeup_design',
+      name: 'makeup_design',
+      component: () => import('../views/AIBeautyAssistant.vue'), // 懒加载
+    },
+    {
+      path: '/board',
+      name: 'board',
+      component: () => import('../views/TeacherStudentMessages.vue'), // 懒加载
+    },
     // 添加一个 404 页面
     {
       path: '/:pathMatch(.*)*',

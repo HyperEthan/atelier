@@ -1,13 +1,30 @@
+<template>
+  <main class="vr-showcase-page">
+    <div class="background-video-wrapper">
+      <video
+        class="background-video"
+        :src="vrScenes[0].vrUrl"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+      ></video>
+      <div class="background-video-overlay">
+        <h1 class="page-title overlay-title">VR 沉浸式体验</h1>
+        <p class="page-intro overlay-intro">
+          探索Éclat工作室的虚拟世界，从360°漫游到沉浸式妆容演示，体验美妆的无限可能。
+        </p>
+      </div>
+    </div>
+  </main>
+</template>
+
 <script setup>
 import { ref } from 'vue';
-import { ElDialog, ElButton, ElIcon } from 'element-plus';
-import { Monitor as IconMonitor } from '@element-plus/icons-vue';
+import { beautyVR } from '@/data/mediaData';
 
-// Import VR data from the new media data file
-import { beautyVR } from '@/data/mediaData'; // <--- **IMPORTANT CHANGE HERE**
-
-const vrScenes = ref(beautyVR); // Use the imported VR data
-
+const vrScenes = ref(beautyVR);
 const dialogVisible = ref(false);
 const currentVrScene = ref(null);
 
@@ -28,65 +45,8 @@ const launchVrExperience = () => {
 };
 </script>
 
-<template>
-  <main class="vr-showcase-page container">
-    <h1 class="page-title">VR 沉浸式体验</h1>
-    <p class="page-intro">
-      探索Éclat工作室的虚拟世界，从360°漫游到沉浸式妆容演示，体验美妆的无限可能。
-    </p>
-
-    <div class="vr-grid">
-      <div v-for="scene in vrScenes" :key="scene.id" class="vr-item" @click="openVrDialog(scene)">
-        <img :src="scene.thumbnail" :alt="scene.title" class="vr-thumbnail" />
-        <div class="vr-item-content">
-          <h3 class="vr-item-title">{{ scene.title }}</h3>
-          <p class="vr-item-description">{{ scene.description }}</p>
-          <el-button type="primary" size="small" :icon="IconMonitor" circle>
-            启动体验
-          </el-button>
-        </div>
-      </div>
-    </div>
-
-    <el-dialog
-      v-model="dialogVisible"
-      :title="currentVrScene ? currentVrScene.title : 'VR 场景'"
-      width="80%"
-      :fullscreen="true"
-      @close="closeVrDialog"
-      custom-class="vr-dialog"
-      :align-center="true"
-      append-to-body="true"
-    >
-      <div v-if="currentVrScene" class="vr-dialog-content">
-        <p class="dialog-description">{{ currentVrScene.description }}</p>
-        <div class="vr-placeholder">
-          <img :src="currentVrScene.thumbnail" :alt="currentVrScene.title" class="vr-placeholder-image" />
-          <p>点击下方按钮，开始您的 VR 体验。</p>
-        </div>
-        <el-button type="primary" size="large" @click="launchVrExperience">
-          <el-icon><IconMonitor /></el-icon>
-          立即体验 {{ currentVrScene.title }}
-        </el-button>
-        <p class="vr-note">部分VR体验可能需要兼容的VR设备或浏览器支持。</p>
-      </div>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="closeVrDialog">关闭</el-button>
-        </span>
-      </template>
-    </el-dialog>
-  </main>
-</template>
-
 <style scoped>
-/* (Styles are already good, no changes needed unless you want to customize further) */
-/* Re-include the styles from the previous VrShowcasePage.vue */
-.vr-showcase-page {
-  padding-top: var(--spacing-lg);
-  padding-bottom: var(--spacing-xl);
-  font-family: var(--font-body);
-}
+/* Existing styles (container, page-title, page-intro, vr-grid, vr-item, etc.) */
 
 .page-title {
   text-align: center;
@@ -195,7 +155,7 @@ const launchVrExperience = () => {
   border-color: var(--color-primary-dark);
 }
 
-/* Dialog Styles */
+/* Dialog Styles (from your original code) */
 .vr-dialog .el-dialog__header {
   border-bottom: 1px solid var(--color-border);
   padding: 20px;
@@ -244,17 +204,24 @@ const launchVrExperience = () => {
   align-items: center;
   justify-content: center;
   min-height: 300px;
+  width: 100%; /* Ensure it takes full width of content area */
+  position: relative; /* For the iframe inside */
+  padding-top: 56.25%; /* 16:9 Aspect Ratio for embedded video */
+  overflow: hidden;
 }
-.vr-placeholder-image {
-    max-width: 80%;
-    max-height: 200px;
-    object-fit: contain;
-    margin-bottom: var(--spacing-sm);
-    border-radius: 4px;
+
+.dialog-video-iframe { /* Specific class for iframe in dialog */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
 }
+
 .vr-placeholder p {
-    font-size: 1rem;
-    color: var(--color-text-light);
+  font-size: 1rem;
+  color: var(--color-text-light);
 }
 
 .vr-dialog .el-button {
@@ -286,45 +253,102 @@ const launchVrExperience = () => {
   background-color: var(--color-primary-light);
 }
 
+/* NEW STYLES for background video */
+.background-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Adjust height as needed */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100vw; /* Change this to 100vw */
+  min-height: 100vh; /* Change this to 100vh */
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  object-fit: cover;
+}
+
+.background-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.overlay-title {
+  color: white; /* Make title readable on dark overlay */
+  font-size: 4.5rem; /* Larger title for impact */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+  margin-bottom: var(--spacing-sm);
+}
+
+.overlay-title::after {
+  background-color: var(--color-accent); /* Maintain accent color */
+}
+
+.overlay-intro {
+  color: white; /* Make intro readable */
+  font-size: 1.3rem; /* Larger intro */
+  max-width: 800px;
+  line-height: 1.8;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+}
+
 /* Responsive Adjustments */
 @media (max-width: 992px) {
-  .page-title {
-    font-size: 3rem;
+  .overlay-title {
+    font-size: 3.5rem;
   }
-  .page-intro {
-    font-size: 1rem;
+  .overlay-intro {
+    font-size: 1.1rem;
   }
-  .vr-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-  }
-  .vr-item-title {
-    font-size: 1.3rem;
-  }
-  .vr-dialog .el-dialog__title {
-    font-size: 1.8rem;
-  }
-  .dialog-description {
-    font-size: 1rem;
+  .background-video-wrapper {
+    height: 500px;
   }
 }
 
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2.5rem;
+  .overlay-title {
+    font-size: 2.8rem;
   }
-  .vr-grid {
-    grid-template-columns: 1fr;
-  }
-  .vr-item-content {
-    padding: var(--spacing-sm);
-  }
-  .vr-dialog .el-dialog__title {
-    font-size: 1.5rem;
-  }
-  .vr-dialog .el-button {
+  .overlay-intro {
     font-size: 1rem;
-    padding: 10px 20px;
+  }
+  .background-video-wrapper {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-title {
+    font-size: 2.2rem;
+  }
+  .overlay-intro {
+    font-size: 0.9rem;
+  }
+  .background-video-wrapper {
+    height: 300px;
+  }
+  .page-title { /* Adjust original page title if it overlaps */
+    font-size: 2.2rem;
   }
 }
 </style>

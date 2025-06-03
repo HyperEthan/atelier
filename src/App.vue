@@ -1,10 +1,6 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import MainHeader from './components/MainHeader.vue'
-import MainFooter from './components/MainFooter.vue'
-// Element Plus 的 Message 组件可以用于提示，例如表单提交成功
-import { ElMessage } from 'element-plus'
-
 // 全局消息提示示例
 const showSuccessMessage = (msg) => {
   ElMessage({
@@ -22,21 +18,6 @@ const showSuccessMessage = (msg) => {
   <div id="app-wrapper">
     <MainHeader />
     <div class="content-wrapper">
-      <!-- <el-header>
-        <div class="header-right">
-          <el-dropdown>
-            <span class="el-dropdown-link">
-              <el-avatar :size="32" src="/images/avatar.jpg" />
-              <span class="username">张雅</span>
-            </span>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item>退出登录</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
-        </div>
-      </el-header> -->
       <router-view />
     </div>
   </div>

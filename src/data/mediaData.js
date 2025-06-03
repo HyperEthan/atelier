@@ -10,10 +10,43 @@ import case_summer_full from '@/assets/images/collections/case_summer_full.jpg';
 import case_summer_gallery3 from '@/assets/images/collections/case_summer_gallery3.jpg';
 import case_editorial_full from '@/assets/images/collections/case_editorial_full.jpg';
 import case_editorial_gallery2 from '@/assets/images/collections/case_editorial_gallery2.jpg';
-import img_dewy_full from '@/assets/images/collections/img_dewy_full.jpg';
-import img_vibrant_full from '@/assets/images/collections/img_vibrant_full.jpg';
-import img_sculpted_full from '@/assets/images/collections/img_sculpted_full.jpg';
-import img_redlip_full from '@/assets/images/collections/img_redlip_full.jpg';
+// 哈密图片资源
+import hami1 from '@/assets/images/hami/1.png';
+import hami2 from '@/assets/images/hami/2.png';
+import hami3 from '@/assets/images/hami/3.png';
+import hami4 from '@/assets/images/hami/4.jpg';
+import hami5 from '@/assets/images/hami/5.jpg';
+// 喀什图片资源
+import kashi1 from '@/assets/images/kashi/1.jpg';
+import kashi2 from '@/assets/images/kashi/2.jpg';
+import kashi3 from '@/assets/images/kashi/3.jpg';
+import kashi4 from '@/assets/images/kashi/4.jpg';
+import kashi5 from '@/assets/images/kashi/5.jpg';
+import kashi6 from '@/assets/images/kashi/6.jpg';
+// 阿克苏图片资源
+import akesu1 from '@/assets/images/akesu/1.jpg';
+import akesu2 from '@/assets/images/akesu/2.jpg';
+import akesu3 from '@/assets/images/akesu/3.jpg';
+import akesu4 from '@/assets/images/akesu/4.jpg';
+import akesu5 from '@/assets/images/akesu/5.jpg';
+// 吐鲁番图片资源
+import tulufan1 from '@/assets/images/tulufan/1.jpg';
+import tulufan2 from '@/assets/images/tulufan/2.jpg';
+import tulufan3 from '@/assets/images/tulufan/3.jpg';
+import tulufan4 from '@/assets/images/tulufan/4.jpg';
+import tulufan5 from '@/assets/images/tulufan/5.jpg';
+
+// hami, kashi, akesu, tulufan 的视频资源
+import hamiVideo from '@/assets/videos/hami.mp4';
+import kashiVideo from '@/assets/videos/kashi.mp4';
+import akesuVideo from '@/assets/videos/akesu.mp4';
+import tulufanVideo from '@/assets/videos/tulufan.mp4';
+import huaxizi from '@/assets/videos/huaxizi.mp4';
+import shanshi from '@/assets/videos/shanshi.mp4';
+
+// VR 资源
+import vr1 from '@/assets/videos/vr1.mp4';
+
 
 export const beautyCases = [
   {
@@ -133,52 +166,137 @@ export const beautyCases = [
   },
 ];
 
-export const beautyImages = [
-  {
-    id: 'img1',
-    title: '露珠肌肤完美',
-    image: img_dewy_full,
-  },
-  {
-    id: 'img2',
-    title: '鲜艳视野',
-    image: img_vibrant_full,
-  },
-  {
-    id: 'img3',
-    title: '雕刻的特征',
-    image: img_sculpted_full,
-  },
-  {
-    id: 'img4',
-    title: '经典红唇',
-    image: img_redlip_full,
-  },
-];
+
+export const beautyImages = {
+  hami: [
+    {
+      id: 'hami_img1',
+      image: hami1,
+    },
+    {
+      id: 'hami_img2',
+      image: hami2,
+    },
+    {
+      id: 'hami_img3',
+      image: hami3,
+    },
+    {
+      id: 'hami_img4',
+      image: hami4,
+    },
+    {
+      id: 'hami_img5',
+      image: hami5,
+    },
+  ],
+  kashi: [
+    {
+      id: 'kashi_img1',
+      image: kashi1,
+    },
+    {
+      id: 'kashi_img2',
+      image: kashi2,
+    },
+    {
+      id: 'kashi_img3',
+      image: kashi3,
+    },
+    {
+      id: 'kashi_img4',
+      image: kashi4,
+    },
+    {
+      id: 'kashi_img5',
+      image: kashi5,
+    },
+    {
+      id: 'kashi_img6',
+      image: kashi6,
+    },
+  ],
+  akesu: [
+    {
+      id: 'akesu_img1',
+      image: akesu1,
+    },
+    {
+      id: 'akesu_img2',
+      image: akesu2,
+    },
+    {
+      id: 'akesu_img3',
+      image: akesu3,
+    },
+    {
+      id: 'akesu_img4',
+      image: akesu4,
+    },
+    {
+      id: 'akesu_img5',
+      image: akesu5,
+    },
+  ],
+  tulufan: [
+    {
+      id: 'tulufan_img1',
+      image: tulufan1,
+    },
+    {
+      id: 'tulufan_img2',
+      image: tulufan2,
+    },
+    {
+      id: 'tulufan_img3',
+      image: tulufan3,
+    },
+    {
+      id: 'tulufan_img4',
+      image: tulufan4,
+    },
+    {
+      id: 'tulufan_img5',
+      image: tulufan5,
+    },
+  ],
+};
 
 export const beautyVideos = [
   {
-    id: 'vid1',
-    title: '幕后花絮：拍摄魅力',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-    type: 'youtube',
-  }, // Example YouTube embed
+    id: 'hami',
+    title: '哈密',
+    videoUrl: hamiVideo, // 使用导入的视频资源
+  }, 
   {
-    id: 'vid2',
-    title: '产品展示：新品上架',
-    videoUrl: 'https://player.vimeo.com/video/819323384?autoplay=1&loop=1',
-    type: 'vimeo',
-  }, // Example Vimeo embed
+    id: 'kashi',
+    title: '喀什',
+    videoUrl: kashiVideo, // 使用导入的视频资源
+  },
   {
-    id: 'vid3',
-    title: '掌握液体眼线技巧',
-    videoUrl: 'https://www.youtube.com/embed/your_video_id_here_3',
-    type: 'youtube',
+    id: 'akesu',
+    title: '阿克苏',
+    videoUrl: akesuVideo, // 使用导入的视频资源
+  },
+  {
+    id: 'tulufan',
+    title: '吐鲁番',
+    videoUrl: tulufanVideo, // 使用导入的视频资源
+  },
+  {
+    id: 'huaxizi',
+    title: '花西子宣传视频',
+    videoUrl: huaxizi, // 使用导入的视频资源
+  },
+  {
+    id: 'shanshi',
+    title: '山师大叔视频',
+    videoUrl: shanshi, // 使用导入的视频资源
   },
 ];
 
 export const beautyVR = [
-  { id: 'vr1', title: '360° 美妆工作室漫游', vrUrl: 'https://www.google.com/vr/index.html', description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。' },
+  { id: 'vr1', title: '360° 美妆工作室漫游', vrUrl: vr1, description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。' },
   { id: 'vr2', title: '沉浸式妆容应用演示', vrUrl: 'https://www.example.com/your-vr-experience-2', description: '步入虚拟演示，体验复杂妆容的沉浸式应用技巧，从不同角度观察细节。' },
   { id: 'vr3', title: '未来美妆趋势探索', vrUrl: 'https://www.google.com/vr/index.html', description: '通过VR技术，提前感受未来美妆的潮流与创新，拓宽你的美妆视野。' },
   { id: 'vr4', title: 'T台秀场VR体验', vrUrl: 'https://www.example.com/your-vr-experience-4', description: '置身虚拟T台秀场，近距离欣赏妆容造型，感受时尚前沿的脉动。' },

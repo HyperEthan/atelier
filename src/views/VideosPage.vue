@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue';
 import { ElDialog, ElButton, ElIcon } from 'element-plus';
-import { VideoCamera as IconVideoCamera } from '@element-plus/icons-vue';
 import VideoPlaceholder from '@/assets/images/video_placeholder.png'; // 引入视频占位组件
 
 // Import videos data
@@ -48,69 +47,22 @@ const closeVideoDialog = () => {
 
     <div class="area">
       <div class="title">新疆地区</div>
-      <el-collapse v-model="collapseValue">
-        <el-collapse-item title="哈密" name="1">
-          <div class="imgur-grid">
-            <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
-              <div class="grid-item-content">
-                <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
-                </div>
-                <div class="grid-item-overlay">
-                  <h3 class="grid-item-title">{{ item.title }}</h3>
-                  <!-- <el-button type="primary" size="small" :icon="IconVideoCamera" circle /> -->
-                </div>
-              </div>
+      <div class="imgur-grid">
+        <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
+          <div class="grid-item-content">
+            <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
+            </div>
+            <div class="grid-item-overlay">
+              <h3 class="grid-item-title">{{ item.title }}</h3>
             </div>
           </div>
-        </el-collapse-item>
-        <el-collapse-item title="吐鲁番" name="2">
-          <div class="imgur-grid">
-            <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
-              <div class="grid-item-content">
-                <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
-                </div>
-                <div class="grid-item-overlay">
-                  <h3 class="grid-item-title">{{ item.title }}</h3>
-                  <!-- <el-button type="primary" size="small" :icon="IconVideoCamera" circle /> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </el-collapse-item>
-        <el-collapse-item title="阿克苏" name="3">
-          <div class="imgur-grid">
-            <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
-              <div class="grid-item-content">
-                <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
-                </div>
-                <div class="grid-item-overlay">
-                  <h3 class="grid-item-title">{{ item.title }}</h3>
-                  <!-- <el-button type="primary" size="small" :icon="IconVideoCamera" circle /> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </el-collapse-item>
-        <el-collapse-item title="喀什" name="4">
-          <div class="imgur-grid">
-            <div v-for="item in videos" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
-              <div class="grid-item-content">
-                <div class="grid-item-thumbnail-wrapper"> <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
-                </div>
-                <div class="grid-item-overlay">
-                  <h3 class="grid-item-title">{{ item.title }}</h3>
-                  <el-button type="primary" size="small" :icon="IconVideoCamera" circle />
-                </div>
-              </div>
-            </div>
-          </div>
-        </el-collapse-item>
-      </el-collapse>
+        </div>
+      </div>
     </div>
 
     <el-dialog
       v-model="dialogVisible"
-      :title="currentVideo ? currentVideo.title : '视频播放'"
+      title=""
       :fullscreen="true"
       @close="closeVideoDialog"
       custom-class="video-playback-dialog"
@@ -126,16 +78,15 @@ const closeVideoDialog = () => {
           class="video-iframe"
         ></iframe>
       </div>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="closeVideoDialog">关闭</el-button>
-        </span>
-      </template>
     </el-dialog>
   </main>
 </template>
 
 <style scoped>
+:deep(.el-dialog__body) {
+  height: calc(100% - 16px) !important;
+}
+
 .videos-page {
   padding-top: var(--spacing-lg);
   padding-bottom: var(--spacing-xl);
@@ -240,9 +191,9 @@ const closeVideoDialog = () => {
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s ease;
   color: white;
   text-align: center;
