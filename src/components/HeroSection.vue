@@ -12,14 +12,6 @@
       <p>
         智妆教学平台让美妆学习变得前所未有的智能与高效，助你轻松掌握专业美妆技巧。
       </p>
-      <!-- <el-button
-        type="primary"
-        size="large"
-        @click="goToTutorials"
-        color="transparent"
-        style="padding: 24px 24px; border: 1px solid #b08d57"
-        >BEGIN YOUR JOURNEY</el-button -->
-      >
     </div>
   </section>
 </template>
