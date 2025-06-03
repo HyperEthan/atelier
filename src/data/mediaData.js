@@ -296,8 +296,7 @@ export const beautyVideos = [
 ];
 
 export const beautyVR = [
-  { id: 'vr1', title: '360° 美妆工作室漫游', vrUrl: vr1, description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。' },
+  { id: 'vr1', title: '敦煌场馆', vrUrl: vr1, description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。' },
   { id: 'vr2', title: '沉浸式妆容应用演示', vrUrl: 'https://www.example.com/your-vr-experience-2', description: '步入虚拟演示，体验复杂妆容的沉浸式应用技巧，从不同角度观察细节。' },
-  { id: 'vr3', title: '未来美妆趋势探索', vrUrl: 'https://www.google.com/vr/index.html', description: '通过VR技术，提前感受未来美妆的潮流与创新，拓宽你的美妆视野。' },
-  { id: 'vr4', title: 'T台秀场VR体验', vrUrl: 'https://www.example.com/your-vr-experience-4', description: '置身虚拟T台秀场，近距离欣赏妆容造型，感受时尚前沿的脉动。' },
+  { id: 'vr3', title: '现场氛围', vrUrl: 'https://www.google.com/vr/index.html', description: '通过VR技术，提前感受未来美妆的潮流与创新，拓宽你的美妆视野。' },
 ];

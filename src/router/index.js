@@ -91,6 +91,16 @@ const router = createRouter({
       component: () => import('../views/AIBeautyAssistant.vue'), // 懒加载
     },
     {
+      path: '/showcase',
+      name: 'showcase',
+      component: () => import('../views/StudentShowcase.vue'), // 懒加载
+    },
+    {
+      path: '/real_scene',
+      name: 'real_scene',
+      component: () => import('../views/RealityExperience.vue'), // 懒加载
+    },
+    {
       path: '/board',
       name: 'board',
       component: () => import('../views/TeacherStudentMessages.vue'), // 懒加载
