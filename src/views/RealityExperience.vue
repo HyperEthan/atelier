@@ -109,7 +109,6 @@ const closeDialog = () => {
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
   color: #333;
   text-align: center;
-  background-color: #f5f7fa;
   min-height: 100vh;
 }
 

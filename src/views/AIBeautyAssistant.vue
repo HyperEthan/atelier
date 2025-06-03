@@ -218,12 +218,12 @@ onMounted(() => {
 .ai-beauty-assistant-container {
   padding: 30px;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 40px 20px;
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
   color: #333;
   text-align: center;
   background-color: #f5f7fa;
-  min-height: calc(100vh - 60px); /* 假设顶部有导航栏，使其不被遮挡 */
+  min-height: calc(100vh - 80px); /* 假设顶部有导航栏，使其不被遮挡 */
   display: flex;
   flex-direction: column;
   align-items: center;
