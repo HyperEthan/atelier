@@ -68,7 +68,7 @@ const closeVideoDialog = () => {
         <div v-for="item in group" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
           <div class="grid-item-content">
             <div class="grid-item-thumbnail-wrapper">
-              <img :src="VideoPlaceholder" :alt="item.title" class="grid-item-thumbnail" />
+              <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
             </div>
             <div class="grid-item-overlay">
               <h3 class="grid-item-title">{{ item.title }}</h3>
@@ -171,7 +171,7 @@ const closeVideoDialog = () => {
 .video-group .title {
   font-size: 1.2rem; /* Larger group titles */
   font-weight: 500; /* Slightly lighter but still strong */
-  color: var(--color-accent);
+  color: #000;
   text-align: left; /* Align group titles to the left */
   border-bottom: 2px solid #eee; /* Light separator line */
   padding-bottom: var(--spacing-sm);

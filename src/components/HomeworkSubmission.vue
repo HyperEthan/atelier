@@ -98,9 +98,12 @@ const openImageListDialog = (module) => {
   dialogVisible.value = true;
 };
 
+const showScore = ref(false); // Flag to control score display
+
 // Function to open the image detail dialog and render chart
-const openImageDetailDialog = (image) => {
+const openImageDetailDialog = (image, score=false) => {
   currentImage.value = image;
+  showScore.value = score; // Set the score display flag
   imageDetailDialogVisible.value = true;
 
   // Wait for the dialog to render and then initialize chart
@@ -229,28 +232,38 @@ watch(imageDetailDialogVisible, (newValue) => {
     >
       <div v-if="currentModule.value === 'implementation'">
         <div class="image-list-container" v-if="currentModule && (currentModule.images.hangkong.length || currentModule.images.lvke.length) > 0">
-          <el-row :gutter="20">
-            <el-col :span="8" v-for="image in currentModule.images.hangkong" :key="image.id" class="image-item-col">
-              <el-card shadow="hover" class="image-item-card" @click="openImageDetailDialog(image)">
-                <el-image :src="image.url" fit="cover" class="list-image"></el-image>
-                <div class="image-status-overlay">
-                  <el-tag :type="image.status === 'evaluated' ? 'success' : 'warning'">
-                    {{ image.status === 'evaluated' ? '已评价' : '待评价' }}
-                  </el-tag>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" v-for="image in currentModule.images.lvke" :key="image.id" class="image-item-col">
-              <el-card shadow="hover" class="image-item-card" @click="openImageDetailDialog(image)">
-                <el-image :src="image.url" fit="cover" class="list-image"></el-image>
-                <div class="image-status-overlay">
-                  <el-tag :type="image.status === 'evaluated' ? 'success' : 'warning'">
-                    {{ image.status === 'evaluated' ? '已评价' : '待评价' }}
-                  </el-tag>
-                </div>
-              </el-card>
-            </el-col>
-          </el-row>
+          <el-tabs type="border-card">
+            <el-tab-pane label="航空组">
+              <el-row :gutter="20">
+                <el-col :span="8" v-for="image in currentModule.images.hangkong" :key="image.id" class="image-item-col">
+                  <el-card shadow="hover" class="image-item-card" @click="openImageDetailDialog(image, true)">
+                    <el-image :src="image.url" fit="cover" class="list-image"></el-image>
+                    <div class="image-status-overlay">
+                      <el-tag :type="image.status === 'evaluated' ? 'success' : 'warning'">
+                        {{ image.status === 'evaluated' ? '已评价' : '待评价' }}
+                      </el-tag>
+                    </div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+            <el-tab-pane label="旅客组">
+              <el-row :gutter="20">
+                <el-col :span="8" v-for="image in currentModule.images.lvke" :key="image.id" class="image-item-col">
+                  <el-card shadow="hover" class="image-item-card" @click="openImageDetailDialog(image, true)">
+                    <el-image :src="image.url" fit="cover" class="list-image"></el-image>
+                    <div class="image-status-overlay">
+                      <el-tag :type="image.status === 'evaluated' ? 'success' : 'warning'">
+                        {{ image.status === 'evaluated' ? '已评价' : '待评价' }}
+                      </el-tag>
+                    </div>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+          </el-tabs>
+          
+          
         </div>
         <el-empty v-else description="该模块暂无图片"></el-empty>
       </div>
@@ -258,13 +271,8 @@ watch(imageDetailDialogVisible, (newValue) => {
         <div class="image-list-container" v-if="currentModule && currentModule.images.length > 0">
           <el-row :gutter="20">
             <el-col :span="8" v-for="image in currentModule.images" :key="image.id" class="image-item-col">
-              <el-card shadow="hover" class="image-item-card" @click="openImageDetailDialog(image)">
-                <el-image :src="image.url" fit="cover" class="list-image"></el-image>
-                <div class="image-status-overlay">
-                  <el-tag :type="image.status === 'evaluated' ? 'success' : 'warning'">
-                    {{ image.status === 'evaluated' ? '已评价' : '待评价' }}
-                  </el-tag>
-                </div>
+              <el-card shadow="hover" class="image-item-card">
+                <el-image :src="image.url" fit="cover" class="list-image" :preview-src-list="[image.url]" :initial-index="0"></el-image>
               </el-card>
             </el-col>
           </el-row>
@@ -281,7 +289,7 @@ watch(imageDetailDialogVisible, (newValue) => {
       class="image-detail-dialog"
     >
       <div v-if="currentImage" class="image-detail-content">
-        <el-row :gutter="20">
+        <el-row :gutter="20" v-if="showScore">
           <el-col :span="12" class="detail-image-wrapper">
             <el-image :src="currentImage.url" fit="cover" class="detail-image" :preview-src-list="[currentImage.url]"></el-image>
           </el-col>
@@ -293,14 +301,39 @@ watch(imageDetailDialogVisible, (newValue) => {
                 </el-tag>
               </h3>
               <div v-if="currentImage.status === 'evaluated'">
-                <p><strong>评价反馈：</strong> {{ currentImage.feedback || '暂无详细反馈' }}</p>
-                <p><strong>最终得分：</strong> <el-tag type="success" size="large">{{ currentImage.score }} 分</el-tag></p>
-                <div id="score-pie-chart" style="width: 100%; height: 250px;"></div>
+                <p><strong>评价反馈：</strong></p>
+                <p>技术点赞</p>
+                <el-progress
+                  :percentage="86"
+                  :stroke-width="15"
+                  striped
+                  :color="[
+                    { color: '#f56c6c', percentage: 20 },
+                    { color: '#e6a23c', percentage: 40 },
+                    { color: '#6f7ad3', percentage: 60 },
+                    { color: '#1989fa', percentage: 80 },
+                    { color: '#5cb87a', percentage: 100 }
+                  ]"
+                />
+                <p>服务点赞</p>
+                <el-progress :percentage="38" :stroke-width="15" striped />
+                <p><strong>留言评论：</strong></p>
+                <div id="score-pie-chart" style="width: 100%; height: 250px;">
+                  <p>留言1：好喜欢这个妆，又温柔又吸睛</p>
+                  <p>留言2：赞赞赞</p>
+                  <p>留言3：模特好漂亮</p>
+                  <p>留言4：化妆师再细心一点哦🤭</p>
+                </div>
               </div>
               <div v-else>
                 <el-empty description="该图片尚未评价"></el-empty>
               </div>
             </div>
+          </el-col>
+        </el-row>
+        <el-row :gutter="20" v-else>
+          <el-col :span="24" class="detail-image-wrapper">
+            <el-image :src="currentImage.url" fit="cover" class="detail-image" :preview-src-list="[currentImage.url]" :initial-index="0"></el-image>
           </el-col>
         </el-row>
       </div>
@@ -387,6 +420,10 @@ watch(imageDetailDialogVisible, (newValue) => {
   text-align: right;
 }
 
+:deep(.el-progress) {
+  margin-bottom: 10px;
+}
+
 /* Image List Dialog Styles */
 :deep(.image-list-dialog.el-dialog) {
   width: 100%;
@@ -434,15 +471,19 @@ watch(imageDetailDialogVisible, (newValue) => {
   transition: transform 0.3s ease;
 }
 
-.image-item-card:hover .list-image {
+/* .image-item-card:hover .list-image {
   transform: scale(1.05);
-}
+} */
 
 .image-status-overlay {
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 10;
+}
+
+#score-pie-chart {
+  padding: 20px;
 }
 
 /* Image Detail Dialog Styles */

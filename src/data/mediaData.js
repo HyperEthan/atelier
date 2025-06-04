@@ -44,9 +44,17 @@ import tulufanVideo from '@/assets/videos/tulufan.mp4';
 import huaxizi from '@/assets/videos/huaxizi.mp4';
 import shanshi from '@/assets/videos/shanshi.mp4';
 
+import hami_bg from '@/assets/videos/hami.png';
+import kashi_bg from '@/assets/videos/kashi.png';
+import akesu_bg from '@/assets/videos/akesu.png';
+import tulufan_bg from '@/assets/videos/tulufan.png';
+import huaxizi_bg from '@/assets/videos/huaxizi.png';
+import shanshi_bg from '@/assets/videos/shanshi.png';
+
 // VR 资源
 import vr1 from '@/assets/videos/vr1.mp4';
 import vrluyan from '@/assets/videos/vrluyan.png';
+import vr_dunhuang from '@/assets/images/vr_dunhuang.jpg';
 
 
 export const beautyCases = [
@@ -268,21 +276,25 @@ export const beautyVideos = {
     {
       id: 'hami',
       title: '哈密',
+      thumbnail: hami_bg, // 使用第一张图片作为缩略图
       videoUrl: hamiVideo, // 使用导入的视频资源
     }, 
     {
       id: 'kashi',
       title: '喀什',
+      thumbnail: kashi_bg, // 使用第一张图片作为缩略图
       videoUrl: kashiVideo, // 使用导入的视频资源
     },
     {
       id: 'akesu',
       title: '阿克苏',
+      thumbnail: akesu_bg, // 使用第一张图片作为缩略图
       videoUrl: akesuVideo, // 使用导入的视频资源
     },
     {
       id: 'tulufan',
       title: '吐鲁番',
+      thumbnail: tulufan_bg, // 使用第一张图片作为缩略图
       videoUrl: tulufanVideo, // 使用导入的视频资源
     },
   ],
@@ -292,18 +304,20 @@ export const beautyVideos = {
     {
       id: 'huaxizi',
       title: '花西子宣传视频',
+      thumbnail: huaxizi_bg, // 使用第一张图片作为缩略图
       videoUrl: huaxizi, // 使用导入的视频资源
     },
     {
       id: 'shanshi',
       title: '山师大叔视频',
+      thumbnail: shanshi_bg, // 使用第一张图片作为缩略图
       videoUrl: shanshi, // 使用导入的视频资源
     },
   ],
 };
 
 export const beautyVR = [
-  { id: 'vr1', title: '敦煌场馆', vrUrl: vr1, description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。' },
+  { id: 'vr1', title: '敦煌场馆', vrUrl: vr1, description: '在全景360度体验中探索我们的虚拟美妆工作室。沉浸式漫游，感受Éclat的艺术氛围。', thumbnail: vr_dunhuang },
   { id: 'vr2', title: '沉浸式妆容应用演示', vrUrl: 'https://www.example.com/your-vr-experience-2', description: '步入虚拟演示，体验复杂妆容的沉浸式应用技巧，从不同角度观察细节。' },
   { id: 'vr3', title: 'VR路演', vrUrl: vr1, description: '通过VR技术，提前感受未来美妆的潮流与创新，拓宽你的美妆视野。', thumbnail: vrluyan }, // 添加缩略图链接
 ];
