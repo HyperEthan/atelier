@@ -17,27 +17,27 @@ const router = createRouter({
     {
       path: '/vr_scene',
       name: 'vr_scene',
-      component: () => import('../views/VrShowcasePage.vue'), // 懒加载
+      component: import('../views/VrShowcasePage.vue'), // 懒加载
     },
     {
       path: '/textbooks',
       name: 'textbooks',
-      component: () => import('../views/ETeachingPage.vue'), // 懒加载
+      component: import('../views/ETeachingPage.vue'), // 懒加载
     },
     {
       path: '/images',
       name: 'images',
-      component: () => import('../views/ImagesPage.vue'), // 懒加载
+      component: import('../views/ImagesPage.vue'), // 懒加载
     },
     {
       path: '/videos',
       name: 'videos',
-      component: () => import('../views/VideosPage.vue'), // 懒加载
+      component: import('../views/VideosPage.vue'), // 懒加载
     },
     {
       path: '/tutorials',
       name: 'tutorials',
-      component: () => import('../views/TutorialsPage.vue'), // 懒加载
+      component: import('../views/TutorialsPage.vue'), // 懒加载
     },
     {
       path: '/tutorials/:id', // 动态路由，用于教程详情页
@@ -48,7 +48,7 @@ const router = createRouter({
     {
       path: '/makeup_home', // <-- Add this route
       name: 'makeup_home',
-      component: () => import('../views/MakeupHome.vue'), // 懒加载
+      component: import('../views/MakeupHome.vue'), // 懒加载
     },
     {
       path: '/collections', // <-- Add this route
@@ -58,7 +58,7 @@ const router = createRouter({
     {
       path: '/learning_analytics', // <-- Add this route
       name: 'learning_analytics',
-      component: () => import('../views/LearningAnalyticsPage.vue'), // 懒加载
+      component: import('../views/LearningAnalyticsPage.vue'), // 懒加载
     },
     {
       path: '/atelier',
@@ -73,43 +73,43 @@ const router = createRouter({
     {
       path: '/learning',
       name: 'learning',
-      component: () => import('../views/LearningPage.vue'), // 懒加载
+      component: import('../views/LearningPage.vue'), // 懒加载
     },
     {
       path: '/microlecture',
       name: 'microlecture',
-      component: () => import('../views/MicroCourses.vue'), // 懒加载
+      component: import('../views/MicroCourses.vue'), // 懒加载
     },
     {
       path: '/samples',
       name: 'samples',
-      component: () => import('../views/SampleShowcase.vue'), // 懒加载
+      component: import('../views/SampleShowcase.vue'), // 懒加载
     },
     {
       path: '/makeup_design',
       name: 'makeup_design',
-      component: () => import('../views/AIBeautyAssistant.vue'), // 懒加载
+      component: import('../views/AIBeautyAssistant.vue'), // 懒加载
     },
     {
       path: '/showcase',
       name: 'showcase',
-      component: () => import('../views/StudentShowcase.vue'), // 懒加载
+      component: import('../views/StudentShowcase.vue'), // 懒加载
     },
     {
       path: '/real_scene',
       name: 'real_scene',
-      component: () => import('../views/RealityExperience.vue'), // 懒加载
+      component: import('../views/RealityExperience.vue'), // 懒加载
     },
     {
       path: '/board',
       name: 'board',
-      component: () => import('../views/TeacherStudentMessages.vue'), // 懒加载
+      component: import('../views/TeacherStudentMessages.vue'), // 懒加载
     },
     // 添加一个 404 页面
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => import('../views/NotFoundPage.vue'), // 懒加载
+      component: import('../views/NotFoundPage.vue'), // 懒加载
     },
   ],
   // 保持滚动位置，增强用户体验
