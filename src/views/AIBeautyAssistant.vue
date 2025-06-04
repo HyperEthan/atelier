@@ -11,6 +11,7 @@ import animatedImage from '@/assets/images/zhuangbao.gif'; // 静态妆宝图片
 import voice0 from '@/assets/voice/voice0.mp3'; // 欢迎语音
 import voice1 from '@/assets/voice/voice1.mp3'; // 分析结果语音
 import voice2 from '@/assets/voice/voice2.mp3'; // 语音提示
+import zhuangrong1 from '@/assets/images/zhuangrong1.jpg'; // 妆容分析语音
 
 // --- 妆宝形象状态 ---
 const beautyAssistantImage = ref(''); // 当前展示的妆宝图片/GIF URL
@@ -56,14 +57,25 @@ const playSpeech = (audio) => {
 //     ElMessage.success('语音播报结束。');
 //   }, duration);
 };
-
+const count = ref(0); // 计数器，用于模拟语音播放次数
 const listening = () => {
     isListening.value = !isListening.value; // 切换聆听状态
     if (!isListening.value) {
+      userUploadedPhotoUrl.value = zhuangrong1; // 停止聆听时清空上传的图片
+      if(count.value < 1) {
+        count.value++;
+        ElMessage.success('图片上传成功，妆宝即将为您分析！');
+        // 立即开始分析
         startAnalysis(
-            "好的，下面是PS的使用操作流程：打开PS软件，导入图片后，选择“钢笔工具”或“画笔工具”，开启“平滑”功能，调整画笔流量至60%-80%，通过 “路径描边”功能生成流畅线条；若需修正已有线条，可使用“液化工具”中的 “向前变形”功能轻轻拖拽调整。",
+          "好的请稍等，根据图片分析，您的线条存在抖动，发现眼线处的纸张有破损现象。建议您加强握笔练习的方法，可以尝试分段画法。推荐您使用醒图、PS、美图秀秀、画世界等软件。",
+          voice1
+        );
+      } else {
+        startAnalysis(
+            "好的，下面是美图秀秀的使用操作流程：打开美图软件，点击人像美容，选择需修图的照片，进入美妆功能，点击眼妆分类在眼线的选项中挑选合适的眼线样式，通过颜色、粗细、长度、等参数调整眼线效果，利用橡皮擦或画笔工具微调细节，确认后点击保存照片。",
             voice2
         );
+      }
     }
 }
 
@@ -76,12 +88,12 @@ const analysisDuration = ref(5000); // 模拟分析持续时间 (毫秒)
 // 上传文件成功后的回调
 const handleUploadSuccess = (uploadFile) => {
   userUploadedPhotoUrl.value = URL.createObjectURL(uploadFile.raw);
-  ElMessage.success('图片上传成功，妆宝即将为您分析！');
-  // 立即开始分析
-  startAnalysis(
-    "好的请稍等，根据图片分析，您的线条存在抖动和弧度不均匀的问题。建议您加强握笔练习的方法，可以尝试分段描画。推荐您使用醒图、PS、画世界等软件。",
-    voice1
-  );
+  // ElMessage.success('图片上传成功，妆宝即将为您分析！');
+  // // 立即开始分析
+  // startAnalysis(
+  //   "好的请稍等，根据图片分析，您的线条存在抖动和弧度不均匀的问题。建议您加强握笔练习的方法，可以尝试分段描画。推荐您使用醒图、PS、画世界等软件。",
+  //   voice1
+  // );
 };
 
 // 上传前的校验
@@ -101,7 +113,7 @@ const beforeUpload = (rawFile) => {
 };
 
 // 模拟分析过程
-const startAnalysis = (description="好的请稍等，根据图片分析，您的线条存在抖动和弧度不均匀的问题。建议您加强握笔练习的方法，可以尝试分段描画。推荐您使用醒图、PS、画世界等软件。", voice=voice1) => {
+const startAnalysis = (description="好的请稍等，根据图片分析，您的线条存在抖动和弧度不均匀的问题。建议您加强握笔练习的方法，可以尝试分段描画。推荐您使用醒图、PS、画世界等软件。", voice) => {
   isAnalyzing.value = true;
   showAnalysisResult.value = false; // 清空旧结果
   analysisResult.value = '';

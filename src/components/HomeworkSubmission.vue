@@ -24,6 +24,32 @@ import zhuangxiao4 from '@/assets/images/homework/3/zhuangxiao4.jpg';
 import zhuangxiao5 from '@/assets/images/homework/3/zhuangxiao5.jpg';
 import zhuangxiao6 from '@/assets/images/homework/3/zhuangxiao6.jpg';
 
+import tuiguang1 from '@/assets/images/homework/4/1.png';
+import tuiguang2 from '@/assets/images/homework/4/2.png';
+import tuiguang3 from '@/assets/images/homework/4/3.png';
+import tuiguang4 from '@/assets/images/homework/4/4.png';
+import tuiguang5 from '@/assets/images/homework/4/5.png';
+import tuiguang6 from '@/assets/images/homework/4/6.png';
+
+import lianxi1 from '@/assets/images/homework/2/lianxi1.jpg';
+import lianxi2 from '@/assets/images/homework/2/lianxi2.jpg';
+import lianxi3 from '@/assets/images/homework/2/lianxi3.jpg';
+import lianxi4 from '@/assets/images/homework/2/lianxi4.jpg';
+
+import work_1 from '@/assets/images/homework/2/1.jpg';
+import work_2 from '@/assets/images/homework/2/2.jpg';
+import work_3 from '@/assets/images/homework/2/3.jpg';
+import work_4 from '@/assets/images/homework/2/4.jpg';
+import work_5 from '@/assets/images/homework/2/5.jpg';
+import work_6 from '@/assets/images/homework/2/6.jpg';
+
+import work2_1 from '@/assets/images/homework/2/work2_1.jpg';
+import work2_2 from '@/assets/images/homework/2/work2_2.jpg';
+import work2_3 from '@/assets/images/homework/2/work2_3.jpg';
+import work2_4 from '@/assets/images/homework/2/work2_4.jpg';
+import work2_5 from '@/assets/images/homework/2/work2_5.jpg';
+import work2_6 from '@/assets/images/homework/2/work2_6.jpg';
+
 //
 
 // Mock data: course modules
@@ -43,10 +69,30 @@ const courseModules = ref([
     label: '方案设计',
     value: 'solution-design',
     description: '制定并设计详细的定妆方案。',
-    images: [
-      { id: 'sd-001', url: 'https://picsum.photos/id/237/200/200', status: 'pending', score: null, feedback: null },
-      { id: 'sd-002', url: 'https://picsum.photos/id/238/200/200', status: 'evaluated', score: 92, feedback: '设计方案创新，考虑周全。' },
-    ]
+    images: {
+      lianxi: [
+        { id: 'li-001', url: lianxi1, status: 'pending', score: null, feedback: null },
+        { id: 'li-002', url: lianxi2, status: 'pending', score: null, feedback: null },
+        { id: 'li-003', url: lianxi3, status: 'pending', score: null, feedback: null },
+        { id: 'li-004', url: lianxi4, status: 'pending', score: null, feedback: null },
+      ],
+      work1: [
+        { id: 'wo-001', url: work_1, status: 'pending', score: null, feedback: '感觉颜色不够鲜艳' },
+        { id: 'wo-002', url: work_2, status: 'pending', score: null, feedback: '眉毛和睫毛的线条弯弯曲曲的' },
+        { id: 'wo-003', url: work_3, status: 'pending', score: null, feedback: '总感觉色块太严重的，画不出渐变效果' },
+        { id: 'wo-004', url: work_4, status: 'pending', score: null, feedback: '灰蒙蒙的，感觉没有立体感' },
+        { id: 'wo-005', url: work_5, status: 'pending', score: null, feedback: '嘴巴画不出立体感' },
+        { id: 'wo-006', url: work_6, status: 'pending', score: null, feedback: '眉毛总是画不对称' },
+      ],
+      work2: [
+        { id: 'wo2-001', url: work2_1, status: 'pending', score: null, feedback: null },
+        { id: 'wo2-002', url: work2_2, status: 'pending', score: null, feedback: null },
+        { id: 'wo2-003', url: work2_3, status: 'pending', score: null, feedback: null },
+        { id: 'wo2-004', url: work2_4, status: 'pending', score: null, feedback: null },
+        { id: 'wo2-005', url: work2_5, status: 'pending', score: null, feedback: null },
+        { id: 'wo2-006', url: work2_6, status: 'pending', score: null, feedback: null },
+      ]
+    }
   },
   {
     label: '定妆实施',
@@ -76,9 +122,12 @@ const courseModules = ref([
     value: 'expansion-promotion',
     description: '将成果进行推广，探索进一步的拓展可能性。',
     images: [
-      { id: 'ep-001', url: 'https://picsum.photos/id/239/200/200', status: 'evaluated', score: 78, feedback: '推广渠道建议可更具体。' },
-      { id: 'ep-002', url: 'https://picsum.photos/id/240/200/200', status: 'pending', score: null, feedback: null },
-      { id: 'ep-003', url: 'https://picsum.photos/id/241/200/200', status: 'evaluated', score: 88, feedback: '市场分析深入，策略可行。' },
+      { id: 'ep-001', url: tuiguang1, status: 'pending', score: null, feedback: null },
+      { id: 'ep-002', url: tuiguang2, status: 'pending', score: null, feedback: null },
+      { id: 'ep-003', url: tuiguang3, status: 'pending', score: null, feedback: null },
+      { id: 'ep-004', url: tuiguang4, status: 'pending', score: null, feedback: null },
+      { id: 'ep-005', url: tuiguang5, status: 'pending', score: null, feedback: null },
+      { id: 'ep-006', url: tuiguang6, status: 'pending', score: null, feedback: null },
     ]
   },
 ]);
@@ -189,6 +238,12 @@ watch(imageDetailDialogVisible, (newValue) => {
                 <el-icon><IconPicture /></el-icon> {{ module.images.hangkong.length > 0 || module.images.lvke.length > 0 ? `${module.images.hangkong.length + module.images.lvke.length} 张图片` : '暂无图片' }}
               </el-tag>
             </div>
+            <div v-else-if="module.value === 'solution-design'" class="card-header">
+              <span class="module-title">{{ module.label }}</span>
+              <el-tag size="small" :type="module.images.lianxi.length > 0 || module.images.work1.length > 0 || module.images.work2.length > 0 ? 'success' : 'info'">
+                <el-icon><IconPicture /></el-icon> {{ module.images.lianxi.length > 0 || module.images.work1.length > 0 || module.images.work2.length > 0 ? `${module.images.lianxi.length + module.images.work1.length + module.images.work2.length} 张图片` : '暂无图片' }}
+              </el-tag>
+            </div>
             <div v-else class="card-header">
               <span class="module-title">{{ module.label }}</span>
               <el-tag size="small" :type="module.images.length > 0 ? 'success' : 'info'">
@@ -198,22 +253,22 @@ watch(imageDetailDialogVisible, (newValue) => {
           </template>
           <div class="module-content">
             <p class="module-description">{{ module.description }}</p>
-            <div v-if="module.value === 'implementation'" class="module-summary">
+            <!-- <div v-if="module.value === 'implementation'" class="module-summary">
               <el-tag :type="module.images.hangkong.filter(img => img.status === 'evaluated').length > 0 || module.images.lvke.filter(img => img.status === 'evaluated').length > 0 ? 'success' : 'info'">
                 <el-icon><CircleCheck /></el-icon> {{ module.images.hangkong.filter(img => img.status === 'evaluated').length + module.images.lvke.filter(img => img.status === 'evaluated').length }} 已评价
               </el-tag>
               <el-tag type="warning">
                 <el-icon><ChatDotRound /></el-icon> {{ module.images.hangkong.filter(img => img.status === 'pending').length + module.images.lvke.filter(img => img.status === 'pending').length }} 待评价
               </el-tag>
-            </div>
-            <div v-else class="module-summary">
+            </div> -->
+            <!-- <div v-else class="module-summary">
               <el-tag :type="module.images.filter(img => img.status === 'evaluated').length > 0 ? 'success' : 'info'">
                 <el-icon><CircleCheck /></el-icon> {{ module.images.filter(img => img.status === 'evaluated').length }} 已评价
               </el-tag>
               <el-tag type="warning">
                 <el-icon><ChatDotRound /></el-icon> {{ module.images.filter(img => img.status === 'pending').length }} 待评价
               </el-tag>
-            </div>
+            </div> -->
           </div>
           <div class="card-footer">
               <el-button type="primary" :icon="View" plain>查看详情</el-button>
@@ -264,6 +319,39 @@ watch(imageDetailDialogVisible, (newValue) => {
           </el-tabs>
           
           
+        </div>
+        <el-empty v-else description="该模块暂无图片"></el-empty>
+      </div>
+      <div v-else-if="currentModule.value === 'solution-design'">
+        <div class="image-list-container design" v-if="currentModule && (currentModule.images.lianxi.length || currentModule.images.work1.length || currentModule.images.work2.length) > 0">
+          <el-tabs type="border-card">
+            <el-tab-pane label="课堂小游戏">
+              <el-row :gutter="40" class="youxi">
+                <el-col :span="12" v-for="image in currentModule.images.lianxi" :key="image.id" class="image-item-col">
+                  <el-card shadow="hover" class="image-item-card">
+                    <el-image :src="image.url" fit="cover" class="list-image" :preview-src-list="[image.url]" :initial-index="0"></el-image>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+            <el-tab-pane label="作业一">
+              <el-row :gutter="20" class="work1">
+                <el-col :span="8" v-for="image in currentModule.images.work1" :key="image.id" class="image-item-col">
+                  <el-image :src="image.url" fit="cover" class="list-image" :preview-src-list="[image.url]" :initial-index="0"></el-image>
+                  <p><span style="font-weight: 600;">留言评论: </span>{{ image.feedback }}</p>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+            <el-tab-pane label="作业二">
+              <el-row :gutter="40" class="work2">
+                <el-col :span="8" v-for="image in currentModule.images.work2" :key="image.id" class="image-item-col">
+                  <el-card shadow="hover" class="image-item-card">
+                    <el-image :src="image.url" fit="cover" class="list-image" :preview-src-list="[image.url]" :initial-index="0"></el-image>
+                  </el-card>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+          </el-tabs>
         </div>
         <el-empty v-else description="该模块暂无图片"></el-empty>
       </div>
@@ -342,8 +430,6 @@ watch(imageDetailDialogVisible, (newValue) => {
 </template>
 
 <style scoped>
-.homework-submission-module {
-}
 
 .page-title {
   text-align: center;
@@ -469,6 +555,34 @@ watch(imageDetailDialogVisible, (newValue) => {
   width: 100%;
   height: 100%;
   transition: transform 0.3s ease;
+}
+
+.work1 {
+  .image-item-col {
+    height: 350px;
+    margin-bottom: 10px;
+  }
+
+  .image-item-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    max-height: 400px; /* Fixed height for consistent layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  :deep(.el-card__body) {
+    height: 380px;
+  }
+
+  .list-image {
+    width: 100%;
+    height: 300px;
+    transition: transform 0.3s ease;
+  }
 }
 
 /* .image-item-card:hover .list-image {

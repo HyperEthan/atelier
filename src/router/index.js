@@ -19,6 +19,7 @@ import AIBeautyAssistant from '../views/AIBeautyAssistant.vue' // AI 美妆助�
 import StudentShowcase from '../views/StudentShowcase.vue' // 学生作品展示页面
 import RealityExperience from '../views/RealityExperience.vue' // 现实体验页面
 import TeacherStudentMessages from '../views/TeacherStudentMessages.vue' // 师生留言板页面
+import MakeupAssessment from '../views/MakeupAssessment.vue' // 化妆评估页面
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -103,6 +104,11 @@ const router = createRouter({
       path: '/makeup_design',
       name: 'makeup_design',
       component: AIBeautyAssistant, // 懒加载
+    },
+    {
+      path: '/makeup_evaluation',
+      name: 'makeup_evaluation',
+      component: MakeupAssessment, // 懒加载
     },
     {
       path: '/showcase',

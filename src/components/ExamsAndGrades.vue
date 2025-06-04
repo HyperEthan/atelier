@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import {
   ElTabs, ElTabPane, ElTable, ElTableColumn, ElButton, ElTag,
   ElDialog, ElForm, ElFormItem, ElInput, ElSelect, ElDatePicker,
@@ -10,6 +10,7 @@ import {
   Notebook, Trophy, Timer, QuestionFilled, Edit,
   DocumentChecked, Plus, CircleCheck, Search, Setting, Calendar
 } from '@element-plus/icons-vue';
+import * as echarts from 'echarts';
 
 // 模拟数据
 const studentExams = ref([
@@ -106,24 +107,18 @@ function calculateOverallGrade() {
 const instructorExams = ref([
   {
     id: 'exam-inst-001',
-    title: '任务分析阶段测试',
-    module: 'task-analysis',
-    moduleLabel: '任务分析',
-    questions: 15,
-    studentsSubmitted: 5,
-    totalStudents: 10,
-    status: 'Active',
+    title: '微课资源视频观看完成度',
+    module: 'expansion-promotion',
+    moduleLabel: '营销推广',
+    finish: '95%',
     creationDate: '2025-05-20',
   },
   {
     id: 'exam-inst-002',
-    title: '方案设计期中考',
-    module: 'solution-design',
-    moduleLabel: '方案设计',
-    questions: 20,
-    studentsSubmitted: 8,
-    totalStudents: 10,
-    status: 'Closed',
+    title: "'营销手段在文化传播中的应用'思考题",
+    module: 'expansion-promotion',
+    moduleLabel: '营销推广',
+    finish: '80%',
     creationDate: '2025-05-15',
   },
 ]);
@@ -205,6 +200,84 @@ const courseModulesOption = ref([
   { label: '拓展推广', value: 'expansion-promotion' },
 ]);
 
+const chartRef1 = ref(null);
+const chartRef2 = ref(null);
+const chartData1 = [
+  {
+    value: 95,
+    name: '已观看'
+  },
+  {
+    value: 5,
+    name: '未观看'
+  }
+]
+const chartData2 = [
+  {
+    value: 80,
+    name: '已提交'
+  },
+  {
+    value: 20,
+    name: '未提交'
+  }
+]
+let chartInstance1 = null
+let chartInstance2 = null
+const initChart = (cref, title, seriesName, cdata, index) => {
+
+  const option = {
+    title: {
+      text: title,
+      left: 'center',
+      top: 10,
+      textStyle: {
+        fontSize: 18,
+        color: '#333',
+      },
+    },
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {d}%',
+    },
+    legend: {
+      bottom: 10,
+      left: 'center',
+    },
+    series: [
+      {
+        name: seriesName,
+        type: 'pie',
+        radius: ['40%', '70%'],
+        avoidLabelOverlap: false,
+        label: {
+          show: true,
+          position: 'outside',
+          formatter: '{b}: {d}%',
+        },
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)',
+          },
+        },
+        labelLine: {
+          show: true,
+        },
+        data: cdata,
+      },
+    ],
+  };
+  if(index === 1) {
+    let chartInstance1 = echarts.init(cref.value);
+    chartInstance1.setOption(option);
+  } else {
+    let chartInstance2 = echarts.init(cref.value);
+    chartInstance2.setOption(option);
+  }
+};
+
 // 模拟考试进行中
 const isTakingExam = ref(false);
 const currentExam = ref(null);
@@ -277,11 +350,18 @@ const submitExam = async () => {
   });
 };
 
+onMounted(() => {
+  setTimeout(() => {
+    initChart(chartRef1, '微课资源视频观看完成度', '观看情况', chartData1, 1);
+    initChart(chartRef2, "'营销手段在文化传播中的应用'思考题", '提交情况', chartData2, 2);
+  }, 1000); // 确保 DOM 已渲染
+})
+
 </script>
 
 <template>
   <div class="exams-grades-module">
-    <div v-if="!isInstructor">
+    <!-- <div v-if="!isInstructor">
       <el-card class="module-card">
         <template #header>
           <div class="card-header">
@@ -391,39 +471,37 @@ const submitExam = async () => {
           <el-table-column prop="feedback" label="反馈" min-width="200"></el-table-column>
         </el-table>
       </el-card>
-    </div>
+    </div> -->
 
-    <div v-else>
+    <div>
       <el-card class="module-card">
         <template #header>
           <div class="card-header">
-            <span><el-icon><Setting /></el-icon> 考试管理 (教师/管理员)</span>
+            <span><el-icon><Setting /></el-icon> 考试统计 </span>
             <el-button type="primary" :icon="Plus" @click="dialogVisible = true" style="margin-left: auto;">
               新建考试
             </el-button>
           </div>
         </template>
-        <el-table :data="instructorExams" style="width: 100%" border class="excel-table" empty-text="暂无考试。">
+        <!-- <el-table :data="instructorExams" style="width: 100%" border class="excel-table" empty-text="暂无考试。">
           <el-table-column prop="title" label="考试名称" min-width="180"></el-table-column>
-          <el-table-column prop="moduleLabel" label="课程模块" width="120"></el-table-column>
-          <el-table-column prop="questions" label="题目数量" width="100"></el-table-column>
-          <el-table-column label="提交学生" width="120">
-            <template #default="scope">
-              {{ scope.row.studentsSubmitted }} / {{ scope.row.totalStudents }}
-            </template>
-          </el-table-column>
-          <el-table-column prop="status" label="状态" width="100"></el-table-column>
+          <el-table-column prop="moduleLabel" label="课程模块" min-width="120"></el-table-column>
+          <el-table-column prop="finish" label="完成度" min-width="100"></el-table-column>
           <el-table-column prop="creationDate" label="创建日期" width="120"></el-table-column>
-          <el-table-column label="操作" width="150" fixed="right">
-            <template #default="scope">
-              <el-button size="small" :icon="Edit">编辑</el-button>
-              <el-button size="small" type="success" :icon="DocumentChecked">评分</el-button>
-            </template>
-          </el-table-column>
-        </el-table>
+        </el-table> -->
+        <div class="flex">
+          <el-row :gutter="20">
+              <el-col :span="24" class="chart-col">
+                <div ref="chartRef1" class="chart1" style="width: 100%; height: 400px;"></div>
+              </el-col>
+              <el-col :span="24" class="chart-col">
+                <div ref="chartRef2" class="chart2"></div>
+              </el-col>
+          </el-row>
+        </div>
       </el-card>
 
-      <el-card class="module-card">
+      <!-- <el-card class="module-card">
         <template #header>
           <div class="card-header">
             <span><el-icon><Search /></el-icon> 学生成绩总览 (教师/管理员)</span>
@@ -458,7 +536,7 @@ const submitExam = async () => {
             </template>
           </el-table-column>
         </el-table>
-      </el-card>
+      </el-card> -->
     </div>
 
     <el-dialog v-model="dialogVisible" title="新建考试" width="60%" class="new-exam-dialog">
@@ -551,6 +629,24 @@ const submitExam = async () => {
   margin-bottom: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.chart-col {
+  width: 100%;
+  height: 400px;
+  /* margin-bottom: 10px; */
+}
+
+.chart1 {
+  width: 100%;
+  min-width: 400px;
+  height: 400px;
+}
+
+.chart2 {
+  width: 100%;
+  min-width: 400px;
+  height: 400px;
 }
 
 .card-header {

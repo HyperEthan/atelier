@@ -10,38 +10,44 @@ import shijing5 from '@/assets/images/shijing/shijing5.jpg';
 import shijing6 from '@/assets/images/shijing/shijing6.jpg';
 import video4 from '@/assets/videos/shijing/shijing4.mp4';
 
+
 // 模拟场景数据
 const scenes = ref([
   {
     id: 'scene-001',
-    name: '现代客厅',
+    name: '候机大厅',
     cover: shijing1,
+    background: shijing1 // 弹窗中使用的背景图
   },
   {
     id: 'scene-002',
-    name: '温馨卧室',
+    name: '飞机座舱',
     cover: shijing2,
+    background: shijing2
   },
   {
     id: 'scene-003',
-    name: '创意办公室',
+    name: '机场检票',
     cover: shijing3,
+    background: shijing3
   },
   {
     id: 'scene-004',
-    name: '户外花园',
+    name: '新疆喀什地区',
     cover: shijing4,
-    background: video4
+    background: shijing4
   },
   {
     id: 'scene-005',
-    name: '静谧图书馆',
+    name: '山区梯田',
     cover: shijing5,
+    background: shijing5
   },
   {
     id: 'scene-006',
-    name: '赛博朋克街景',
+    name: '景点阁楼',
     cover: shijing6,
+    background: shijing6
   },
 ]);
 
@@ -79,7 +85,7 @@ const closeDialog = () => {
             <el-image :src="scene.cover" :alt="scene.name" fit="cover" class="scene-cover" />
           </div>
           <div class="scene-info">
-            <!-- <h3 class="scene-name">{{ scene.name }}</h3> -->
+            <h3 class="scene-name">{{ scene.name }}</h3>
             <p class="scene-action">点击体验</p>
           </div>
         </el-card>
@@ -88,7 +94,7 @@ const closeDialog = () => {
 
     <el-dialog
       v-model="dialogVisible"
-      title="场景体验"
+      :title="currentSelectedScene ? `场景体验 - ${currentSelectedScene.name}` : '场景体验'"
       fullscreen
       :before-close="closeDialog"
       class="scene-experience-dialog-wrapper"
