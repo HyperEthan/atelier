@@ -73,7 +73,17 @@ onMounted(() => {
   // Initialize some works
   const initialWorksCount = 6;
   for (let i = 0; i < initialWorksCount; i++) {
-    addRandomWork(false, true); // Ensure initial works are added (add: true)
+    const imageUrl = placeholderImages[i];
+    const newWork = {
+        id: `work-${Date.now()}-${newWorksCounter++}`,
+        src: imageUrl,
+        alt: `学生作品 ${newWorksCounter}`,
+        author: `学生${String.fromCharCode(65 + Math.floor(Math.random() * 26))}`, // 模拟作者
+        uploadTime: new Date().toLocaleTimeString(), // 模拟上传时间
+        isNew: true // 标记为新作品，用于动画或高亮
+    };
+    studentWorks.value.unshift(newWork); // 插入到数组开头
+    previewSrcList.value.unshift(newWork.src); // 更新预览列表
   }
 
   uploadInterval = setInterval(() => {

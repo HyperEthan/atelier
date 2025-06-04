@@ -6,6 +6,20 @@ import ContactPage from '../views/ContactPage.vue' // 你需要创建这个页�
 import TutorialDetail from '../views/TutorialDetail.vue' // 教程详情页
 import CollectionsPage from '../views/CollectionsPage.vue'
 
+import VrShowcasePage from '../views/VrShowcasePage.vue' // VR 展示页面
+import ETeachingPage from '../views/ETeachingPage.vue' // 电子教材页面
+import ImagesPage from '../views/ImagesPage.vue' // 图片页面
+import VideosPage from '../views/VideosPage.vue' // 视频页面
+import LearningAnalyticsPage from '../views/LearningAnalyticsPage.vue' // 学习分析页面
+import MakeupHome from '../views/MakeupHome.vue' // 化妆主页
+import LearningPage from '../views/LearningPage.vue' // 学习页面
+import MicroCourses from '../views/MicroCourses.vue' // 微课程页面
+import SampleShowcase from '../views/SampleShowcase.vue' // 样品展示页面
+import AIBeautyAssistant from '../views/AIBeautyAssistant.vue' // AI 美妆助手页面
+import StudentShowcase from '../views/StudentShowcase.vue' // 学生作品展示页面
+import RealityExperience from '../views/RealityExperience.vue' // 现实体验页面
+import TeacherStudentMessages from '../views/TeacherStudentMessages.vue' // 师生留言板页面
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -17,27 +31,27 @@ const router = createRouter({
     {
       path: '/vr_scene',
       name: 'vr_scene',
-      component: import('../views/VrShowcasePage.vue'), // 懒加载
+      component: VrShowcasePage, // 懒加载
     },
     {
       path: '/textbooks',
       name: 'textbooks',
-      component: import('../views/ETeachingPage.vue'), // 懒加载
+      component: ETeachingPage, // 懒加载
     },
     {
       path: '/images',
       name: 'images',
-      component: import('../views/ImagesPage.vue'), // 懒加载
+      component: ImagesPage, // 懒加载
     },
     {
       path: '/videos',
       name: 'videos',
-      component: import('../views/VideosPage.vue'), // 懒加载
+      component: VideosPage, // 懒加载
     },
     {
       path: '/tutorials',
       name: 'tutorials',
-      component: import('../views/TutorialsPage.vue'), // 懒加载
+      component: TutorialsPage, // 懒加载
     },
     {
       path: '/tutorials/:id', // 动态路由，用于教程详情页
@@ -48,7 +62,7 @@ const router = createRouter({
     {
       path: '/makeup_home', // <-- Add this route
       name: 'makeup_home',
-      component: import('../views/MakeupHome.vue'), // 懒加载
+      component: MakeupHome, // 懒加载
     },
     {
       path: '/collections', // <-- Add this route
@@ -58,7 +72,7 @@ const router = createRouter({
     {
       path: '/learning_analytics', // <-- Add this route
       name: 'learning_analytics',
-      component: import('../views/LearningAnalyticsPage.vue'), // 懒加载
+      component: LearningAnalyticsPage, // 懒加载
     },
     {
       path: '/atelier',
@@ -73,37 +87,37 @@ const router = createRouter({
     {
       path: '/learning',
       name: 'learning',
-      component: import('../views/LearningPage.vue'), // 懒加载
+      component: LearningPage, // 懒加载
     },
     {
       path: '/microlecture',
       name: 'microlecture',
-      component: import('../views/MicroCourses.vue'), // 懒加载
+      component: MicroCourses, // 懒加载
     },
     {
       path: '/samples',
       name: 'samples',
-      component: import('../views/SampleShowcase.vue'), // 懒加载
+      component: SampleShowcase, // 懒加载
     },
     {
       path: '/makeup_design',
       name: 'makeup_design',
-      component: import('../views/AIBeautyAssistant.vue'), // 懒加载
+      component: AIBeautyAssistant, // 懒加载
     },
     {
       path: '/showcase',
       name: 'showcase',
-      component: import('../views/StudentShowcase.vue'), // 懒加载
+      component: StudentShowcase, // 懒加载
     },
     {
       path: '/real_scene',
       name: 'real_scene',
-      component: import('../views/RealityExperience.vue'), // 懒加载
+      component: RealityExperience, // 懒加载
     },
     {
       path: '/board',
       name: 'board',
-      component: import('../views/TeacherStudentMessages.vue'), // 懒加载
+      component: TeacherStudentMessages, // 懒加载
     },
     // 添加一个 404 页面
     {
