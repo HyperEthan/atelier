@@ -118,7 +118,7 @@ const handleSearch = () => {
 
     <div class="user-profile">
       <img :src="avatar" alt="User Avatar" class="user-avatar" />
-      <span class="username">张雅</span>
+      <span class="username">20091010</span>
     </div>
   </header>
 </template>

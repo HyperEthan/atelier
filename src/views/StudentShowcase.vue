@@ -92,9 +92,9 @@ onMounted(() => {
     }
   }, 1000);
 
-  uploadInterval = setInterval(() => {
-    addRandomWork(true, false); // Set 'add' to 'true' here to actually add the work
-  }, uploadFrequency);
+  // uploadInterval = setInterval(() => {
+  //   addRandomWork(true, false); // Set 'add' to 'true' here to actually add the work
+  // }, uploadFrequency);
 });
 
 onUnmounted(() => {
