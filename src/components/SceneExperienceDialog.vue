@@ -78,17 +78,17 @@ const handleAvatarSuccess = (response, uploadFile) => {
 };
 
 const beforeAvatarUpload = (rawFile) => {
-  const isJPGPNG = rawFile.type === 'image/jpeg' || rawFile.type === 'image/png';
-  const isLt2M = rawFile.size / 1024 / 1024 < 2;
+//   const isJPGPNG = rawFile.type === 'image/jpeg' || rawFile.type === 'image/png';
+//   const isLt2M = rawFile.size / 1024 / 1024 < 2;
 
   if (!isJPGPNG) {
     ElMessage.error('上传人物图片只能是 JPG 或 PNG 格式!');
     return false;
   }
-  if (!isLt2M) {
-    ElMessage.error('上传人物图片大小不能超过 2MB!');
-    return false;
-  }
+//   if (!isLt2M) {
+//     ElMessage.error('上传人物图片大小不能超过 2MB!');
+//     return false;
+//   }
   return true;
 };
 
@@ -96,6 +96,10 @@ const beforeAvatarUpload = (rawFile) => {
 const simulatedResultUrl = ref('');
 const isSimulating = ref(false);
 const count = ref(0);
+
+const addPicture = () => {
+    userPhotoUrl.value = tiyan1
+};
 
 const simulateEffect = () => {
   if (!userPhotoUrl.value) {
@@ -108,26 +112,26 @@ const simulateEffect = () => {
   ElMessage.info('正在生成模拟效果图...');
 
   // 模拟耗时操作，例如5秒
-  if (count.value < 1) {
-    count.value++;
-      setTimeout(() => {
-        // 实际项目中，这里会调用后端API，根据参数生成真实图片
-        // 这里我们简单地根据参数生成一个模拟URL
-        // const paramsHash = btoa(JSON.stringify({ ...simulationParams.value, sceneId: props.selectedScene.id }));
-        simulatedResultUrl.value = tiyanxiaoguo1;
-        isSimulating.value = false;
-        ElMessage.success('模拟效果图生成成功！');
-      }, 5000);
-  } else {
-    setTimeout(() => {
-        // 实际项目中，这里会调用后端API，根据参数生成真实图片
-        // 这里我们简单地根据参数生成一个模拟URL
-        // const paramsHash = btoa(JSON.stringify({ ...simulationParams.value, sceneId: props.selectedScene.id }));
-        simulatedResultUrl.value = tiyanxiaoguo2;
-        isSimulating.value = false;
-        ElMessage.success('模拟效果图生成成功！');
-      }, 5000);
-  }
+//   if (count.value < 1) {
+//     count.value++;
+//       setTimeout(() => {
+//         // 实际项目中，这里会调用后端API，根据参数生成真实图片
+//         // 这里我们简单地根据参数生成一个模拟URL
+//         // const paramsHash = btoa(JSON.stringify({ ...simulationParams.value, sceneId: props.selectedScene.id }));
+//         simulatedResultUrl.value = tiyanxiaoguo1;
+//         isSimulating.value = false;
+//         ElMessage.success('模拟效果图生成成功！');
+//       }, 5000);
+//   } else {
+// }
+setTimeout(() => {
+    // 实际项目中，这里会调用后端API，根据参数生成真实图片
+    // 这里我们简单地根据参数生成一个模拟URL
+    // const paramsHash = btoa(JSON.stringify({ ...simulationParams.value, sceneId: props.selectedScene.id }));
+    simulatedResultUrl.value = tiyanxiaoguo2;
+    isSimulating.value = false;
+    ElMessage.success('模拟效果图生成成功！');
+  }, 5000);
 };
 
 // 清理 URL.createObjectURL 创建的临时 URL，防止内存泄漏
@@ -138,7 +142,7 @@ onUnmounted(() => {
 });
 
 onMounted(() => {
-    userPhotoUrl.value = tiyan1
+    
 })
 </script>
 
@@ -160,7 +164,7 @@ onMounted(() => {
           <el-icon v-else class="avatar-uploader-icon"><UploadFilled /></el-icon>
           <div v-if="!userPhotoUrl" class="upload-tip">点击或拖拽上传人物图片</div>
         </el-upload>
-        <p class="upload-requirements">支持JPG/PNG格式，小于2MB</p>
+        <p class="upload-requirements" @click="addPicture">支持JPG/PNG格式</p>
       </div>
 
       <el-form :model="simulationParams" label-position="top" class="params-form">

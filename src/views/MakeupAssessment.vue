@@ -314,8 +314,6 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   align-items: flex-start; /* 顶部对齐 */
-  gap: 40px;
-  flex-wrap: wrap; /* 允许换行 */
 }
 
 /* 左侧：数字人面板 */
@@ -532,16 +530,42 @@ onUnmounted(() => {
 }
 
 /* 响应式调整 */
+@media (max-width: 1366px) {
+  .main-assessment-area {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .avatar-uploader {
+        width: 200px;
+        height: 250px;
+        border-radius: 15px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto 15px;
+        background-color: #acaeba40;
+    }
+    .assessment-result-box {
+        width: 230px;
+        height: max-content;
+        padding: 20px;
+        background-color: transparent;
+        margin-top: 110px;
+        border-radius: 15px;
+        text-align: left;
+        border: 1px solid #12e6ea;
+        box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+}
+
 @media (max-width: 992px) {
   .main-assessment-area {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 30px;
   }
   .ai-avatar-panel, .upload-assessment-panel {
-    flex: none; /* 取消弹性 */
-    width: 95%; /* 占据更多宽度 */
-    max-width: 500px; /* 限制最大宽度 */
+    max-width: 300px; /* 限制最大宽度 */
   }
 
   .page-title {
