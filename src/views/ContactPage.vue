@@ -107,7 +107,7 @@ const handleSubmit = async () => {
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
   position: relative;
   padding-bottom: var(--spacing-sm);
 }
@@ -128,7 +128,7 @@ const handleSubmit = async () => {
   font-size: 1.1rem;
   max-width: 800px;
   margin: 0 auto var(--spacing-xl);
-  color: var(--color-text-dark);
+  color: #fff;
 }
 
 .contact-content {
@@ -151,7 +151,7 @@ const handleSubmit = async () => {
 
 .contact-form .el-form-item__label {
   font-weight: bold;
-  color: var(--color-primary-dark);
+  color: #fff;
 }
 
 .contact-form .el-input,
@@ -160,9 +160,9 @@ const handleSubmit = async () => {
 }
 
 .contact-form .el-button--primary {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  color: var(--color-primary-light);
+  background-color: #fff;
+  border-color: #fff;
+  color: #fff;
   width: 100%; /* Make button full width */
 }
 
@@ -172,7 +172,7 @@ const handleSubmit = async () => {
 }
 
 .contact-info {
-  background-color: var(--color-primary-light);
+  background-color: #fff;
   padding: var(--spacing-md);
   border: 1px solid var(--color-border);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
@@ -181,12 +181,12 @@ const handleSubmit = async () => {
 .contact-info h3 {
   font-size: 1.8rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
 }
 
 .contact-info p {
   margin-bottom: var(--spacing-sm);
-  color: var(--color-text-dark);
+  color: #fff;
 }
 
 .contact-info a {

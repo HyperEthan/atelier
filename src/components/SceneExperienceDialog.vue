@@ -263,7 +263,7 @@ onMounted(() => {
   display: flex;
   height: 100%; /* 填充父容器高度 */
   gap: 20px;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 8px;
   overflow: hidden; /* 确保内部滚动 */
 }
@@ -271,33 +271,22 @@ onMounted(() => {
 /* 左侧控制面板 */
 .control-panel {
   flex: 0 0 350px; /* 固定宽度 */
-  background-color: #f7f9fb;
+  background-color: #c24a6e;
   padding: 25px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #eee;
   overflow-y: auto; /* 允许滚动 */
   box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.03);
+  border-radius: 8px;
 }
 
 .control-panel h3 {
   font-size: 1.4rem;
-  color: #303133;
+  color: #fff;
   margin-bottom: 20px;
   text-align: center;
   position: relative;
   padding-bottom: 10px;
-}
-.control-panel h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: #d81b60;
-    border-radius: 2px;
 }
 
 .upload-area {
@@ -327,7 +316,7 @@ onMounted(() => {
 }
 .avatar-uploader-icon {
   font-size: 40px;
-  color: #8c939d;
+  color: #fff;
   width: 100%;
   height: 100%;
   display: flex;
@@ -347,11 +336,11 @@ onMounted(() => {
   width: 100%;
   text-align: center;
   font-size: 0.8em;
-  color: #909399;
+  color: #fff;
 }
 .upload-requirements {
   font-size: 0.8em;
-  color: #909399;
+  color: #fff;
   text-align: center;
 }
 
@@ -379,6 +368,32 @@ onMounted(() => {
   padding: 12px 0;
   font-size: 1.1rem;
   align-self: center; /* 按钮在自身flex容器中居中 */
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
+}
+
+.simulate-button:hover {
+  background-color: #762239;
+  border-color: #762239;
+}
+
+:deep(.el-form-item__label) {
+  color: #fff;
+}
+
+:deep(.el-radio__label) {
+  color: #fff;
+}
+
+:deep(.is-checked .el-radio__label) {
+  color: #fff; /* 确保选中状态的单选按钮文字颜色 */
+}
+
+:deep(.el-radio__input.is-checked .el-radio__inner) {
+  background-color: #762239; /* 确保选中状态的单选按钮背景颜色 */
+  border-color: #762239; /* 确保选中状态的单选按钮边框颜色 */
 }
 
 /* 右侧效果展示区 */
@@ -386,35 +401,26 @@ onMounted(() => {
   flex: 1; /* 占据剩余所有空间 */
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: #c24a6e;
   position: relative;
   overflow-y: auto; /* 允许滚动 */
+  border-radius: 8px;
 }
 
 .result-display-panel h3 {
   font-size: 1.4rem;
-  color: #303133;
+  color: #fff;
   margin-bottom: 20px;
   text-align: center;
   position: relative;
   padding-bottom: 10px;
-}
-.result-display-panel h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: #409eff; /* 蓝色下划线 */
-    border-radius: 2px;
+  margin-top: 10px;
 }
 
 .current-scene-preview {
   margin-bottom: 60px;
   padding-bottom: 20px;
-  border-bottom: 1px dashed #e0e0e0;
+  /* border-bottom: 1px dashed #e0e0e0; */
   text-align: center;
   min-height: 400px;
 }
@@ -439,7 +445,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f2f5;
+  background-color: #762239;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);

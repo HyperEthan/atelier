@@ -132,7 +132,7 @@ const handleSearch = () => {
   top: 0;
   display: flex;
   flex-direction: column;
-  background: #757575; /* 柔和金属光泽 */
+  background: #4c1523; /* 柔和金属光泽 */
   box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3); /* 柔和外阴影，去掉内阴影 */
 }
 
@@ -142,7 +142,7 @@ const handleSearch = () => {
   display: block;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffc4c9;
+  color: #fff;
   text-align: center;
   padding: 20px 0;
   flex-shrink: 0; /* 防止 logo 被压缩 */
@@ -185,16 +185,17 @@ const handleSearch = () => {
   padding: 12px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: #ffc4c9;
+  color: #fff;
+  font-size: 1.2rem;
 }
 
 .menu-title:hover {
-  background-color: #696a6b;
+  background-color: #260810;
 }
 
 .menu-title.active {
-  color: #ffc4c9; /* 亮粉红色激活状态 */
-  background-color: #696a6b;
+  color: #fff; /* 亮粉红色激活状态 */
+  background-color: #260810;
   border-left: 4px solid #D6B98C;
 }
 
@@ -213,13 +214,13 @@ const handleSearch = () => {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #757575;
+  background-color: #4c1523;
 }
 
 .submenu li {
   display: flex;
   margin-left: 0px;
-  color: #ffc4c9;
+  color: #fff;
   margin-top: 5px;
 }
 
@@ -228,20 +229,21 @@ const handleSearch = () => {
   align-items: center;
   width: 250px;
   padding: 12px 0px 12px 40px;
-  color: #ffc4c9;
+  color: #fff;
   text-decoration: none;
   transition: all 0.3s ease;
+  font-size: 1.2rem;
 }
 
 .submenu li a:hover {
-  background-color: #696a6b; /* 淡玫瑰色悬停效果 */
-  color: #ffc4c9; /* 亮粉红色悬停文字 */
+  background-color: #260810; /* 淡玫瑰色悬停效果 */
+  color: #fff; /* 亮粉红色悬停文字 */
 }
 
 .submenu li a.active {
-  background-color: #696a6b;
-  color: #ffc4c9; /* 深玫红色激活状态 */
-  border-left: 4px solid #ffc4c9;
+  background-color: #260810;
+  color: #fff; /* 深玫红色激活状态 */
+  border-left: 4px solid #fff;
 }
 
 /* 动画效果 */
@@ -263,8 +265,8 @@ const handleSearch = () => {
   display: flex;
   align-items: center;
   padding: 15px 20px;
-  background-color: #757575; /* Slightly darker background for the profile section */
-  color: #ffc4c9;
+  background-color: #4c1523; /* Slightly darker background for the profile section */
+  color: #fff;
   border-top: 1px solid #eee;
   flex-shrink: 0; /* Prevent profile section from being compressed */
 }
@@ -280,7 +282,7 @@ const handleSearch = () => {
 .username {
   font-weight: bold;
   font-size: 1.1rem;
-  color: #ffc4c9; /* Light color for better contrast */
+  color: #fff; /* Light color for better contrast */
 }
 
 /* 响应式布局 */

@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 .main-footer {
-  background-color: var(--color-primary-dark);
+  background-color: #fff;
   color: var(--color-text-light);
   padding: var(--spacing-md) 0;
   text-align: center;

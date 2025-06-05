@@ -54,7 +54,6 @@ const launchVrExperience = () => {
       width="80%"
       :fullscreen="true"
       @close="closeVrDialog"
-      custom-class="vr-dialog"
       :align-center="true"
       append-to-body="true"
     >
@@ -84,7 +83,7 @@ const launchVrExperience = () => {
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
   position: relative;
   padding-bottom: var(--spacing-sm);
   font-family: var(--font-heading);
@@ -98,7 +97,7 @@ const launchVrExperience = () => {
   transform: translateX(-50%);
   width: 100px;
   height: 3px;
-  background-color: var(--color-accent);
+  background-color: #b73c62;
 }
 
 .page-intro {
@@ -106,7 +105,7 @@ const launchVrExperience = () => {
   font-size: 1.1rem;
   max-width: 900px;
   margin: 0 auto var(--spacing-xl);
-  color: var(--color-text-dark);
+  color: #fff;
   line-height: 1.6;
 }
 
@@ -150,12 +149,13 @@ const launchVrExperience = () => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #b73c62;
 }
 
 .vr-item-title {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-bottom: var(--spacing-xs);
   line-height: 1.3;
 }
@@ -163,7 +163,7 @@ const launchVrExperience = () => {
 .vr-item-description {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--color-text-dark);
+  color: #fff;
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
   flex-grow: 1;
@@ -175,43 +175,18 @@ const launchVrExperience = () => {
 }
 
 .vr-item-content .el-button {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
+  background-color: #9d3050;
+  border-color: #9d3050;
   color: white;
   width: 100%;
-  font-family: var(--font-body);
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
 }
 
 .vr-item-content .el-button:hover {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  background-color: #762239;
+  border-color: #762239;
 }
 
-/* Dialog Styles */
-.vr-dialog .el-dialog__header {
-  border-bottom: 1px solid var(--color-border);
-  padding: 20px;
-  background-color: var(--color-primary-light);
-  text-align: center;
-}
-.vr-dialog .el-dialog__title {
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  color: var(--color-primary-dark);
-}
-
-.vr-dialog .el-dialog__body {
-  padding: var(--spacing-md);
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 200px;
-}
-.vr-dialog.is-fullscreen .el-dialog__body {
-  padding: var(--spacing-xl);
-}
 
 .vr-dialog-content {
   text-align: center;
@@ -220,7 +195,7 @@ const launchVrExperience = () => {
 
 .dialog-description {
   font-size: 1.1rem;
-  color: var(--color-text-dark);
+  color: #fff;
   margin-bottom: var(--spacing-lg);
   line-height: 1.7;
 }
@@ -248,33 +223,10 @@ const launchVrExperience = () => {
     color: var(--color-text-light);
 }
 
-.vr-dialog .el-button {
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  padding: 12px 25px;
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-}
-
-.vr-dialog .el-button:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-}
-
-.vr-dialog .el-icon {
-  margin-right: 8px;
-}
-
 .vr-note {
   font-size: 0.85rem;
   color: var(--color-text-light);
   margin-top: var(--spacing-sm);
-}
-
-.vr-dialog .el-dialog__footer {
-  border-top: 1px solid var(--color-border);
-  padding: 15px 20px;
-  background-color: var(--color-primary-light);
 }
 
 .video-iframe {
@@ -298,9 +250,6 @@ const launchVrExperience = () => {
   .vr-item-title {
     font-size: 1.3rem;
   }
-  .vr-dialog .el-dialog__title {
-    font-size: 1.8rem;
-  }
   .dialog-description {
     font-size: 1rem;
   }
@@ -315,13 +264,6 @@ const launchVrExperience = () => {
   }
   .vr-item-content {
     padding: var(--spacing-sm);
-  }
-  .vr-dialog .el-dialog__title {
-    font-size: 1.5rem;
-  }
-  .vr-dialog .el-button {
-    font-size: 1rem;
-    padding: 10px 20px;
   }
 }
 </style>

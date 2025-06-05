@@ -42,6 +42,12 @@ import work_3 from '@/assets/images/homework/2/3.jpg';
 import work_4 from '@/assets/images/homework/2/4.jpg';
 import work_5 from '@/assets/images/homework/2/5.jpg';
 import work_6 from '@/assets/images/homework/2/6.jpg';
+import work_7 from '@/assets/images/homework/2/7.jpg';
+import work_8 from '@/assets/images/homework/2/8.jpg';
+import work_9 from '@/assets/images/homework/2/9.jpg';
+import work_10 from '@/assets/images/homework/2/10.jpg';
+import work_11 from '@/assets/images/homework/2/11.jpg';
+import work_12 from '@/assets/images/homework/2/12.jpg';
 
 import work2_1 from '@/assets/images/homework/2/work2_1.jpg';
 import work2_2 from '@/assets/images/homework/2/work2_2.jpg';
@@ -83,6 +89,12 @@ const courseModules = ref([
         { id: 'wo-004', url: work_4, status: 'pending', score: null, feedback: '灰蒙蒙的，感觉没有立体感' },
         { id: 'wo-005', url: work_5, status: 'pending', score: null, feedback: '嘴巴画不出立体感' },
         { id: 'wo-006', url: work_6, status: 'pending', score: null, feedback: '眉毛总是画不对称' },
+        { id: 'wo-007', url: work_7, status: 'pending', score: null, feedback: null },
+        { id: 'wo-008', url: work_8, status: 'pending', score: null, feedback: null },
+        { id: 'wo-009', url: work_9, status: 'pending', score: null, feedback: null },
+        { id: 'wo-010', url: work_10, status: 'pending', score: null, feedback: null },
+        { id: 'wo-011', url: work_11, status: 'pending', score: null, feedback: null },
+        { id: 'wo-012', url: work_12, status: 'pending', score: null, feedback: null },
       ],
       work2: [
         { id: 'wo2-001', url: work2_1, status: 'pending', score: null, feedback: null },
@@ -271,7 +283,7 @@ watch(imageDetailDialogVisible, (newValue) => {
             </div> -->
           </div>
           <div class="card-footer">
-              <el-button type="primary" :icon="View" plain>查看详情</el-button>
+              <el-button class="view-btn" type="primary" :icon="View" plain>查看详情</el-button>
           </div>
         </el-card>
       </el-col>
@@ -325,20 +337,20 @@ watch(imageDetailDialogVisible, (newValue) => {
       <div v-else-if="currentModule.value === 'solution-design'">
         <div class="image-list-container design" v-if="currentModule && (currentModule.images.lianxi.length || currentModule.images.work1.length || currentModule.images.work2.length) > 0">
           <el-tabs type="border-card">
+            <el-tab-pane label="作业一">
+              <el-row :gutter="20" class="work1">
+                <el-col :span="8" v-for="image in currentModule.images.work1" :key="image.id" class="image-item-col">
+                  <el-image :src="image.url" fit="cover" class="list-image" :preview-src-list="[image.url]" :initial-index="0"></el-image>
+                  <p style="color: #fff;"><span style="font-weight: 600; color: #fff;">留言评论: </span>{{ image.feedback }}</p>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
             <el-tab-pane label="课堂小游戏">
               <el-row :gutter="40" class="youxi">
                 <el-col :span="12" v-for="image in currentModule.images.lianxi" :key="image.id" class="image-item-col">
                   <el-card shadow="hover" class="image-item-card">
                     <el-image :src="image.url" fit="cover" class="list-image" :preview-src-list="[image.url]" :initial-index="0"></el-image>
                   </el-card>
-                </el-col>
-              </el-row>
-            </el-tab-pane>
-            <el-tab-pane label="作业一">
-              <el-row :gutter="20" class="work1">
-                <el-col :span="8" v-for="image in currentModule.images.work1" :key="image.id" class="image-item-col">
-                  <el-image :src="image.url" fit="cover" class="list-image" :preview-src-list="[image.url]" :initial-index="0"></el-image>
-                  <p><span style="font-weight: 600;">留言评论: </span>{{ image.feedback }}</p>
                 </el-col>
               </el-row>
             </el-tab-pane>
@@ -406,11 +418,15 @@ watch(imageDetailDialogVisible, (newValue) => {
                 <p>服务点赞</p>
                 <el-progress :percentage="38" :stroke-width="15" striped />
                 <p><strong>留言评论：</strong></p>
-                <div id="score-pie-chart" style="width: 100%; height: 250px;">
-                  <p>留言1：好喜欢这个妆，又温柔又吸睛</p>
-                  <p>留言2：赞赞赞</p>
-                  <p>留言3：模特好漂亮</p>
-                  <p>留言4：化妆师再细心一点哦🤭</p>
+                <div id="score-pie-chart" style="width: 100%;">
+                  <p>学号5005011：好喜欢这个妆，又温柔又吸睛</p>
+                  <p>学号5005012：赞赞赞</p>
+                  <p>学号5005013：模特好漂亮</p>
+                  <p>学号5005014：化妆师再细心一点哦🤭</p>
+                  <p>学号5005015：这个眼妆的配色绝了！亮片和哑光搭配得超有层次感，教程快出！蹲一个～</p>
+                  <p>学号5005016：唇釉质地看起来好丝滑</p>
+                  <p>学号5005017：修容阴影过渡得好自然，鼻梁瞬间变高挺</p>
+                  <p>学号5005018：整体氛围感拉满！</p>
                 </div>
               </div>
               <div v-else>
@@ -433,7 +449,7 @@ watch(imageDetailDialogVisible, (newValue) => {
 
 .page-title {
   text-align: center;
-  color: #333;
+  color: #fff;
   font-size: 36px;
   margin-bottom: 10px;
   letter-spacing: 2px;
@@ -462,11 +478,29 @@ watch(imageDetailDialogVisible, (newValue) => {
   display: flex;
   flex-direction: column;
   cursor: pointer; /* Indicate clickability */
+  background-color: #a43254; /* Dark background for contrast */
+  border: none;
 }
 
 .module-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+:deep(.el-card__header) {
+  border-bottom: 1px solid #fff;
+}
+
+.view-btn {
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
+}
+
+.view-btn:hover {
+  background-color: #762239;
+  border-color: #762239;
 }
 
 .card-header {
@@ -476,10 +510,15 @@ watch(imageDetailDialogVisible, (newValue) => {
   padding-bottom: 10px;
 }
 
+:deep(.el-tag.el-tag--success) {
+  background-color: #4c1523; /* Green for evaluated */
+  color: #fff;
+}
+
 .module-title {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: #fff;
 }
 
 .module-content {
@@ -489,7 +528,7 @@ watch(imageDetailDialogVisible, (newValue) => {
 
 .module-description {
   font-size: 14px;
-  color: #777;
+  color: #fff;
   margin-bottom: 15px;
   line-height: 1.6;
 }
@@ -508,6 +547,10 @@ watch(imageDetailDialogVisible, (newValue) => {
 
 :deep(.el-progress) {
   margin-bottom: 10px;
+}
+
+:deep(.el-tabs) {
+  border: none;
 }
 
 /* Image List Dialog Styles */
@@ -584,7 +627,9 @@ watch(imageDetailDialogVisible, (newValue) => {
     transition: transform 0.3s ease;
   }
 }
-
+:deep(.el-progress__text) {
+  color: #fff; /* Change progress text color to white */
+}
 /* .image-item-card:hover .list-image {
   transform: scale(1.05);
 } */
@@ -628,21 +673,21 @@ watch(imageDetailDialogVisible, (newValue) => {
 }
 
 .detail-info h3 {
-  font-size: 20px;
+  font-size: 2rem;
   margin-bottom: 15px;
-  color: #333;
+  color: #fff;
 }
 
 .detail-info p {
-  font-size: 16px;
+  font-size: 1.5rem;
   line-height: 1.8;
-  color: #555;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 #score-pie-chart {
   margin-top: 20px;
-  background-color: #f0f2f5;
+  background-color: #9d3050;
   border-radius: 8px;
 }
 </style>

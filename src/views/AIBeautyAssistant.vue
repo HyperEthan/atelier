@@ -228,13 +228,11 @@ onMounted(() => {
 
 <style scoped>
 .ai-beauty-assistant-container {
-  padding: 30px;
   max-width: 1400px;
   margin: 40px 20px;
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  color: #333;
+  color: #fff;
   text-align: center;
-  background-color: #f5f7fa;
   min-height: calc(100vh - 80px); /* 假设顶部有导航栏，使其不被遮挡 */
   display: flex;
   flex-direction: column;
@@ -242,7 +240,7 @@ onMounted(() => {
 }
 
 .page-title {
-  color: #d81b60;
+  color: #fff;
   margin-bottom: 15px;
   font-size: 2.8rem;
   font-weight: 700;
@@ -250,7 +248,7 @@ onMounted(() => {
 }
 
 .page-description {
-  color: #606266;
+  color: #b2b4b8;
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.6;
@@ -277,6 +275,7 @@ onMounted(() => {
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   position: relative; /* 用于内部元素的定位 */
+  background-color: #b73c62;
 }
 
 .beauty-assistant-image-wrapper {
@@ -285,13 +284,12 @@ onMounted(() => {
   max-width: 400px; /* 限制图片最大宽度 */
   height: 400px; /* 固定高度，避免布局跳动 */
   margin-bottom: 30px;
-  background-color: #f0f2f5;
   border-radius: 50%; /* 圆形图片框 */
   overflow: hidden; /* 确保图片在圆形框内 */
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid #ffc107; /* 强调边框 */
+  border: 4px solid #e487a3; /* 强调边框 */
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -321,7 +319,7 @@ onMounted(() => {
 .speaking-indicator .dot {
   width: 8px;
   height: 8px;
-  background-color: #4CAF50;
+  background-color: #fff;
   border-radius: 50%;
   animation: speechPulse 1.4s infinite ease-in-out;
 }
@@ -349,17 +347,22 @@ onMounted(() => {
   height: 80px;
   font-size: 2em;
   margin-top: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
 }
 .speech-button:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  background-color: #762239;
+  border-color: #762239;
 }
 
 .button-tip {
     margin-top: 10px;
-    color: #909399;
+    color: #fff;
     font-size: 0.9em;
 }
 
@@ -373,29 +376,18 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  background-color: #ffffff;
+  background-color: #b73c62;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 h2 {
   font-size: 1.8rem;
-  color: #303133;
+  color: #fff;
   margin-bottom: 25px;
   position: relative;
   width: 100%;
   padding-bottom: 10px;
-}
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: #d81b60;
-    border-radius: 2px;
 }
 
 .avatar-uploader {
@@ -419,7 +411,7 @@ h2::after {
 }
 .avatar-uploader-icon {
   font-size: 60px;
-  color: #8c939d;
+  color: #fff;
   width: 100%;
   height: 100%;
   display: flex;
@@ -439,11 +431,11 @@ h2::after {
     width: 100%;
     text-align: center;
     font-size: 0.9em;
-    color: #909399;
+    color: #fff;
 }
 .upload-requirements {
     font-size: 0.85em;
-    color: #909399;
+    color: #fff;
     margin-bottom: 25px;
 }
 
@@ -452,22 +444,31 @@ h2::after {
   padding: 12px 20px;
   font-size: 1.2rem;
   margin-top: 15px;
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
+}
+
+.analyze-button:hover {
+  background-color: #762239;
+  border-color: #762239;
 }
 
 .analysis-result-box {
   width: 100%;
   margin-top: 30px;
   padding: 20px;
-  background-color: #fce4ec; /* 淡粉色背景 */
+  background-color: #9d3050; /* 淡粉色背景 */
   border-radius: 10px;
   text-align: left;
-  border: 1px solid #f8bbd0;
+  border: 1px solid #9d3050;
   box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .analysis-result-box h2 {
     font-size: 1.5rem;
-    color: #d81b60;
+    color: #fff;
     margin-bottom: 15px;
     text-align: left;
     padding-bottom: 0;
@@ -478,7 +479,7 @@ h2::after {
 
 .result-content {
   font-size: 1.05rem;
-  color: #424242;
+  color: #fff;
   line-height: 1.8;
 }
 

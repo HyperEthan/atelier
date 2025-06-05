@@ -156,14 +156,13 @@ onUnmounted(() => {
   max-width: 1600px;
   margin: 0 auto;
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  color: #333;
+  color: #fff;
   text-align: center;
-  background-color: #f5f7fa;
   min-height: 100vh;
 }
 
 .page-title {
-  color: #d81b60;
+  color: #fff;
   margin-bottom: 15px;
   font-size: 2.8rem;
   font-weight: 700;
@@ -171,7 +170,7 @@ onUnmounted(() => {
 }
 
 .page-description {
-  color: #606266;
+  color: #b2b4b8;
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.6;
@@ -197,13 +196,12 @@ onUnmounted(() => {
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  border: none;
 }
 
 
 /* 新作品高亮动画 */
 .work-card.is-new-work {
-  border: 3px solid #ff9800; /* 橙色边框 */
-  box-shadow: 0 0 20px rgba(255, 152, 0, 0.4); /* 发光效果 */
   animation: newWorkHighlight 1s ease-out forwards; /* 动画持续1秒后停止 */
 }
 
@@ -258,12 +256,13 @@ onUnmounted(() => {
 .work-info {
   padding: 15px;
   text-align: left;
+  background-color: #b73c62;
 }
 
 .work-title {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #424242;
+  color: #fff;
   display: block;
   margin-bottom: 8px;
   white-space: nowrap;
@@ -276,7 +275,7 @@ onUnmounted(() => {
   justify-content: space-between;
   align-items: center;
   font-size: 0.9em;
-  color: #909399;
+  color: #fff;
 }
 
 .work-author {

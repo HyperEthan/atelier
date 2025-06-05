@@ -15,7 +15,7 @@ const goToHome = () => {
       <h1>404</h1>
       <h2>Page Not Found</h2>
       <p>The beauty you seek is not here. Perhaps it's a hidden gem yet to be discovered?</p>
-      <ElButton type="primary" size="large" @click="goToHome"
+      <ElButton class="not-btn" type="primary" size="large" @click="goToHome"
         >Return to Éclat Atelier Home</ElButton
       >
     </div>
@@ -41,7 +41,7 @@ const goToHome = () => {
 
 .not-found-content h2 {
   font-size: 3rem;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-bottom: var(--spacing-md);
 }
 
@@ -49,11 +49,23 @@ const goToHome = () => {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto var(--spacing-lg);
-  color: var(--color-text-dark);
+  color: #fff;
 }
 
 .not-found-content .el-button {
   margin-top: var(--spacing-md);
+}
+
+.not-btn {
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
+}
+
+.not-btn:hover {
+  background-color: #762239;
+  border-color: #762239;
 }
 
 @media (max-width: 768px) {

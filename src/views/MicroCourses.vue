@@ -97,7 +97,7 @@ const handleDialogClosed = () => {
             <el-icon :size="50" class="tool-icon"><component :is="tool.icon" /></el-icon>
             <h3 class="tool-name">{{ tool.name }}</h3>
             <p class="tool-description">{{ tool.description }}</p>
-            <el-button type="primary" size="small" round>查看详情</el-button>
+            <el-button class="view-btn" type="primary" size="small" round>查看详情</el-button>
           </div>
         </el-card>
       </el-col>
@@ -145,12 +145,12 @@ const handleDialogClosed = () => {
   max-width: 1400px;
   margin: 0 auto;
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  color: #333;
+  color: #fff;
 }
 
 .page-title {
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
   margin-bottom: 15px;
   font-size: 2.5rem;
   font-weight: 700;
@@ -159,7 +159,7 @@ const handleDialogClosed = () => {
 
 .page-description {
   text-align: center;
-  color: #606266;
+  color: #b2b4b8;
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.6;
@@ -188,7 +188,8 @@ const handleDialogClosed = () => {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e0e0e0;
+  border: none;
+  background: linear-gradient(to bottom, #972e4d, #b73c62);
 }
 
 .tool-card:hover {
@@ -205,7 +206,7 @@ const handleDialogClosed = () => {
 }
 
 .tool-icon {
-  color: #409eff; /* Element Plus primary color */
+  color: #fff; /* Element Plus primary color */
   margin-bottom: 20px;
   animation: bounceIn 0.8s ease-out; /* 添加动画 */
 }
@@ -231,13 +232,13 @@ const handleDialogClosed = () => {
 .tool-name {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #303133;
+  color: #fff;
   margin-bottom: 15px;
 }
 
 .tool-description {
   font-size: 0.95rem;
-  color: #606266;
+  color: #cccdcf;
   line-height: 1.6;
   margin-bottom: 25px;
   flex-grow: 1; /* 描述占据剩余空间 */
@@ -298,5 +299,12 @@ const handleDialogClosed = () => {
 
 .media-dialog .el-empty {
     padding: 50px 0;
+}
+
+.view-btn {
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
 }
 </style>

@@ -68,7 +68,7 @@ const allTutorials = ref([
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
   position: relative;
   padding-bottom: var(--spacing-sm);
 }
@@ -89,7 +89,7 @@ const allTutorials = ref([
   font-size: 1.1rem;
   max-width: 800px;
   margin: 0 auto var(--spacing-xl);
-  color: var(--color-text-dark);
+  color: #fff;
 }
 
 .tutorial-grid {

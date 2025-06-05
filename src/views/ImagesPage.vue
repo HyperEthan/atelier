@@ -116,10 +116,9 @@ const closeImageDialog = () => {
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
   position: relative;
   padding-bottom: var(--spacing-sm);
-  font-family: var(--font-heading);
 }
 .page-title::after {
   content: '';
@@ -129,7 +128,7 @@ const closeImageDialog = () => {
   transform: translateX(-50%);
   width: 100px;
   height: 3px;
-  background-color: var(--color-accent);
+  background-color: #b73c62;
 }
 
 .page-intro {
@@ -137,7 +136,7 @@ const closeImageDialog = () => {
   font-size: 1.1rem;
   max-width: 900px;
   margin: 0 auto var(--spacing-xl);
-  color: var(--color-text-dark);
+  color: #b2b4b8;
   line-height: 1.6;
 }
 
@@ -218,7 +217,6 @@ const closeImageDialog = () => {
 }
 
 .grid-item-title {
-  font-family: var(--font-heading);
   font-size: 1.3rem;
   margin-bottom: var(--spacing-xs);
   line-height: 1.3;
@@ -235,8 +233,8 @@ const closeImageDialog = () => {
   font-size: 1rem;
 }
 .grid-item-overlay .el-button:hover {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  background-color: #fff;
+  border-color: #fff;
   color: var(--color-accent);
 }
 
@@ -244,13 +242,12 @@ const closeImageDialog = () => {
 .image-detail-dialog .el-dialog__header {
   border-bottom: 1px solid var(--color-border);
   padding: 20px;
-  background-color: var(--color-primary-light);
+  background-color: #fff;
   text-align: center;
 }
 .image-detail-dialog .el-dialog__title {
-  font-family: var(--font-heading);
   font-size: 2.2rem;
-  color: var(--color-primary-dark);
+  color: #fff;
 }
 .image-detail-dialog .el-dialog__body {
   padding: var(--spacing-md);
@@ -279,14 +276,14 @@ const closeImageDialog = () => {
 .image-description {
   margin-top: var(--spacing-md);
   font-size: 1rem;
-  color: var(--color-text-dark);
+  color: #fff;
   font-family: var(--font-body);
   text-align: center;
 }
 .image-detail-dialog .el-dialog__footer {
   border-top: 1px solid var(--color-border);
   padding: 15px 20px;
-  background-color: var(--color-primary-light);
+  background-color: #fff;
 }
 
 :deep(.el-collapse-item) {
@@ -310,9 +307,34 @@ const closeImageDialog = () => {
 .title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-bottom: var(--spacing-md);
   text-align: center;
+}
+
+:deep(.el-collapse) {
+  border: none
+}
+
+:deep(.el-collapse-item) {
+  border: none;
+}
+
+:deep(.el-collapse-item__header) {
+  background-color: #9d3050;
+  color: #fff;
+  font-family: 'MyFont';
+  font-size: 1.2rem;
+  border: none;
+}
+
+:deep(.el-collapse-item__content) {
+  background-color: #bb3d63;
+  border: none;
+}
+
+:deep(.el-collapse-item__wrap) {
+  border: none;
 }
 
 /* Responsive Adjustments */

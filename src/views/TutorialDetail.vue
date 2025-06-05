@@ -255,7 +255,7 @@ const currentStep = ref(1) // For progress tracking, if implemented
 .tutorial-detail-page {
   padding-top: var(--spacing-lg);
   padding-bottom: var(--spacing-xl);
-  color: var(--color-text-dark);
+  color: #fff;
 }
 
 .loading-state,
@@ -263,7 +263,7 @@ const currentStep = ref(1) // For progress tracking, if implemented
   text-align: center;
   padding: var(--spacing-xl);
   font-size: 1.2rem;
-  color: var(--color-text-dark);
+  color: #fff;
 }
 .loading-state .el-progress {
   margin-bottom: var(--spacing-sm);
@@ -280,7 +280,7 @@ const currentStep = ref(1) // For progress tracking, if implemented
   font-size: 3.5rem;
   text-align: center;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
 }
 
 .tutorial-description {
@@ -342,7 +342,7 @@ section h2::after {
 }
 
 .step-item {
-  background-color: var(--color-primary-light);
+  background-color: #fff;
   padding: var(--spacing-md);
   border: 1px solid var(--color-border);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
@@ -350,17 +350,17 @@ section h2::after {
 
 .step-item h3 {
   font-size: 1.5rem;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-bottom: var(--spacing-xs);
 }
 
 .step-item p {
   font-size: 0.95rem;
-  color: var(--color-text-dark);
+  color: #fff;
 }
 
 .products-used {
-  background-color: var(--color-primary-light);
+  background-color: #fff;
   padding: var(--spacing-md);
   border: 1px solid var(--color-border);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
@@ -389,7 +389,7 @@ section h2::after {
 
 .product-name {
   font-weight: bold;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-bottom: 5px;
   font-size: 1.1rem;
 }

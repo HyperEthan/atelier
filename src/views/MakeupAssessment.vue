@@ -171,64 +171,72 @@ onUnmounted(() => {
       <h1 class="page-title">智能妆容测评</h1>
 
       <div class="main-assessment-area">
-        <div class="ai-avatar-panel">
-          <div class="beauty-assistant-image-wrapper">
-            <img
-              :src="currentBeautyAssistantImage"
-              alt="AI数字人形象"
-              class="beauty-assistant-image"
-            />
-            <div v-if="isThinking" class="status-indicator thinking-indicator">
-                <el-icon class="is-loading"><MagicStick /></el-icon>
-                <span>AI正在思考中...</span>
-            </div>
-            <!-- <div v-if="isSpeaking" class="status-indicator speaking-indicator">
-              <span class="dot dot-1"></span>
-              <span class="dot dot-2"></span>
-              <span class="dot dot-3"></span>
-              <span>AI正在播报...</span>
-            </div> -->
-          </div>
-        </div>
-
-        <div class="right-panel">
-            <div class="upload-assessment-panel">
-                <div class="upload-area">
-                  <h2>上传您的妆容照片</h2>
-                  <el-upload
-                    class="avatar-uploader"
-                    action="#"
-                    :show-file-list="false"
-                    :on-change="handleUpload"
-                    :http-request="() => {}"
-                    :disabled="isThinking || isSpeaking"
-                  >
-                    <img v-if="userUploadedPhotoUrl" :src="userUploadedPhotoUrl" class="uploaded-avatar" alt="妆容照片预览" />
-                    <el-icon v-else class="avatar-uploader-icon"><UploadFilled /></el-icon>
-                    <div v-if="!userUploadedPhotoUrl" class="upload-tip">点击或拖拽上传照片</div>
-                    <div v-show="userUploadedPhotoUrl && isThinking" class="grid-container" ref="gridContainer"></div>
-                    <div v-show="userUploadedPhotoUrl && isThinking" class="scan-line"></div>
-                  </el-upload>
-                  <p class="upload-requirements" @click="addPicture">支持JPG和PNG格式</p>
+        <el-row :gutter="0" justify="center">
+            <el-col :span="8">
+              <div class="ai-avatar-panel">
+                <div class="beauty-assistant-image-wrapper">
+                  <img
+                    :src="currentBeautyAssistantImage"
+                    alt="AI数字人形象"
+                    class="beauty-assistant-image"
+                  />
+                  <div v-if="isThinking" class="status-indicator thinking-indicator">
+                      <el-icon class="is-loading"><MagicStick /></el-icon>
+                      <span>AI正在思考中...</span>
+                  </div>
+                  <!-- <div v-if="isSpeaking" class="status-indicator speaking-indicator">
+                    <span class="dot dot-1"></span>
+                    <span class="dot dot-2"></span>
+                    <span class="dot dot-3"></span>
+                    <span>AI正在播报...</span>
+                  </div> -->
                 </div>
-      
-                <el-button
-                  type="primary"
-                  :icon="Microphone"
-                  :loading="isThinking"
-                  :disabled="!userUploadedPhotoUrl || isThinking || isSpeaking"
-                  @click="startAssessment"
-                  class="assessment-button"
-                >
-                  {{ record === 2 && isThinking ? 'AI分析中...' : record === 1 ? '正在倾听...' : '开始妆容测评' }}
-                </el-button>
-      
               </div>
-            <div v-if="showAssessmentResult" class="assessment-result-box">
-                <h2>测评报告</h2>
-                <div class="result-content" v-html="assessmentResult"></div>
-            </div>
-            </div>
+            </el-col>
+            <el-col :span="8">
+              <div class="right-panel">
+                  <div class="upload-assessment-panel">
+                      <div class="upload-area">
+                        <h2>上传您的妆容照片</h2>
+                        <el-upload
+                          class="avatar-uploader"
+                          action="#"
+                          :show-file-list="false"
+                          :on-change="handleUpload"
+                          :http-request="() => {}"
+                          :disabled="isThinking || isSpeaking"
+                        >
+                          <img v-if="userUploadedPhotoUrl" :src="userUploadedPhotoUrl" class="uploaded-avatar" alt="妆容照片预览" />
+                          <el-icon v-else class="avatar-uploader-icon"><UploadFilled /></el-icon>
+                          <div v-if="!userUploadedPhotoUrl" class="upload-tip">点击或拖拽上传照片</div>
+                          <div v-show="userUploadedPhotoUrl && isThinking" class="grid-container" ref="gridContainer"></div>
+                          <div v-show="userUploadedPhotoUrl && isThinking" class="scan-line"></div>
+                        </el-upload>
+                        <p class="upload-requirements" @click="addPicture">支持JPG和PNG格式</p>
+                      </div>
+            
+                      <el-button
+                        type="primary"
+                        :icon="Microphone"
+                        :loading="isThinking"
+                        :disabled="!userUploadedPhotoUrl || isThinking || isSpeaking"
+                        @click="startAssessment"
+                        class="assessment-button"
+                      >
+                        {{ record === 2 && isThinking ? 'AI分析中...' : record === 1 ? '正在倾听...' : '开始妆容测评' }}
+                      </el-button>
+            
+                    </div>
+                  </div>
+                </el-col>
+                <el-col v-if="showAssessmentResult" :span="8">
+                  <div class="assessment-result-box">
+                      <h2>测评报告</h2>
+                      <div class="result-content" v-html="assessmentResult"></div>
+                  </div>
+            </el-col>
+        </el-row>
+
     </div>
     </div>
   </div>
@@ -299,10 +307,11 @@ onUnmounted(() => {
   background-color: transparent; /* 半透明白色背景 */
   width: 100%;
   text-align: center;
+  height: 90vh;
 }
 
 .page-title {
-  color: #d81b60; /* 深粉色 */
+  color: #fff; /* 深粉色 */
   margin-bottom: 30px;
   font-size: 3.2rem;
   font-weight: 700;
@@ -310,11 +319,6 @@ onUnmounted(() => {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.main-assessment-area {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* 顶部对齐 */
-}
 
 /* 左侧：数字人面板 */
 .ai-avatar-panel {
@@ -418,39 +422,28 @@ onUnmounted(() => {
 }
 .upload-area h2 {
   font-size: 1.8rem;
-  color: #d81b60;
+  color: #fff;
   margin-bottom: 25px;
   position: relative;
   padding-bottom: 10px;
-}
-.upload-area h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background-color: #d81b60;
-    border-radius: 2px;
 }
 :deep(.el-upload) {
     height: 100%;
 }
 
 :deep(.avatar-uploader-icon) {
-    color: #fdfdfd;
+    color: #fff;
 }
 
 .avatar-uploader {
-  width: 280px; /* 上传区域大小 */
-  height: 280px;
-  border-radius: 15px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto 15px;
-  background-color: #acaeba40;
+    width: 350px;
+    height: 400px;
+    border-radius: 15px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    background-color: #acaeba40;
 }
 
 .avatar-uploader-icon {
@@ -489,11 +482,19 @@ onUnmounted(() => {
   font-size: 18px;
   line-height: 48px;
   margin-bottom: 30px;
-  background-color: transparent; /* 深粉色 */
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
+}
+
+.assessment-button:hover {
+  background-color: #762239;
+  border-color: #762239;
 }
 
 .assessment-result-box {
-  width: 250px;
+  width: 90%;
   height: max-content;
   padding: 20px;
   background-color: transparent; /* 淡粉色背景 */
@@ -506,26 +507,16 @@ onUnmounted(() => {
 
 .assessment-result-box h2 {
     font-size: 1.8rem;
-    color: #d81b60;
+    color: #fff;
     margin-bottom: 20px;
     text-align: left;
     position: relative;
     padding-bottom: 10px;
 }
-.assessment-result-box h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background-color: #d81b60;
-    border-radius: 2px;
-}
 
 .result-content {
-  font-size: 18px;
-  color: #c8edf0;
+  font-size: 22px;
+  color: #fff;
   line-height: 1.6;
 }
 

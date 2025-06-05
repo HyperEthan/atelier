@@ -32,10 +32,10 @@ const handleTableCancel = () => {
 
 <template>
   <div class="e-teaching-page">
-    <h1>e课堂电子教材</h1>
+    <h1>E课堂电子教材</h1>
     <p>点击下方按钮，打开灵感元素汲取表。</p>
 
-    <el-button type="primary" @click="openTableEditor">打开灵感元素汲取表</el-button>
+    <el-button class="excel-btn" type="primary" @click="openTableEditor">打开灵感元素汲取表</el-button>
 
     <el-dialog
       v-model="dialogVisible"
@@ -53,5 +53,18 @@ const handleTableCancel = () => {
 .e-teaching-page {
   padding: 20px;
   text-align: center;
+  color: #FFF;
+}
+
+.excel-btn {
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
+}
+
+.excel-btn:hover {
+  background-color: #762239;
+  border-color: #762239;
 }
 </style>

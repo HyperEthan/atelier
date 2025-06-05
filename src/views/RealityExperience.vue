@@ -115,13 +115,13 @@ const closeDialog = () => {
   max-width: 1400px;
   margin: 0 auto;
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  color: #333;
+  color: #fff;
   text-align: center;
   min-height: 100vh;
 }
 
 .page-title {
-  color: #d81b60;
+  color: #fff;
   margin-bottom: 15px;
   font-size: 2.8rem;
   font-weight: 700;
@@ -129,7 +129,7 @@ const closeDialog = () => {
 }
 
 .page-description {
-  color: #606266;
+  color: #b2b4b8;
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.6;
@@ -156,6 +156,8 @@ const closeDialog = () => {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(to bottom, #972e4d, #b73c62);
+  border: none;
 }
 
 .scene-card:hover {
@@ -188,13 +190,13 @@ const closeDialog = () => {
 .scene-name {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #424242;
+  color: #fff;
   margin-bottom: 5px;
 }
 
 .scene-action {
   font-size: 0.9em;
-  color: #909399;
+  color: #b2b4b8;
 }
 
 /* 对话框 wrapper 样式 */

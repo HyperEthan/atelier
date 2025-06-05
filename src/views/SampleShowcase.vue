@@ -158,7 +158,7 @@ watch(syntheticImageUrl, (newVal) => {
           <div class="card-content">
             <h3 class="theme-name">{{ theme.name }}</h3>
             <p class="theme-tag">#艺术 #时尚 #个性</p>
-            <el-button type="primary" round size="small">选择并试妆</el-button>
+            <el-button class="try-btn" type="primary" round size="small">选择并试妆</el-button>
           </div>
         </el-card>
       </el-col>
@@ -248,12 +248,12 @@ watch(syntheticImageUrl, (newVal) => {
   max-width: 1400px;
   margin: 0 auto;
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  color: #333;
+  color: #fff;
 }
 
 .page-title {
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
   margin-bottom: 15px;
   font-size: 2.5rem;
   font-weight: 700;
@@ -262,7 +262,7 @@ watch(syntheticImageUrl, (newVal) => {
 
 .page-description {
   text-align: center;
-  color: #606266;
+  color: #b2b4b8;
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.6;
@@ -291,12 +291,13 @@ watch(syntheticImageUrl, (newVal) => {
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   overflow: hidden; /* 确保图片圆角 */
+  background: linear-gradient(to bottom, #972e4d, #b73c62);
+  border: none;;
 }
 
 .theme-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-color: #ff8c00; /* 橙色边框突出选择 */
 }
 
 .theme-cover-image {
@@ -324,13 +325,13 @@ watch(syntheticImageUrl, (newVal) => {
 .theme-name {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #303133;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 .theme-tag {
   font-size: 0.85rem;
-  color: #909399;
+  color: #b2b4b8;
   margin-bottom: 15px;
 }
 
@@ -380,15 +381,14 @@ watch(syntheticImageUrl, (newVal) => {
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #ffffff;
+  background-color: rgb(138, 45, 69);
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-  border: 1px solid #eee;
 }
 
 h2 {
   font-size: 1.3rem;
-  color: #424242;
+  color: #fff;
   margin-bottom: 20px;
   text-align: center;
   position: relative;
@@ -403,13 +403,13 @@ h2::after {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: #d81b60;
+    background-color: #b73c62;
     border-radius: 2px;
 }
 
 .section-description {
     font-size: 0.9em;
-    color: #9e9e9e;
+    color: #b2b4b8;
     margin-top: 15px;
     text-align: center;
 }
@@ -442,6 +442,18 @@ h2::after {
 }
 .loading-slot {
     min-height: 150px; /* 确保加载状态有高度 */
+}
+
+.try-btn {
+  background-color: #9d3050;
+  border-color: #9d3050;
+  color: white;
+  box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
+}
+
+.try-btn:hover {
+  background-color: #762239;
+  border-color: #762239;
 }
 
 /* 上传组件 */
@@ -491,6 +503,15 @@ h2::after {
     margin-top: 10px;
     padding: 12px 20px;
     font-size: 1.1rem;
+    background-color: #9d3050;
+    border-color: #9d3050;
+    color: white;
+    box-shadow: 0px 8px 10px 0px rgb(0 0 0 / 30%);
+}
+
+.synthesize-button:hover {
+    background-color: #762239;
+    border-color: #762239;
 }
 
 /* 合成结果 */
@@ -500,7 +521,7 @@ h2::after {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f5f5f5;
+  background-color: #953050;
   display: flex;
   justify-content: center;
   align-items: center;

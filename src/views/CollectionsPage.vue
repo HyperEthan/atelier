@@ -433,7 +433,7 @@ onMounted(() => {
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
   position: relative;
   padding-bottom: var(--spacing-sm);
   font-family: var(--font-heading); /* 确保页面标题使用标题字体 */
@@ -455,7 +455,7 @@ onMounted(() => {
   font-size: 1.1rem;
   max-width: 800px;
   margin: 0 auto var(--spacing-xl);
-  color: var(--color-text-dark);
+  color: #fff;
   font-family: var(--font-body); /* 确保介绍文字使用正文字体 */
   line-height: 1.6; /* 更好的阅读体验 */
 }
@@ -469,7 +469,7 @@ onMounted(() => {
 .eclat-tabs .el-tabs__header {
   margin-bottom: var(--spacing-lg);
   border-bottom: 2px solid var(--color-border);
-  background-color: var(--color-primary-light);
+  background-color: #fff;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
   padding: 0 var(--spacing-md);
   border-radius: 4px;
@@ -478,7 +478,7 @@ onMounted(() => {
 .eclat-tabs .el-tabs__item {
   font-family: var(--font-heading); /* 标签项字体 */
   font-size: 1.2rem;
-  color: var(--color-text-dark); /* 默认文字颜色 */
+  color: #fff; /* 默认文字颜色 */
   padding: 0 var(--spacing-md);
   transition: all 0.3s ease;
   height: var(--el-tabs-header-height);
@@ -505,7 +505,7 @@ onMounted(() => {
   vertical-align: middle;
   margin-right: 8px;
   font-size: 1.4rem;
-  color: var(--color-primary-dark); /* 标签图标默认颜色 */
+  color: #fff; /* 标签图标默认颜色 */
 }
 .eclat-tabs .el-tabs__item.is-active .el-icon {
   color: #b08d57; /* 选中标签的图标颜色 */
@@ -566,7 +566,7 @@ onMounted(() => {
 .item-title {
   font-family: var(--font-heading); /* 案例卡片标题字体 */
   font-size: 1.3rem;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-bottom: var(--spacing-xs);
   line-height: 1.3;
   text-align: left;
@@ -575,7 +575,7 @@ onMounted(() => {
 .item-summary {
   font-family: var(--font-body); /* 案例卡片摘要字体 */
   font-size: 0.9rem;
-  color: var(--color-text-dark);
+  color: #fff;
   line-height: 1.5;
   margin-bottom: var(--spacing-sm);
   text-align: left;
@@ -587,8 +587,8 @@ onMounted(() => {
 }
 
 .item-content .el-button {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  background-color: #fff;
+  border-color: #fff;
   color: white;
   width: 100%;
   margin-top: auto;
@@ -643,8 +643,8 @@ onMounted(() => {
 }
 
 .item-overlay .el-button:hover {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  background-color: #fff;
+  border-color: #fff;
   color: var(--color-accent);
 }
 
@@ -652,13 +652,13 @@ onMounted(() => {
 .eclat-dialog .el-dialog__header {
   border-bottom: 1px solid var(--color-border);
   padding: 20px;
-  background-color: var(--color-primary-light);
+  background-color: #fff;
   text-align: center;
 }
 .eclat-dialog .el-dialog__title {
   font-family: var(--font-heading); /* 对话框标题字体 */
   font-size: 2rem;
-  color: var(--color-primary-dark);
+  color: #fff;
 }
 .eclat-dialog .el-dialog__body {
   padding: var(--spacing-md);
@@ -698,7 +698,7 @@ onMounted(() => {
 .image-description {
   margin-top: var(--spacing-md);
   font-size: 1rem;
-  color: var(--color-text-dark);
+  color: #fff;
   font-family: var(--font-body);
   text-align: center; /* Center description under the image */
 }
@@ -706,7 +706,7 @@ onMounted(() => {
 /* 案例详情特定样式 */
 .case-detail-content {
   padding: var(--spacing-md);
-  color: var(--color-text-dark);
+  color: #fff;
   max-height: 80vh;
   overflow-y: auto;
   font-family: var(--font-body); /* 确保内容字体 */
@@ -723,7 +723,7 @@ onMounted(() => {
 .detail-section-title {
   font-family: var(--font-heading); /* 详情页小标题字体 */
   font-size: 1.8rem;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-sm);
   position: relative;
@@ -748,7 +748,7 @@ onMounted(() => {
 .highlights-list li {
   font-size: 1rem;
   margin-bottom: 8px;
-  color: var(--color-text-dark);
+  color: #fff;
 }
 .highlights-list li .el-icon {
   margin-right: 8px;
@@ -765,9 +765,9 @@ onMounted(() => {
 .product-tag {
   font-family: var(--font-body); /* 产品标签字体 */
   font-size: 0.9rem;
-  background-color: var(--color-primary-dark);
-  color: var(--color-primary-light);
-  border-color: var(--color-primary-dark);
+  background-color: #fff;
+  color: #fff;
+  border-color: #fff;
   padding: 8px 12px;
 }
 
@@ -781,7 +781,7 @@ onMounted(() => {
 .image-description {
   margin-top: var(--spacing-md);
   font-size: 1rem;
-  color: var(--color-text-dark);
+  color: #fff;
   font-family: var(--font-body);
 }
 
@@ -809,7 +809,7 @@ onMounted(() => {
 .vr-description {
   font-size: 1.1rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-text-dark);
+  color: #fff;
   font-family: var(--font-body);
 }
 .vr-note {
@@ -822,7 +822,7 @@ onMounted(() => {
 .eclat-dialog .el-dialog__footer {
   border-top: 1px solid var(--color-border);
   padding: 15px 20px;
-  background-color: var(--color-primary-light);
+  background-color: #fff;
 }
 .eclat-dialog .el-dialog__footer .el-button {
   font-family: var(--font-body); /* 对话框底部按钮字体 */

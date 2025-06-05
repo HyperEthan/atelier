@@ -58,12 +58,12 @@ const props = defineProps({
 .tutorial-card h3 {
   font-size: 1.5rem;
   margin: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs);
-  color: var(--color-primary-dark);
+  color: #fff;
 }
 
 .tutorial-card p {
   font-size: 0.95rem;
-  color: var(--color-text-dark);
+  color: #fff;
   padding: 0 var(--spacing-sm) var(--spacing-sm);
 }
 </style>

@@ -51,14 +51,14 @@ section h2::after {
 }
 
 .call-to-action {
-  background-color: var(--color-primary-dark);
-  color: var(--color-primary-light);
+  background-color: #fff;
+  color: #fff;
   text-align: center;
   padding: var(--spacing-xl) 0;
 }
 
 .call-to-action h2 {
-  color: var(--color-primary-light);
+  color: #fff;
   margin-bottom: var(--spacing-md);
 }
 .call-to-action h2::after {
@@ -82,7 +82,7 @@ section h2::after {
 /* Element Plus Input 和 Button 的定制样式 */
 .newsletter-form .el-input {
   --el-input-bg-color: rgba(255, 255, 255, 0.1);
-  --el-input-text-color: var(--color-primary-light);
+  --el-input-text-color: #fff;
   --el-input-border-color: var(--color-border);
   --el-input-hover-border-color: var(--color-accent);
   --el-input-placeholder-color: var(--color-text-light);
@@ -100,12 +100,12 @@ section h2::after {
 .newsletter-form .el-button--primary {
   background-color: var(--color-accent);
   border-color: var(--color-accent);
-  color: var(--color-primary-light);
+  color: #fff;
 }
 .newsletter-form .el-button--primary:hover {
-  background-color: var(--color-primary-light);
-  color: var(--color-primary-dark);
-  border-color: var(--color-primary-light);
+  background-color: #fff;
+  color: #fff;
+  border-color: #fff;
 }
 
 /* 媒体查询 */

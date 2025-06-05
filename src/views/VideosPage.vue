@@ -101,21 +101,6 @@ const closeVideoDialog = () => {
 </template>
 
 <style scoped>
-/* Global variables and basic reset (assuming they are defined elsewhere or in main.css) */
-/*
-:root {
-  --color-primary-dark: #333;
-  --color-accent: #e57373; // Example accent color
-  --color-text-dark: #666;
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 48px;
-  --font-heading: 'Georgia', serif; // Example sophisticated font
-  --font-body: 'Arial', sans-serif;
-}
-*/
 
 /* --- Page Layout and Typography --- */
 .videos-page {
@@ -127,7 +112,7 @@ const closeVideoDialog = () => {
   text-align: center;
   font-size: 4rem; /* Slightly larger title */
   margin-bottom: 40px; /* More space after title */
-  color: var(--color-primary-dark);
+  color: #fff;
   position: relative;
   padding-bottom: var(--spacing-md); /* More padding for the underline */
   font-family: var(--font-heading);
@@ -142,7 +127,7 @@ const closeVideoDialog = () => {
   transform: translateX(-50%);
   width: 120px; /* Slightly wider underline */
   height: 4px; /* Thicker underline */
-  background-color: var(--color-accent);
+  background-color: #b73c62;
 }
 
 .page-intro {
@@ -150,7 +135,7 @@ const closeVideoDialog = () => {
   font-size: 1.2rem; /* Slightly larger intro text */
   max-width: 900px;
   margin: 0 auto 60px; /* More space after intro */
-  color: #555; /* Darker grey intro text */
+  color: #b2b4b8; /* Darker grey intro text */
   line-height: 1.7; /* Improved line height for readability */
   font-family: var(--font-body);
 }
@@ -158,8 +143,6 @@ const closeVideoDialog = () => {
 /* --- Video Group Styling --- */
 .video-group {
   margin-bottom: 20px; /* More space between groups */
-  padding: 20px;
-  background-color: #fff;
   border-radius: 12px; /* Rounded corners for group sections */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Subtle box shadow for depth */
 }
@@ -171,12 +154,14 @@ const closeVideoDialog = () => {
 .video-group .title {
   font-size: 1.2rem; /* Larger group titles */
   font-weight: 500; /* Slightly lighter but still strong */
-  color: #000;
+  color: #fff;
   text-align: left; /* Align group titles to the left */
-  border-bottom: 2px solid #eee; /* Light separator line */
   padding-bottom: var(--spacing-sm);
-  margin-left: var(--spacing-md); /* Indent slightly */
-  margin-right: var(--spacing-md); /* Add some right margin for balance */
+  padding-left: 52px; /* Indent slightly */
+  padding-top: 20px;
+  padding-right: 52px; /* Add some right margin for balance */
+  background-color: #9d3050;
+  border-radius: 12px 12px 0 0;
 }
 
 /* --- Imgur-like Grid Style --- */
@@ -185,6 +170,7 @@ const closeVideoDialog = () => {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Slightly wider minimum width for items */
   gap: 20px; /* Increased gap between grid items */
   padding: 20px; /* Padding inside the grid container */
+  background-color: #bb3d63;
 }
 
 .grid-item {
@@ -289,7 +275,7 @@ const closeVideoDialog = () => {
 .video-playback-dialog .el-dialog__title {
   font-family: var(--font-heading);
   font-size: 2.5rem; /* Slightly larger dialog title */
-  color: var(--color-primary-dark);
+  color: #fff;
   font-weight: 500;
 }
 .video-embed-container {

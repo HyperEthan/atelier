@@ -593,12 +593,12 @@ const toggleUserRole = () => {
   max-width: 1200px;
   margin: 0 auto;
   font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-  color: #333;
+  color: #fff;
 }
 
 .page-title {
   text-align: center;
-  color: #333;
+  color: #fff;
   margin-bottom: 30px;
   font-size: 2.2rem;
   font-weight: 600;
@@ -771,7 +771,7 @@ const toggleUserRole = () => {
   align-items: center;
   gap: 10px;
   font-weight: 600;
-  color: #333;
+  color: #fff;
   padding-right: 15px; /* Spacing for right aligned elements */
 }
 .message-detail-dialog .card-header .user-name {

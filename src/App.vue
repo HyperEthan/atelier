@@ -37,7 +37,7 @@ const showSuccessMessage = (msg) => {
   flex: 1;
   margin-left: 250px; /* 与侧边栏宽度相同 */
   min-height: 100vh;
-  background-color: #e9e9e9;
+  background: linear-gradient(to bottom, #4c1523, #9d3050);
 }
 
 main {
@@ -65,6 +65,6 @@ main {
 
 .username {
   font-size: 14px;
-  color: #333;
+  color: #fff;
 }
 </style>

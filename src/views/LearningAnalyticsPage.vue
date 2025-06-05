@@ -394,7 +394,7 @@ onMounted(async () => {
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
   position: relative;
   padding-bottom: var(--spacing-sm);
   font-family: var(--font-heading);
@@ -416,7 +416,7 @@ onMounted(async () => {
   font-size: 1.1rem;
   max-width: 900px;
   margin: 0 auto var(--spacing-xl);
-  color: var(--color-text-dark);
+  color: #fff;
   line-height: 1.6;
 }
 
@@ -427,7 +427,7 @@ onMounted(async () => {
 .summary-cards .el-card {
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: var(--color-primary-light);
+  background-color: #fff;
 }
 
 .summary-cards .el-card:hover {
@@ -450,7 +450,7 @@ onMounted(async () => {
 .card-value {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--color-primary-dark);
+  color: #fff;
   font-family: var(--font-heading);
 }
 
@@ -500,7 +500,7 @@ onMounted(async () => {
 .card-header {
   font-family: var(--font-heading);
   font-size: 1.3rem;
-  color: var(--color-primary-dark);
+  color: #fff;
   font-weight: 600;
 }
 
@@ -511,7 +511,7 @@ onMounted(async () => {
 .student-table .el-table__cell, .top-content-table .el-table__cell {
     font-family: var(--font-body);
     font-size: 0.95rem;
-    color: var(--color-text-dark);
+    color: #fff;
 }
 
 /* Responsive adjustments */

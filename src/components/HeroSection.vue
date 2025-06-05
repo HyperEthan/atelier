@@ -44,7 +44,7 @@ const backgroundImages = [home1, home2, home3, home4]
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary-light);
+  color: #fff;
   text-align: center;
   overflow: hidden;
 }
@@ -74,7 +74,7 @@ const backgroundImages = [home1, home2, home3, home4]
 
 .hero-content h1 {
   font-size: 4.5rem;
-  color: var(--color-primary-light);
+  color: #fff;
   margin-bottom: var(--spacing-md);
   letter-spacing: 2px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);

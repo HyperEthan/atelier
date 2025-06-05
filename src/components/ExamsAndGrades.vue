@@ -477,7 +477,7 @@ onMounted(() => {
       <el-card class="module-card">
         <template #header>
           <div class="card-header">
-            <span><el-icon><Setting /></el-icon> 考试统计 </span>
+            <span> 考试统计 </span>
             <el-button type="primary" :icon="Plus" @click="dialogVisible = true" style="margin-left: auto;">
               新建考试
             </el-button>
@@ -629,6 +629,8 @@ onMounted(() => {
   margin-bottom: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background-color: #9d3050;
+  border: none;
 }
 
 .chart-col {
@@ -654,7 +656,8 @@ onMounted(() => {
   align-items: center;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #333;
+  color: #fff;
+  background-color: #9d3050; /* Excel Blue */
 }
 .card-header .el-icon {
   margin-right: 8px;
@@ -707,7 +710,7 @@ onMounted(() => {
 
 .score-text {
   font-weight: bold;
-  color: #333;
+  color: #fff;
 }
 
 .overall-grade {
@@ -717,7 +720,7 @@ onMounted(() => {
   margin-bottom: 25px;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
+  color: #fff;
 }
 
 .overall-grade-tag {
@@ -759,7 +762,7 @@ onMounted(() => {
 }
 .exam-question {
   font-size: 1.3rem;
-  color: #333;
+  color: #fff;
   margin-bottom: 15px;
 }
 

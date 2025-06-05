@@ -97,7 +97,7 @@ const closeCaseDialog = () => {
   text-align: center;
   font-size: 3.5rem;
   margin-bottom: var(--spacing-md);
-  color: var(--color-primary-dark);
+  color: #fff;
   position: relative;
   padding-bottom: var(--spacing-sm);
   font-family: var(--font-heading);
@@ -118,7 +118,7 @@ const closeCaseDialog = () => {
   font-size: 1.1rem;
   max-width: 900px;
   margin: 0 auto var(--spacing-xl);
-  color: var(--color-text-dark);
+  color: #fff;
   line-height: 1.6;
 }
 
@@ -167,7 +167,7 @@ const closeCaseDialog = () => {
 .case-item-title {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-bottom: var(--spacing-xs);
   line-height: 1.3;
 }
@@ -175,7 +175,7 @@ const closeCaseDialog = () => {
 .case-item-summary {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--color-text-dark);
+  color: #fff;
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
   flex-grow: 1;
@@ -187,8 +187,8 @@ const closeCaseDialog = () => {
 }
 
 .case-item-content .el-button {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  background-color: #fff;
+  border-color: #fff;
   color: white;
   width: 100%;
   font-family: var(--font-body);
@@ -203,13 +203,13 @@ const closeCaseDialog = () => {
 .case-detail-dialog .el-dialog__header {
   border-bottom: 1px solid var(--color-border);
   padding: 20px;
-  background-color: var(--color-primary-light);
+  background-color: #fff;
   text-align: center;
 }
 .case-detail-dialog .el-dialog__title {
   font-family: var(--font-heading);
   font-size: 2.2rem;
-  color: var(--color-primary-dark);
+  color: #fff;
 }
 
 .case-detail-dialog .el-dialog__body {
@@ -224,7 +224,7 @@ const closeCaseDialog = () => {
 
 .case-detail-content {
   padding: var(--spacing-md);
-  color: var(--color-text-dark);
+  color: #fff;
   max-height: 80vh;
   overflow-y: auto;
   font-family: var(--font-body);
@@ -241,7 +241,7 @@ const closeCaseDialog = () => {
 .detail-section-title {
   font-family: var(--font-heading);
   font-size: 1.8rem;
-  color: var(--color-primary-dark);
+  color: #fff;
   margin-top: var(--spacing-lg);
   margin-bottom: var(--spacing-sm);
   position: relative;
@@ -266,7 +266,7 @@ const closeCaseDialog = () => {
 .highlights-list li {
   font-size: 1rem;
   margin-bottom: 8px;
-  color: var(--color-text-dark);
+  color: #fff;
 }
 .highlights-list li .el-icon {
   margin-right: 8px;
@@ -283,16 +283,16 @@ const closeCaseDialog = () => {
 .product-tag {
   font-family: var(--font-body);
   font-size: 0.9rem;
-  background-color: var(--color-primary-dark);
-  color: var(--color-primary-light);
-  border-color: var(--color-primary-dark);
+  background-color: #fff;
+  color: #fff;
+  border-color: #fff;
   padding: 8px 12px;
 }
 
 .case-detail-dialog .el-dialog__footer {
   border-top: 1px solid var(--color-border);
   padding: 15px 20px;
-  background-color: var(--color-primary-light);
+  background-color: #fff;
 }
 .case-detail-dialog .el-dialog__footer .el-button {
   font-family: var(--font-body);
