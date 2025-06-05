@@ -90,8 +90,8 @@ const tabChecked = (tab, event) => {
   console.log('Tab changed:', tab.paneName);
   if (tab.paneName === 'exams-grades') {
     activeTab.value = 'exams-grades';
-    initChart(chartRef1, '课程观看情况', '观看情况', chartData1, 1);
-    initChart(chartRef2, '作业提交情况', '提交情况', chartData2, 2);
+    initChart(chartRef1, '微课资源视频观看完成度', '观看情况', chartData1, 1);
+    initChart(chartRef2, "'营销手段在文化传播中的应用'思考题", '提交情况', chartData2, 2);
   }
 };
 </script>
