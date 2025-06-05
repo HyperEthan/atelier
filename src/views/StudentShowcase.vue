@@ -68,23 +68,29 @@ const uploadFrequency = 5000; // 每5秒模拟上传一个新作品
 
 // 计算用于 el-image 预览的图片列表
 const previewSrcList = ref([]);
-
+let initInterval = null;
 onMounted(() => {
   // Initialize some works
   const initialWorksCount = 6;
-  for (let i = 0; i < initialWorksCount; i++) {
-    const imageUrl = placeholderImages[i];
-    const newWork = {
-        id: `work-${Date.now()}-${newWorksCounter++}`,
-        src: imageUrl,
-        alt: `学生作品 ${newWorksCounter}`,
-        author: `学生${String.fromCharCode(65 + Math.floor(Math.random() * 26))}`, // 模拟作者
-        uploadTime: new Date().toLocaleTimeString(), // 模拟上传时间
-        isNew: true // 标记为新作品，用于动画或高亮
-    };
-    studentWorks.value.unshift(newWork); // 插入到数组开头
-    previewSrcList.value.unshift(newWork.src); // 更新预览列表
-  }
+  let i = 0
+  initInterval = setInterval(() => {
+    if (i >= initialWorksCount) {
+      clearInterval(initInterval);
+    } else {
+      const imageUrl = placeholderImages[i];
+      const newWork = {
+          id: `work-${Date.now()}-${newWorksCounter++}`,
+          src: imageUrl,
+          alt: `学生作品 ${newWorksCounter}`,
+          author: `学生${String.fromCharCode(65 + Math.floor(Math.random() * 26))}`, // 模拟作者
+          uploadTime: new Date().toLocaleTimeString(), // 模拟上传时间
+          isNew: true // 标记为新作品，用于动画或高亮
+      };
+      studentWorks.value.unshift(newWork); // 插入到数组开头
+      previewSrcList.value.unshift(newWork.src); // 更新预览列表
+      i++;
+    }
+  }, 1000);
 
   uploadInterval = setInterval(() => {
     addRandomWork(true, false); // Set 'add' to 'true' here to actually add the work
@@ -179,7 +185,7 @@ onUnmounted(() => {
 .works-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   margin-bottom: 30px;
 }
 
