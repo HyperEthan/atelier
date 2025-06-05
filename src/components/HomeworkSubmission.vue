@@ -527,7 +527,7 @@ watch(imageDetailDialogVisible, (newValue) => {
 }
 
 .module-description {
-  font-size: 14px;
+  font-size: 1.3rem;
   color: #fff;
   margin-bottom: 15px;
   line-height: 1.6;
