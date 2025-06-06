@@ -11,6 +11,7 @@ const showSuccessMessage = (msg) => {
   })
 }
 
+
 // 可以在这里提供一些全局状态或方法给子组件 (使用 provide/inject 或 Pinia)
 </script>
 
