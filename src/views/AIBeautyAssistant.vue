@@ -67,12 +67,12 @@ const listening = () => {
         ElMessage.success('图片上传成功，妆宝即将为您分析！');
         // 立即开始分析
         startAnalysis(
-          "好的请稍等，根据图片分析，您的线条存在抖动，发现眼线处的纸张有破损现象。建议您加强握笔练习的方法，可以尝试分段画法。推荐您使用醒图、PS、美图秀秀、画世界等软件。",
+          "好的请稍等，根据图片分析，您的线条存在抖动和弧度不均匀的问题。建议您加强握笔练习的方法，可以尝试分段描画。推荐您使用醒图、PS、天生会画等软件。",
           voice1
         );
       } else {
         startAnalysis(
-            "好的，下面是美图秀秀的使用操作流程：打开美图软件，点击人像美容，选择需修图的照片，进入美妆功能，点击眼妆分类在眼线的选项中挑选合适的眼线样式，通过颜色、粗细、长度、等参数调整眼线效果，利用橡皮擦或画笔工具微调细节，确认后点击保存照片。",
+            "1. 打开天生会画软件，导入图片后选择液化工具，调整面部至对称。<br />2. 新建图层，选铅笔笔刷，用吸管取眼线颜色，沿线条柔和描绘。<br />3. 再新建图层，吸眼周妆容色，按妆容形状重复描边加重色彩，锁定图层透明度后微调颜色。<br />4. 新建图层吸嘴唇周围颜色，用铅笔轻涂唇峰尖锐处使其柔和。<br />5. 缩小图片查看整体效果，确认后保存图片。",
             voice2
         );
       }
@@ -105,15 +105,15 @@ const beforeUpload = (rawFile) => {
     ElMessage.error('只能上传 JPG 或 PNG 格式的图片!');
     return false;
   }
-  if (!isLt5M) {
-    ElMessage.error('图片大小不能超过 5MB!');
-    return false;
-  }
+  // if (!isLt5M) {
+  //   ElMessage.error('图片大小不能超过 5MB!');
+  //   return false;
+  // }
   return true;
 };
 
 // 模拟分析过程
-const startAnalysis = (description="好的请稍等，根据图片分析，您的线条存在抖动和弧度不均匀的问题。建议您加强握笔练习的方法，可以尝试分段描画。推荐您使用醒图、PS、画世界等软件。", voice) => {
+const startAnalysis = (description, voice) => {
   isAnalyzing.value = true;
   showAnalysisResult.value = false; // 清空旧结果
   analysisResult.value = '';
