@@ -13,10 +13,10 @@ const videoGroups = ref(beautyVideos); // Use the grouped videos directly
 // Function to format group names for display
 const formatGroupName = (name) => {
   const groupNames = {
-    group1: '第一组 | 基础教学',
-    group2: '第二组 | 创意造型',
-    group3: '第三组 | 幕后花絮',
-    group4: '第四组 | 产品评测',
+    group1: '第一组 | 任务分析',
+    group2: '第二组 | 方案设计',
+    group3: '第三组 | 定妆实施',
+    group4: '第四组 | 营销推广',
     // Add more groups if you expand them in mediaData.js
   };
   return groupNames[name] || name; // Returns formatted name, or original if not mapped
@@ -67,7 +67,7 @@ const closeVideoDialog = () => {
       <div class="imgur-grid">
         <div v-for="item in group" :key="item.id" class="grid-item" @click="openVideoDialog(item)">
           <div class="grid-item-content">
-            <div class="grid-item-thumbnail-wrapper">
+            <div class="grid-item-thumbnail-wrapper" :class="{ 'group2': groupName === 'group2' }">
               <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
             </div>
             <div class="grid-item-overlay">
@@ -204,6 +204,10 @@ const closeVideoDialog = () => {
   position: relative;
   overflow: hidden;
   border-radius: 8px 8px 0 0; /* Rounded top corners for thumbnail */
+}
+
+.group2 {
+  padding-bottom: 178%;
 }
 
 .grid-item-thumbnail {

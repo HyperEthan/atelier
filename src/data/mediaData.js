@@ -35,6 +35,23 @@ import tulufan2 from '@/assets/images/tulufan/2.jpg';
 import tulufan3 from '@/assets/images/tulufan/3.jpg';
 import tulufan4 from '@/assets/images/tulufan/4.jpg';
 import tulufan5 from '@/assets/images/tulufan/5.jpg';
+// 元素提取图片资源
+import yuansu1 from '@/assets/images/yuansu/1.jpg';
+import yuansu2 from '@/assets/images/yuansu/2.jpg';
+import yuansu3 from '@/assets/images/yuansu/3.jpg';
+import yuansu4 from '@/assets/images/yuansu/4.jpg';
+import yuansu5 from '@/assets/images/yuansu/5.jpg';
+import yuansu6 from '@/assets/images/yuansu/6.jpg';
+import yuansu7 from '@/assets/images/yuansu/7.jpg';
+import yuansu8 from '@/assets/images/yuansu/8.jpg';
+import yuansu9 from '@/assets/images/yuansu/9.jpg';
+//优秀作品图片资源
+import youxiu1 from '@/assets/images/youxiu/1.jpg';
+import youxiu2 from '@/assets/images/youxiu/2.jpg';
+import youxiu3 from '@/assets/images/youxiu/3.jpg';
+import youxiu4 from '@/assets/images/youxiu/4.jpg';
+import youxiu5 from '@/assets/images/youxiu/5.jpg';
+import youxiu6 from '@/assets/images/youxiu/6.jpg';
 
 // hami, kashi, akesu, tulufan 的视频资源
 import hamiVideo from '@/assets/videos/hami.mp4';
@@ -50,6 +67,13 @@ import akesu_bg from '@/assets/videos/akesu.png';
 import tulufan_bg from '@/assets/videos/tulufan.png';
 import huaxizi_bg from '@/assets/videos/huaxizi.png';
 import shanshi_bg from '@/assets/videos/shanshi.png';
+
+import group2_bg1 from '@/assets/videos/group2/1.png';
+import group2_bg2 from '@/assets/videos/group2/2.png';
+import group2_bg3 from '@/assets/videos/group2/3.png';
+import group2_bg4 from '@/assets/videos/group2/4.png';
+import group2_bg5 from '@/assets/videos/group2/5.png';
+import group2_bg6 from '@/assets/videos/group2/6.png';
 
 // VR 资源
 import vr1 from '@/assets/videos/vr1.mp4';
@@ -269,6 +293,70 @@ export const beautyImages = {
       image: tulufan5,
     },
   ],
+  yuansu: [
+    {
+      id: 'yuansu_img1',
+      image: yuansu1,
+    },
+    {
+      id: 'yuansu_img2',
+      image: yuansu2,
+    },
+    {
+      id: 'yuansu_img3',
+      image: yuansu3,
+    },
+    {
+      id: 'yuansu_img4',
+      image: yuansu4,
+    },
+    {
+      id: 'yuansu_img5',
+      image: yuansu5,
+    },
+    {
+      id: 'yuansu_img6',
+      image: yuansu6,
+    },
+    {
+      id: 'yuansu_img7',
+      image: yuansu7,
+    },
+    {
+      id: 'yuansu_img8',
+      image: yuansu8,
+    },
+    {
+      id: 'yuansu_img9',
+      image: yuansu9,
+    },
+  ],
+  youxiu: [
+    {
+      id: 'youxiu_img1',
+      image: youxiu1,
+    },
+    {
+      id: 'youxiu_img2',
+      image: youxiu2,
+    },
+    {
+      id: 'youxiu_img3',
+      image: youxiu3,
+    },
+    {
+      id: 'youxiu_img4',
+      image: youxiu4,
+    },
+    {
+      id: 'youxiu_img5',
+      image: youxiu5,
+    },
+    {
+      id: 'youxiu_img6',
+      image: youxiu6,
+    },
+  ]
 };
 
 export const beautyVideos = {
@@ -298,7 +386,44 @@ export const beautyVideos = {
       videoUrl: tulufanVideo, // 使用导入的视频资源
     },
   ],
-  // group2: [],
+  group2: [
+    {
+      id: 'group2_bg1',
+      title: '彩铅眼睛',
+      thumbnail: group2_bg1,
+      videoUrl: '',
+    },
+    {
+      id: 'group2_bg2',
+      title: '彩铅口红',
+      thumbnail: group2_bg2,
+      videoUrl: '',
+    },
+    {
+      id: 'group2_bg3',
+      title: '发型教程',
+      thumbnail: group2_bg3,
+      videoUrl: '',
+    },
+    {
+      id: 'group2_bg4',
+      title: '烟熏妆',
+      thumbnail: group2_bg4,
+      videoUrl: '',
+    },
+    {
+      id: 'group2_bg5',
+      title: '线条眉',
+      thumbnail: group2_bg5,
+      videoUrl: '',
+    },
+    {
+      id: 'group2_bg6',
+      title: '手绘发型',
+      thumbnail: group2_bg6,
+      videoUrl: '',
+    },
+  ],
   // group3: [],
   group4: [
     {

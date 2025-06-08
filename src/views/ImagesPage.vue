@@ -8,6 +8,8 @@ import { beautyImages } from '@/data/mediaData';
 
 
 const collapseValue = ref(['1']); // Default open collapse item
+const collapseValue2 = ref(['1']); // Default open collapse item
+
 
 const images = ref(beautyImages);
 
@@ -74,6 +76,33 @@ const closeImageDialog = () => {
         <el-collapse-item title="喀什" name="4">
           <div class="imgur-grid">
             <div v-for="item in images.kashi" :key="item.id" class="grid-item" @click="openImageDialog(item)">
+              <div class="grid-item-content">
+                <img :src="item.image" class="grid-item-thumbnail" />
+                <div class="grid-item-overlay">
+                  <el-button type="primary" size="small" :icon="IconPicture" circle />
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-collapse-item>
+      </el-collapse>
+      <div class="title" style="margin-top: 60px;">第二模块：方案设计</div>
+      <el-collapse v-model="collapseValue2">
+        <el-collapse-item title="元素提取栏" name="1">
+          <div class="imgur-grid">
+            <div v-for="item in images.yuansu" :key="item.id" class="grid-item" @click="openImageDialog(item)">
+              <div class="grid-item-content">
+                <img :src="item.image" class="grid-item-thumbnail" />
+                <div class="grid-item-overlay">
+                  <el-button type="primary" size="small" :icon="IconPicture" circle />
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-collapse-item>
+        <el-collapse-item title="优秀作品栏" name="2">
+          <div class="imgur-grid">
+            <div v-for="item in images.youxiu" :key="item.id" class="grid-item" @click="openImageDialog(item)">
               <div class="grid-item-content">
                 <img :src="item.image" class="grid-item-thumbnail" />
                 <div class="grid-item-overlay">
