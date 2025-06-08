@@ -21,6 +21,7 @@ import RealityExperience from '../views/RealityExperience.vue' // 现实体验�
 import TeacherStudentMessages from '../views/TeacherStudentMessages.vue' // 师生留言板页面
 import MakeupAssessment from '../views/MakeupAssessment.vue' // 化妆评估页面
 import OrderManagement from '../views/OrderManagement.vue' // 订单管理页面
+import ExoticCollection from '@/views/ExoticCollection.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -70,6 +71,11 @@ const router = createRouter({
       path: '/collections', // <-- Add this route
       name: 'collections',
       component: CollectionsPage,
+    },
+    {
+      path: '/exotic', // <-- Add this route
+      name: 'exotic',
+      component: ExoticCollection,
     },
     {
       path: '/learning_analytics', // <-- Add this route

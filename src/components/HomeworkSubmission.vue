@@ -55,6 +55,7 @@ import work2_3 from '@/assets/images/homework/2/work2_3.jpg';
 import work2_4 from '@/assets/images/homework/2/work2_4.jpg';
 import work2_5 from '@/assets/images/homework/2/work2_5.jpg';
 import work2_6 from '@/assets/images/homework/2/work2_6.jpg';
+import work3_1 from '@/assets/images/homework/2/work3_1.jpg';
 
 //
 
@@ -360,6 +361,13 @@ watch(imageDetailDialogVisible, (newValue) => {
                   <el-card shadow="hover" class="image-item-card">
                     <el-image :src="image.url" fit="cover" class="list-image" :preview-src-list="[image.url]" :initial-index="0"></el-image>
                   </el-card>
+                </el-col>
+              </el-row>
+            </el-tab-pane>
+            <el-tab-pane label="作业三">
+              <el-row :gutter="40" class="work2">
+                <el-col :span="24" class="image-item-col">
+                  <el-image :src="work3_1" fit="cover" class="list-image" :preview-src-list="[work3_1]" :initial-index="0"></el-image>
                 </el-col>
               </el-row>
             </el-tab-pane>

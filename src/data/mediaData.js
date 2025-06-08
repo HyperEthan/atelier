@@ -53,6 +53,21 @@ import youxiu4 from '@/assets/images/youxiu/4.jpg';
 import youxiu5 from '@/assets/images/youxiu/5.jpg';
 import youxiu6 from '@/assets/images/youxiu/6.jpg';
 
+// 优秀案例图片资源
+import youxiuanli1 from '@/assets/images/youxiuanli/1.jpg';
+import youxiuanli2 from '@/assets/images/youxiuanli/2.jpg';
+import youxiuanli3 from '@/assets/images/youxiuanli/3.jpg';
+import youxiuanli4 from '@/assets/images/youxiuanli/4.jpg';
+import youxiuanli5 from '@/assets/images/youxiuanli/5.jpg';
+import youxiuanli6 from '@/assets/images/youxiuanli/6.jpg';
+import youxiuanli7 from '@/assets/images/youxiuanli/7.jpg';
+
+// 虚拟客户图片资源
+import virtual1 from '@/assets/images/virtual/1.jpg';
+import virtual2 from '@/assets/images/virtual/2.jpg';
+import virtual3 from '@/assets/images/virtual/3.jpg';
+import virtual4 from '@/assets/images/virtual/4.jpg';
+
 // hami, kashi, akesu, tulufan 的视频资源
 import hamiVideo from '@/assets/videos/hami.mp4';
 import kashiVideo from '@/assets/videos/kashi.mp4';
@@ -356,7 +371,56 @@ export const beautyImages = {
       id: 'youxiu_img6',
       image: youxiu6,
     },
-  ]
+  ],
+  youxiuanli: [
+    {
+      id: 'youxiuanli_img1',
+      image: youxiuanli1,
+    },
+    {
+      id: 'youxiuanli_img2',
+      image: youxiuanli2,
+    },
+    {
+      id: 'youxiuanli_img3',
+      image: youxiuanli3,
+    },
+    {
+      id: 'youxiuanli_img4',
+      image: youxiuanli4,
+    },
+    {
+      id: 'youxiuanli_img5',
+      image: youxiuanli5,
+    },
+    {
+      id: 'youxiuanli_img6',
+      image: youxiuanli6,
+    },
+    {
+      id: 'youxiuanli_img7',
+      image: youxiuanli7,
+    },
+  ],
+  linggan: [],
+  virtual: [
+    {
+      id: 'virtual_img1',
+      image: virtual1,
+    },
+    {
+      id: 'virtual_img2',
+      image: virtual2,
+    },
+    {
+      id: 'virtual_img3',
+      image: virtual3,
+    },
+    {
+      id: 'virtual_img4',
+      image: virtual4,
+    },
+  ],
 };
 
 export const beautyVideos = {

@@ -15,6 +15,9 @@ const menuItems = reactive([
     path: '/vr_scene',
     isOpen: false,
     children: [
+      { name: '中国传统文化系列', path: '/traditional' },
+      { name: '异域风情系列', path: '/exotic' },
+      { name: '环境保护系列', path: '/environmental' },
       { name: 'VR场景', path: '/vr_scene' },
       { name: '微课', path: '/microlecture' },
       { name: '图片资源', path: '/images' },

@@ -9,6 +9,10 @@ import duanshipin from '@/assets/videos/weike/duanshipin.mp4';
 import vrluyan from '@/assets/videos/weike/vrluyan.mp4';
 import gongfang from '@/assets/images/weike/gongfang.jpg';
 
+import weike_bg1 from '@/assets/videos/weike/1.jpg';
+import weike_bg2 from '@/assets/videos/weike/2.jpg';
+import weike_bg3 from '@/assets/videos/weike/3.jpg';
+
 // 模拟数据：四大营销工具及其媒体内容
 const marketingTools = ref([
   {
@@ -44,6 +48,29 @@ const marketingTools = ref([
     description: '利用VR技术进行沉浸式产品或项目路演，带来全新体验，有效吸引投资者和合作伙伴。',
   }
 ]);
+
+const group = ref(
+  [
+    {
+      id: 'weike4_1',
+      title: '走进非遗剪纸',
+      thumbnail: weike_bg1, // 使用第一张图片作为缩略图
+      videoUrl: null, // 使用导入的视频资源
+    },
+    {
+      id: 'weike4_2',
+      title: '立体镂空灯的制作',
+      thumbnail: weike_bg2, // 使用第一张图片作为缩略图
+      videoUrl: null, // 使用导入的视频资源
+    },
+    {
+      id: 'weike4_3',
+      title: '镂空类图案制作的一般工艺',
+      thumbnail: weike_bg3, // 使用第一张图片作为缩略图
+      videoUrl: null, // 使用导入的视频资源
+    }
+  ]
+)
 
 // 弹窗状态管理
 const dialogVisible = ref(false);
@@ -86,23 +113,40 @@ const handleDialogClosed = () => {
     <h1 class="page-title">E课堂 · 微课中心</h1>
     <p class="page-description">在这里，我们为您准备了四大创新营销工具，助您轻松打造优质微课内容！</p>
 
-    <el-row :gutter="20" class="tool-cards-row">
-      <el-col
-        v-for="tool in marketingTools"
-        :key="tool.id"
-        :xs="24" :sm="12" :md="12" :lg="6"
-      >
-        <el-card class="tool-card" shadow="hover" @click="openMediaDialog(tool)">
-          <div class="card-content">
-            <el-icon :size="50" class="tool-icon"><component :is="tool.icon" /></el-icon>
-            <h3 class="tool-name">{{ tool.name }}</h3>
-            <p class="tool-description">{{ tool.description }}</p>
-            <el-button class="view-btn" type="primary" size="small" round>查看详情</el-button>
+    <div class="video-group">
+      <div class="video-group">
+      <div class="title">第三模块：定妆实施</div>
+      <div class="imgur-grid">
+        <div v-for="item in group" :key="item.id" class="grid-item">
+          <div class="grid-item-content">
+            <div class="grid-item-thumbnail-wrapper-3">
+              <img :src="item.thumbnail" :alt="item.title" class="grid-item-thumbnail" />
+            </div>
+            <div class="grid-item-overlay">
+              <h3 class="grid-item-title">{{ item.title }}</h3>
+              </div>
           </div>
-        </el-card>
-      </el-col>
-    </el-row>
-
+        </div>
+      </div>
+    </div>
+      <div class="title">第四模块：营销推广</div>
+      <div class="imgur-grid">
+        <div v-for="item in marketingTools" :key="item.id" class="grid-item">
+          <div class="grid-item-content">
+            <div class="grid-item-thumbnail-wrapper">
+              <el-card class="tool-card" shadow="hover" @click="openMediaDialog(item)">
+                <div class="card-content">
+                  <el-icon :size="50" class="tool-icon"><component :is="item.icon" /></el-icon>
+                  <h3 class="tool-name">{{ item.name }}</h3>
+                  <p class="tool-description">{{ item.description }}</p>
+                  <el-button class="view-btn" type="primary" size="small" round>查看详情</el-button>
+                </div>
+              </el-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <el-dialog
       v-model="dialogVisible"
       :title="dialogTitle"
@@ -168,7 +212,9 @@ const handleDialogClosed = () => {
 /* 工具卡片区域 */
 .tool-cards-row {
   justify-content: center; /* 使卡片在行中居中 */
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
+  background-color: #bb3d63;
+
 }
 
 .el-col {
@@ -189,7 +235,7 @@ const handleDialogClosed = () => {
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   border: none;
-  background: linear-gradient(to bottom, #972e4d, #b73c62);
+  background: linear-gradient(to bottom, #962b4a, #a41b46);
 }
 
 .tool-card:hover {
@@ -209,6 +255,132 @@ const handleDialogClosed = () => {
   color: #fff; /* Element Plus primary color */
   margin-bottom: 20px;
   animation: bounceIn 0.8s ease-out; /* 添加动画 */
+}
+
+/* --- Video Group Styling --- */
+.video-group {
+  margin-bottom: 20px; /* More space between groups */
+  border-radius: 12px; /* Rounded corners for group sections */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Subtle box shadow for depth */
+}
+
+.video-group:last-child {
+  margin-bottom: 0; /* No bottom margin for the last group */
+}
+
+.video-group .title {
+  font-size: 1.2rem; /* Larger group titles */
+  font-weight: 500; /* Slightly lighter but still strong */
+  color: #fff;
+  text-align: left; /* Align group titles to the left */
+  padding-bottom: var(--spacing-sm);
+  padding-left: 52px; /* Indent slightly */
+  padding-top: 20px;
+  padding-right: 52px; /* Add some right margin for balance */
+  background-color: #9d3050;
+  border-radius: 12px 12px 0 0;
+}
+
+/* --- Imgur-like Grid Style --- */
+.imgur-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Slightly wider minimum width for items */
+  gap: 20px; /* Increased gap between grid items */
+  padding: 20px; /* Padding inside the grid container */
+  background-color: #bb3d63;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 12px; /* Rounded corners for individual grid items */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle box shadow on items */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  height: auto;
+  display: block;
+}
+
+.grid-item:hover {
+  transform: translateY(-5px); /* Slightly more pronounced hover effect */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Enhanced hover shadow */
+}
+
+.grid-item-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-item-thumbnail-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  /* border-radius: 12px; Rounded top corners for thumbnail */
+}
+.grid-item-thumbnail-wrapper-3 {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  padding-bottom: 56.25%;
+  /* border-radius: 12px; Rounded top corners for thumbnail */
+}
+
+.group2 {
+  padding-bottom: 178%;
+}
+
+.grid-item-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area */
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .grid-item-thumbnail {
+  opacity: 0.8; /* Slightly less dimming on hover, keeps some vibrancy */
+}
+
+.grid-item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Slightly lighter overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align title and other content to the bottom */
+  align-items: flex-start; /* Align title and other content to the left */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+  color: white;
+  padding: var(--spacing-md); /* More padding for overlay text */
+  box-sizing: border-box;
+}
+
+.grid-item:hover .grid-item-overlay {
+  opacity: 1; /* Overlay appears on hover */
+}
+
+.grid-item-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem; /* Slightly larger title in overlay */
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* Stronger text shadow for readability */
+  color: white;
+  font-weight: 500; /* Slightly lighter font weight for a modern look */
+  text-align: left;
 }
 
 /* Icon bounce animation */
